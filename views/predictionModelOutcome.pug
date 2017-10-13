@@ -1,0 +1,65 @@
+extends layout
+
+block content
+	.results_frame
+		h2.text-center Predicted Risk
+
+		if highProb
+			.text-center.alert.alert-danger
+				font(size='+4') #{(prob*100).toFixed(0)}% 
+				p.calibri 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dieing is higher than average (26.5%).
+		else
+			.text-center.alert.alert-success
+				font(size='+4') #{(prob*100).toFixed(0)}% 
+				p 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dieing is below the average (26.5%).
+
+		.thermometer
+			script.
+				$( function(){
+				$( "#progressbar" ).progressbar({
+				value: 50
+				});
+				} );
+		
+
+		p.text-center
+			i
+				strong You will need to balance this risk of mortality with the risk of reamputation and functional mobility when making the decision about the most appropriate level of amptutation.
+
+
+		table(border='1' align='center').calibri
+			tr
+				th Amputation Level
+				th Demographics
+				th Function
+				th Comorbidities
+				th Lab Values
+			tr
+				td #{amp_lvl_string}
+				td 
+					| Age: #{age_string}
+					br
+					| BMI: #{bmi_string}
+					br
+					| Race: #{race_string}
+				td #{function_string}
+				td 
+					| #{heart_failure_string}
+					br
+					| #{dialysis_string}
+
+				td 
+					| BUN: #{bun_string}
+					br
+					| WBC: #{blood_string}
+					br
+					| Platelets: #{platelet_string}
+		br
+
+		//- p Lower Logit Prob: #{lower_logit_prob}
+		//- p Logit prob: #{logit_prob}
+		//- p Upper Logit Prob: #{upper_logit_prob}
+		//- br
+		//- strong Probability and CI
+		//- p Probability: #{prob}
+		//- p Confidence Intervel: #{lower_ci}, #{upper_ci}

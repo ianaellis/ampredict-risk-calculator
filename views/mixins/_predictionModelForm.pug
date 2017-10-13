@@ -1,0 +1,64 @@
+mixin predictionModelForm(store = {})
+	p.disclaimer.calibri 
+		font(color='red') This risk-adjusted mortality estimate is recommended to be used for guidance in the overall conversation with the patient when choosing the most appropriate amputation level but not a recommendation for or against a specific amputation level.
+
+	form(action="/predictionModel" method="POST" class="card")
+		p.calibri All parameters are required to derive an adjusted 1-year mortality risk.
+		ol
+			li
+				label(for="amputation_level") Amputation Level  
+					select(name="amputation_level", id=amputation_level, size='1')
+						option(value='')
+						option(value='1') TM
+						option(value='2') TT
+						option(value='3') TF
+			li
+				label(for="age") How old is the patient (years)?    
+					input(type='number', name='age', style='width: 100px;', placeholder="18-75")
+
+			li
+				label(for="bmi") What is the patient's BMI (kg/m^2)?    
+					input(type='number', name='bmi', style='width: 100px;', placeholder="ex. 24.1")
+
+			li
+				label(for="race") What is the patient's race?   
+					select(name="race", size='1')
+						option(value='')
+						option(value='1') White
+						option(value='2') Black
+						option(value='3') Hispanic
+						option(value='4') Other
+			li
+				label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
+					select(name="functional_status", size='1')
+						option(value='')
+						option(value='1') Independent
+						option(value='2') Partially Dependent
+						option(value='3') Totally Dependent
+
+			li
+				label(for="heart_failure") Has the patient ever been diagnosed with congestive heart failure?   
+					select(name="heart_failure", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="dialysis") Is the patient currently on dialysis (within the last 2 weeks prior to amputation)?   
+					select(name="dialysis", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="blood_nitrogen") What is the patient's most recent blood nitrogen urea (mg/dl)?   
+					input(type='number', name='blood_nitrogen', style='width: 100px;')
+			li 
+				label(for="white_cell_count") What is the patient's most recent white blood cell count?   
+					select(name="white_cell_count", size='1')
+						option(value='')
+						option(value='1') Less than 11,000 mcl
+						option(value='2') Greater than 11,000
+			li
+				label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
+					input(type='float', name='platelet_count', style='width: 100px;')
+
+		input(type="submit" value="Predicted Risk" class="button")

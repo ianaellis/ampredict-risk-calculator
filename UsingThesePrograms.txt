@@ -1,0 +1,61 @@
+Programs so far:
+
+Terminal: Hyper
+Database hosed at: mLab.com 
+	Database viewer: mongoDB Atlas
+
+Learning Express: Express Docs (Sending and getting info from browser)
+
+Notes:
+
+Language notes:
+	Using PUG for markup
+Server Notes:
+	npm start // Starts the local server
+
+
+Pug (Jade) Notes:
+	tags work without brackets and dont need to be closed
+	To put variables into attributes: backtick `Attribute ${variable}`
+	You can define a constant in the view with - But it still should be done in the routing file (I think)
+		- const upDog = dog.toUpperCase();
+		Looks to be the case that with the MVC, you would declare the constant in the controller like usual
+	Cool Thing!
+		Blocks are used in javascript (pug) to pass in templates from the view. So, once your
+		stylesheet for the website is created, you may have a content area for several views.
+		That content is placed in the view by calling on the block from the stylesheet. So if
+		the block in the stylesheet is called 'block content', from the view you invoke that
+		block by calling it by the same name, and then just indent and place your content.
+			block content
+				p hello!
+		Another way of thinking about a block is that is it like a quantum particle, end-to-end. They affect each other.
+	moment is just a library of time related items
+	Middleware.
+		Middleware can be seen as a function call, except that the object being passed is changed (or not) by the MIddleware, and then passed on. It appears that the actual object changes. For use within routes, a route call will invoke the middleware before the final destination, using the 'next' parameter. 
+			router.get('/', storeController.MyMiddleware, storeController.homePage)
+		At this point, I am not sure if I like the way this is contructed. But I do like the purpose. It seems backwards from a normal function call, but maybe the value is that i can pass the object around, and change middleware on the fly - thus creating a dynamic object.
+
+MCV Notes:
+	Controller - Traffic Cop looking for data -"Hey model, give me data!" And then sends it to the View
+	Party analagy
+		Model: Has alcohol and snacks!
+		View: Has a place to party!
+		Controller: The friend that puts the party together
+
+Error Handling:
+	Throw Error:
+		if(req.name === 'Ian') {
+			throw Error('TOO DOPE!');
+		}
+
+Adding A New Route (New Webpage):
+	Add route line to index.js
+		router.get('/add', storeController.addStore);
+	Add new Controller item to correct controller (in this case, storeController)
+		exports.addStore = (req, res) => {
+			res.render('editStore', { title: 'Add Store'});
+		};
+	Add new View (editStore.pug)
+
+Creating a form
+	Refer to storeForm.pug for a great example. Pretty typical.
