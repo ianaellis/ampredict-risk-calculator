@@ -7,11 +7,11 @@ block content
 		if highProb
 			.text-center.alert.alert-danger
 				font(size='+4') #{(prob*100).toFixed(0)}% 
-				p.calibri 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dieing is higher than average (26.5%).
+				p.calibri 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dying is higher than average (26.5%).
 		else
 			.text-center.alert.alert-success
 				font(size='+4') #{(prob*100).toFixed(0)}% 
-				p 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dieing is below the average (26.5%).
+				p 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dying is below the average (26.5%).
 
 		.thermometer
 			script.
@@ -43,11 +43,13 @@ block content
 					br
 					| Race: #{race_string}
 				td #{function_string}
-				td 
-					| #{heart_failure_string}
-					br
-					| #{dialysis_string}
-
+				if comorbid
+					td 
+						| #{heart_failure_string}
+						br
+						| #{dialysis_string}
+				else
+					td None
 				td 
 					| BUN: #{bun_string}
 					br

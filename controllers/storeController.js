@@ -141,7 +141,7 @@ exports.createStore = async (req, res) => {
 		upper_heart_failure_calc = .6694;
 		heart_failure_string = "CHF";
 	} else if(req.body.heart_failure == 0) {
-		heart_failure_string = "---";
+		heart_failure_string = "";
 	}
 
 	//Question 7
@@ -174,16 +174,21 @@ exports.createStore = async (req, res) => {
     var prob = (Math.pow(2.71828, logit_prob))/(1+(Math.pow(2.71828, logit_prob)));
     var lower_ci = (Math.pow(2.71828, lower_logit_prob))/(1+(Math.pow(2.71828, lower_logit_prob)));
     var upper_ci = (Math.pow(2.71828, upper_logit_prob))/(1+(Math.pow(2.71828, upper_logit_prob)));
-    var highProb = false;
 
+    var highProb = false;
     if(prob > .265){
     	highProb = true;
+    }
+
+    var comorbid = true;
+    if(heart_failure_string == "" & dialysis_string == ""){
+    	comorbid = false;
     }
 
     // res.json(upper_ci);
 
 	 
-    res.render('predictionModelOutcome', {highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string: highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string});
+    res.render('predictionModelOutcome', {comorbid, highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string: comorbid, highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string});
 
 
 
