@@ -14,7 +14,7 @@ mixin predictionModelForm(store = {})
 						option(value='3') TF
 			li
 				label(for="age") How old is the patient (years)?    
-					input(type='number', name='age', style='width: 100px;', placeholder="18-75")
+					input(type='number', name='age', style='width: 100px;', placeholder="40-99")
 
 			li
 				label(for="bmi") What is the patient's BMI (kg/m^2)?    
@@ -35,6 +35,15 @@ mixin predictionModelForm(store = {})
 						option(value='1') Independent
 						option(value='2') Partially Dependent
 						option(value='3') Totally Dependent
+					ul
+						font(size='-2.5') <b>Independent</b>: The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
+					ul
+						font(size='-2.5') <b>Partially dependent</b>: The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
+					ul
+						font(size='-2.5') <b>Totally dependent</b>: The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
+
+
+
 
 			li
 				label(for="heart_failure") Has the patient ever been diagnosed with congestive heart failure?   
