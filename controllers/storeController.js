@@ -37,7 +37,7 @@ exports.createStore = async (req, res) => {
 	// Variables Coeffs
 
 	var amp_lvl_calc = 0; 							//Question 1
-	var age_calc = (req.body.age - 60)*0.04708; 	//Question 2
+	var age_calc = (req.body.age - 65)*0.04708; 	//Question 2
 	var bmi_calc = (req.body.bmi - 25)*-0.05016; 	//Question 3
 	var race_calc = 0; 								//Question 4
 	var func_status_calc = 0; 						//Question 5
@@ -65,7 +65,7 @@ exports.createStore = async (req, res) => {
 	//Variables Upper
 
 	var upper_amp_lvl_calc = 0; 							//Question 1
-	var upper_age_calc = (req.body.age - 60)*0.05302; 		//Question 2
+	var upper_age_calc = (req.body.age - 65)*0.05302; 		//Question 2
 	var upper_bmi_calc = (req.body.bmi - 25)*-0.0393; 		//Question 3
 	var upper_race_calc = 0; 								//Question 4
 	var upper_func_status_calc = 0; 						//Question 5
