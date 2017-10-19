@@ -25,7 +25,10 @@ block content
 			.track
 				.goal
 					#goalAmount.amount 100%
-				if highProb
+				if (prob <= .750 )
+					.progress(style='background: orange none repeat scroll 0 0;')
+						#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
+				else if (prob > .750)
 					.progress(style='background: red none repeat scroll 0 0;')
 						#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
 				else
