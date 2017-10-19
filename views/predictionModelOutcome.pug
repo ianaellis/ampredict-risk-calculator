@@ -13,14 +13,24 @@ block content
 				font(size='+4') #{(prob*100).toFixed(0)}% 
 				p 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dying is below the average (26.5%).
 
-		.thermometer
-			script.
-				$( function(){
-				$( "#progressbar" ).progressbar({
-				value: 50
-				});
-				} );
-		
+		//- .thermometer
+
+			//- script.
+			//- 	$( function(){
+			//- 	$( "#progressbar" ).progressbar({
+			//- 	value: 50
+			//- 	});
+			//- 	} );
+		#thermometer
+			.track
+				.goal
+					#goalAmount.amount 100%
+				if highProb
+					.progress(style='background: red none repeat scroll 0 0;')
+						#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
+				else
+					.progress
+						#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
 
 		p.text-center
 			i
