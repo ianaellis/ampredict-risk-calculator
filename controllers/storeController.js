@@ -45,7 +45,7 @@ exports.createStore = async (req, res) => {
 	var dialysis_calc = 0;							//Question 7
 	var blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0158; // Question 8
 	var wbc_calc = 0								//Question 9
-	var platelet_calc = req.body.platelet_count*1.7239 //Question 10
+	var platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.7239; //Question 10
 	const constant_var = -2.1923 					//Constant formula variable
 	
 	// Variables Lower
@@ -59,7 +59,7 @@ exports.createStore = async (req, res) => {
 	var lower_dialysis_calc = 0;							//Question 7
 	var lower_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0123; // Question 8
 	var lower_wbc_calc = 0									//Question 9
-	var lower_platelet_calc = req.body.platelet_count*1.291 //Question 10
+	var lower_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.291; //Question 10
 	const lower_constant_var = -2.37						//Constant formula variable
 
 	//Variables Upper
@@ -73,7 +73,7 @@ exports.createStore = async (req, res) => {
 	var upper_dialysis_calc = 0;							//Question 7
 	var upper_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.01929; // Question 8
 	var upper_wbc_calc = 0									//Question 9
-	var upper_platelet_calc = req.body.platelet_count*2.157 //Question 10
+	var upper_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*2.157; //Question 10
 	const upper_constant_var = -2.014
 
 	// Question Logic
@@ -188,7 +188,7 @@ exports.createStore = async (req, res) => {
     // res.json(upper_ci);
 
 	 
-    res.render('predictionModelOutcome', {comorbid, highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string: comorbid, highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string});
+    res.render('predictionModelOutcome', {platelet_calc, comorbid, highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string: platelet_calc, comorbid, highProb, logit_prob, lower_logit_prob, upper_logit_prob, prob, lower_ci, upper_ci, amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, platelet_string});
 
 
 
