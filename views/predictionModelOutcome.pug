@@ -1,81 +1,291 @@
 extends layout
 
 block content
-	.results_frame
-		h2.text-center Predicted Risk
+	.results_all
+		.results_frame
+			h2.text-center Mortality
 
-		if highProb
-			.text-center.alert.alert-danger
-				font(size='+4') #{(prob*100).toFixed(0)}% 
-				p.calibri 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dying is higher than average (26.5%).
-		else
-			.text-center.alert.alert-success
-				font(size='+4') #{(prob*100).toFixed(0)}% 
-				p 1-Year risk of dying after this amputation. Based on this prediction model, this patient's risk of dying is below the average (26.5%).
-
-		//- .thermometer
-
-			//- script.
-			//- 	$( function(){
-			//- 	$( "#progressbar" ).progressbar({
-			//- 	value: 50
-			//- 	});
-			//- 	} );
-		#thermometer
-			.track
-				.goal
-					#goalAmount.amount 100%
-				if (prob <= .750 & prob > .265 )
-					.progress(style='background: orange none repeat scroll 0 0;')
-						#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
-				else if (prob > .750)
-					.progress(style='background: red none repeat scroll 0 0;')
-						#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
-				else
-					.progress
-						#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
-
-		p.text-center
-			i
-				strong You will need to balance this risk of mortality with the risk of reamputation and functional mobility when making the decision about the most appropriate level of amptutation.
-				p #{platelet_calc}
+			if(highProb)
+				.text-center.alert.alert-danger
+					font(size='+4') #{(prob*100).toFixed(0)}% 
+					p 
+						font(size='+1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death is higher than average (26.5%).
+			else
+				.text-center.alert.alert-success
+					font(size='+4') #{(prob*100).toFixed(0)}% 
+					p
+						font(size='+1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death is below the average (26.5%).
 
 
-		table(border='1' align='center').calibri
-			tr
-				th Amputation Level
-				th Demographics
-				th Function
-				th Comorbidities
-				th Lab Values
-			tr
-				td #{amp_lvl_string}
-				td 
-					| Age: #{age_string}
-					br
-					| BMI: #{bmi_string}
-					br
-					| Race: #{race_string}
-				td #{function_string}
-				if comorbid
-					td 
-						| #{heart_failure_string}
-						br
-						| #{dialysis_string}
-				else
-					td None
-				td 
-					| BUN: #{bun_string}
-					br
-					| WBC: #{blood_string}
-					br
-					| Platelets: #{platelet_string}
-		br
+			#mortality
+				.track
+					.average 
+						.amount 26.5% Average Risk
+					.goal
+						.amount 100%
+					if (prob <= .750 & prob > .265)
+						.progress(style='background: orange none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+					else if (prob > .750)
+						.progress(style='background: red none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+					else 
+						.progress
+							#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+			br
+			p.text-center
+				i
+					strong 
+						font(size='+1') You will need to balance this risk of mortality with the risk of failure of healing and need for reamputation when making the decision about the most appropriate level of amptutation.
+					//- p #{platelet_calc}
+					//- p hi #{predModel_TM}
 
-		//- p Lower Logit Prob: #{lower_logit_prob}
-		//- p Logit prob: #{logit_prob}
-		//- p Upper Logit Prob: #{upper_logit_prob}
-		//- br
-		//- strong Probability and CI
-		//- p Probability: #{prob}
-		//- p Confidence Intervel: #{lower_ci}, #{upper_ci}
+			table.table
+				thead
+					tr
+						th Amputation Level
+						th Demographics
+						th Function
+						th Comorbidities
+						th Lab Values
+				tbody
+					tr
+						td #{amp_lvl_string}
+						td 
+							| Age: #{age_string}
+							br
+							| BMI: #{bmi_string}
+							br
+							| Race: #{race_string}
+						td #{function_string}
+						if comorbid
+							td 
+								| #{heart_failure_string}
+								br
+								| #{dialysis_string}
+						else
+							td None
+						td 
+							| BUN: #{bun_string}
+							br
+							| WBC: #{blood_string}
+							br
+							| Platelets: #{platelet_string}
+				br
+			h2.text-center Reamputation
+
+			if(reamp_highProb)
+				.text-center.alert.alert-danger
+					font(size='+4') #{(reamp_prob*100).toFixed(0)}% 
+					p 
+						font(size='+1') 1-year reamputation probability  Based on this prediciton model, this patient's risk of reamputation is above average. (26.5%).
+			else
+				.text-center.alert.alert-success
+					font(size='+4') #{(reamp_prob*100).toFixed(0)}% 
+					p
+						font(size='+1') 1-year reamputation probability  Based on this prediciton model, this patient's risk of reamputation is below average. (26.5%).			
+			//- p
+				//- font(size='+1') Logit Prob: #{reamp_logit_prob} <br> Logit Lower: #{reamp_lower_logit_prob} <br> Logit Upper: #{reamp_upper_logit_prob}<br>
+				//- font(size='+1') Reamp Prob: #{reamp_prob.toFixed(4)} <br> Reamp Lower CI: #{reamp_lower_ci.toFixed(4)} <br>Reamp Upper CI: #{reamp_upper_ci.toFixed(4)}
+			#reamputation
+				.track
+					.average 
+						.amount 26.5% Average Risk
+					.goal
+						.amount 100%
+					if(reamp_prob <= .750 & reamp_prob > .265)
+						.progress(style='background: orange none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
+					else if(reamp_prob > .750)
+						.progress(style='background: red none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
+					else 
+						.progress
+							#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}% Predicted Risk
+			br
+			p.text-center
+				i
+					strong 
+						font(size='+1') This is your estimated risk of reamputation...filler text..................................................................................................................
+			br
+			table.table
+				thead
+					tr
+						th Amputation Level
+						th Demographics
+						th Function
+						th Comorbidities
+						th Lab Values
+				tbody
+					tr
+						td #{amp_lvl_string}
+						td 
+							| Age: #{age_string}
+							br
+							| BMI: #{bmi_string}
+							br
+							| Race: #{race_string}
+						td #{function_string}
+						if comorbid
+							td 
+								| #{heart_failure_string}
+								br
+								| #{dialysis_string}
+						else
+							td None
+						td 
+							| BUN: #{bun_string}
+							br
+							| WBC: #{blood_string}
+							br
+							| Platelets: #{platelet_string}
+			br
+
+		.mobility_frame
+			h2.text-center Basic Mobility
+
+			if(mob_highProb)
+				.text-center.alert.alert-danger
+					font(size='+4') #{(mob_prob*100).toFixed(0)}% 
+					p 
+						font(size='+1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death is higher than average (26.5%).
+			else
+				.text-center.alert.alert-success
+					font(size='+4') #{(mob_prob*100).toFixed(0)}% 
+					p
+						font(size='+1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death is below the average (26.5%).
+
+			#basicMobility
+				.track
+					.average 
+						.amount 26.5% Average Risk
+					.goal
+						.amount 100%
+					if (mob_prob <= .750 & mob_prob > .265)
+						.progress(style='background: orange none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Risk
+					else if (mob_prob > .750)
+						.progress(style='background: red none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Risk
+					else 
+						.progress
+							#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Risk
+
+			br
+			p.text-center
+				i
+					strong 
+						font(size='+1') Logit Prob: #{mob_logit_prob}, Logit Lower: #{mob_lower_logit_prob}, Logit Upper: #{mob_upper_logit_prob}, Reamp Prob: #{mob_prob.toFixed(4)}, Reamp Lower CI: #{mob_lower_ci.toFixed(4)}, Reamp Upper CI: #{mob_upper_ci.toFixed(4)}
+
+			br
+			table.table
+				thead
+					tr
+						th Amputation Level
+						th Demographics
+						th Function
+						th Comorbidities
+						th Lab Values
+				tbody
+					tr
+						td #{amp_lvl_string}
+						td 
+							| Age: #{age_string}
+							br
+							| BMI: #{bmi_string}
+							br
+							| Race: #{race_string}
+						td #{function_string}
+						if comorbid
+							td 
+								| #{heart_failure_string}
+								br
+								| #{dialysis_string}
+						else
+							td None
+						td 
+							| BUN: #{bun_string}
+							br
+							| WBC: #{blood_string}
+							br
+							| Platelets: #{platelet_string}
+			//- p
+			//- 	font(size='+1') Logit Prob: #{mob_logit_prob} <br> Logit Lower: #{mob_lower_logit_prob} <br> Logit Upper: #{mob_upper_logit_prob}<br>
+			//- 	font(size='+1') Reamp Prob: #{mob_prob.toFixed(4)} <br> Reamp Lower CI: #{mob_lower_ci.toFixed(4)} <br>Reamp Upper CI: #{mob_upper_ci.toFixed(4)}
+
+			h2.text-center Advanced Mobility
+
+			if(aMob_highProb)
+				.text-center.alert.alert-danger
+					font(size='+4') #{(aMob_prob*100).toFixed(0)}% 
+					p 
+						font(size='+1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death is higher than average (26.5%).
+			else
+				.text-center.alert.alert-success
+					font(size='+4') #{(aMob_prob*100).toFixed(0)}% 
+					p
+						font(size='+1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death is below the average (26.5%).
+
+			#advancedMobility
+				.track
+					.average 
+						.amount 26.5% Average Risk
+					.goal
+						.amount 100%
+					if (aMob_prob <= .750 & aMob_prob > .265)
+						.progress(style='background: orange none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(0)}% Predicted Risk
+					else if (aMob_prob > .750)
+						.progress(style='background: red none repeat scroll 0 0;')
+							#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(0)}% Predicted Risk
+					else 
+						.progress
+							#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(0)}% Predicted Risk
+
+			br
+			p.text-center
+				i
+					strong 
+						font(size='+1') Logit Prob: #{aMob_logit_prob}, Logit Lower: #{aMob_lower_logit_prob}, Logit Upper: #{aMob_upper_logit_prob}, Reamp Prob: #{aMob_prob.toFixed(4)}, Reamp Lower CI: #{aMob_lower_ci.toFixed(4)}, Reamp Upper CI: #{aMob_upper_ci.toFixed(4)}
+			
+			table.table
+				thead
+					tr
+						th Amputation Level
+						th Demographics
+						th Function
+						th Comorbidities
+						th Lab Values
+				tbody
+					tr
+						td #{amp_lvl_string}
+						td 
+							| Age: #{age_string}
+							br
+							| BMI: #{bmi_string}
+							br
+							| Race: #{race_string}
+						td #{function_string}
+						if comorbid
+							td 
+								| #{heart_failure_string}
+								br
+								| #{dialysis_string}
+						else
+							td None
+						td 
+							| BUN: #{bun_string}
+							br
+							| WBC: #{blood_string}
+							br
+							| Platelets: #{platelet_string}
+				br
+			br
+
+			//- p Lower Logit Prob: #{lower_logit_prob}
+			//- p Logit prob: #{logit_prob}
+			//- p Upper Logit Prob: #{upper_logit_prob}
+			//- br
+			//- strong Probability and CI
+			//- p Probability: #{prob}
+			//- p Confidence Intervel: #{lower_ci}, #{upper_ci}

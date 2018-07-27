@@ -699,16 +699,34 @@ label {
     margin-right: 1rem; } }
 
 .table {
-  width: 100%; }
+  font-family: sans-serif;
+  border-collapse: collapse;
+  border: 2px solid #c8c8c8;
+  letter-spacing: 1px;
+  font-size: 1.59rem; }
+  .table td, .table th {
+    border: 1px solid #bebebe;
+    padding: 10px 20px; }
+  .table th {
+    background-color: #ebebeb; }
   .table td {
-    padding: 5px; }
-  .table tr:nth-child(even) {
-    background: white; }
-  .table tr:nth-child(odd):not(:first-child) {
-    background: #f7f7f7; }
-  .table thead tr {
-    background: #303030;
-    color: white; }
+    text-align: center; }
+  .table tr:nth-child(even) td {
+    background-color: #fafafa; }
+  .table tr:nth-child(odd) td {
+    background-color: whitesmoke; }
+  .table tbody {
+    font-size: 90%;
+    font-style: italic; }
+  .table tfoot {
+    font-weight: bold; }
+
+.table_s {
+  font-family: sans-serif;
+  border-collapse: collapse;
+  border: 2px solid #c8c8c8;
+  letter-spacing: 1px;
+  font-size: 0.8rem; }
 
 .stores {
   display: -ms-flexbox;
@@ -1162,61 +1180,86 @@ pre.error {
 .calibri {
   font-family: Calibri; }
 
+.results_all {
+  width: 1625px;
+  border: 1px solid; }
+
+.mobility_frame {
+  width: 800px;
+  font-family: sans-seriff;
+  border: 1px solid; }
+
 .results_frame {
   width: 800px;
-  border: 1px solid black; }
+  font-family: sans-seriff;
+  border: 1px solid;
+  float: right; }
 
-.thermometer_m {
-  width: 400px;
-  height: 40px;
-  border: 2px solid black;
-  margin-left: 200px;
-  border-radius: 15px; }
-
-#thermometer {
+#mortality,
+#reamputation,
+#basicMobility,
+#advancedMobility {
   border-radius: 12px;
   height: 300px;
   position: relative; }
-
-#thermometer .track {
-  background: #e5e5e5 none repeat scroll 0 0;
-  border-radius: 8px;
-  height: 280px;
-  left: 10px;
-  margin: 0 auto;
-  position: relative;
-  top: 10px;
-  width: 30px; }
-
-#thermometer .progress {
-  background: green none repeat scroll 0 0;
-  border-radius: 23px 23px 0 0;
-  bottom: 0;
-  height: 0;
-  left: 5px;
-  margin-bottom: 0 !important;
-  position: absolute;
-  width: 69%;
-  z-index: 100; }
-
-#thermometer .amount {
-  border-top: 1px solid #006600;
-  color: black;
-  display: inline-block;
-  font-family: Trebuchet MS;
-  font-weight: bold;
-  padding: 0 75px 0 0; }
-
-#thermometer .progress .amount {
-  border-top: 1px solid #006600;
-  color: #006600;
-  left: 0;
-  padding: 0 0 0 75px;
-  position: absolute; }
-
-#thermometer .goal {
-  position: absolute;
-  right: 0;
-  top: 0; }
+  #mortality .track,
+  #reamputation .track,
+  #basicMobility .track,
+  #advancedMobility .track {
+    background: #e5e5e5 none repeat scroll 0 0;
+    border-radius: 8px;
+    height: 280px;
+    left: 10px;
+    margin: 0 auto;
+    position: relative;
+    top: 10px;
+    width: 30px; }
+  #mortality .progress,
+  #reamputation .progress,
+  #basicMobility .progress,
+  #advancedMobility .progress {
+    background: green none repeat scroll 0 0;
+    border-radius: 23px 23px 0 0;
+    bottom: 0;
+    height: 0;
+    left: 5px;
+    margin-bottom: 0 !important;
+    position: absolute;
+    width: 69%;
+    z-index: 100; }
+  #mortality .amount,
+  #reamputation .amount,
+  #basicMobility .amount,
+  #advancedMobility .amount {
+    border-top: 1px solid #006600;
+    color: black;
+    display: inline-block;
+    font-family: Trebuchet MS;
+    font-weight: bold;
+    padding: 0 75px 0 0; }
+  #mortality .progress .amount,
+  #reamputation .progress .amount,
+  #basicMobility .progress .amount,
+  #advancedMobility .progress .amount {
+    border-top: 1px solid #006600;
+    color: #006600;
+    left: 0;
+    padding: 0 0 0 75px;
+    position: absolute; }
+  #mortality .goal,
+  #reamputation .goal,
+  #basicMobility .goal,
+  #advancedMobility .goal {
+    position: absolute;
+    right: 0;
+    top: 0; }
+  #mortality .average,
+  #reamputation .average,
+  #basicMobility .average,
+  #advancedMobility .average {
+    position: absolute;
+    bottom: 8.5%;
+    right: 0;
+    padding: 0px 0px 1px 0px; }
 
 /*# sourceMappingURL=style.css.map*/

@@ -1,6 +1,6 @@
-function thermometer(goalAmount, progressAmount, animate) {
+function thermometer(name, goalAmount, progressAmount, animate) {
     "use strict";
-    var $thermo = $("#thermometer"),
+    var $thermo = name,
         $progress = $(".progress", $thermo),
         $goal = $(".goal", $thermo),
         percentageAmount;
@@ -29,6 +29,9 @@ function thermometer(goalAmount, progressAmount, animate) {
 
 $(document).ready(function () {
 
-    thermometer();
+    thermometer("#mortality");
+    thermometer("#reamputation");
+    thermometer("#basicMobility");
+    thermometer("#advancedMobility");
    
 });

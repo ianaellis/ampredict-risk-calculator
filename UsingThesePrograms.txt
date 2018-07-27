@@ -59,3 +59,8 @@ Adding A New Route (New Webpage):
 
 Creating a form
 	Refer to storeForm.pug for a great example. Pretty typical.
+
+Form Sanitation
+	Installed express-validator
+		npm install express-validator --save
+		var expressValidator = require('express-validator'); //Added this in app.js

@@ -1,9 +1,9 @@
 mixin predictionModelForm(store = {})
-	p.disclaimer.calibri 
+	p.disclaimer.sans-seriff
 		font(color='red') This risk-adjusted mortality estimate is recommended to be used for guidance in the overall conversation with the patient when choosing the most appropriate amputation level but not a recommendation for or against a specific amputation level.
 
 	form(action="/predictionModel" method="POST" class="card")
-		p.calibri All parameters are required to derive an adjusted 1-year mortality risk.
+		p.sans-seriff All parameters are required to derive an adjusted 1-year mortality risk.
 		ol
 			li
 				label(for="amputation_level") Amputation Level  
@@ -21,13 +21,25 @@ mixin predictionModelForm(store = {})
 					input(type='number', name='bmi', style='width: 100px;', placeholder="ex. 24.1")
 
 			li
-				label(for="race") What is the patient's race?   
+				label(for="race") What is the patient's race? ?DAN?
 					select(name="race", size='1')
 						option(value='')
 						option(value='1') White
 						option(value='2') Black
 						option(value='3') Hispanic
 						option(value='4') Other
+			li
+				label(for="MaritalStatus") Is the patient married?
+					select(name="MaritalStatus", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="EducationStatus") Is the patient educated? ?DAN?
+					select(name="EducationStatus", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
 			li
 				label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
 					select(name="functional_status", size='1')
@@ -41,10 +53,6 @@ mixin predictionModelForm(store = {})
 						font(size='-2.5') <b>Partially dependent</b>: The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
 					ul
 						font(size='-2.5') <b>Totally dependent</b>: The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
-
-
-
-
 			li
 				label(for="heart_failure") Has the patient ever been diagnosed with congestive heart failure?   
 					select(name="heart_failure", size='1')
@@ -52,14 +60,14 @@ mixin predictionModelForm(store = {})
 						option(value='1') Yes
 						option(value='0') No
 			li
-				label(for="dialysis") Is the patient currently on dialysis (within the last 2 weeks prior to amputation)?   
+				label(for="dialysis") Is the patient currently on dialysis?   
 					select(name="dialysis", size='1')
 						option(value='')
 						option(value='1') Yes
 						option(value='0') No
 			li
 				label(for="blood_nitrogen") What is the patient's most recent blood nitrogen urea (mg/dl)?   
-					input(type='number', name='blood_nitrogen', style='width: 100px;')
+					input(type='number', name='blood_nitrogen', style='width: 100px;', placeholder="1-157")
 			li 
 				label(for="white_cell_count") What is the patient's most recent white blood cell count?   
 					select(name="white_cell_count", size='1')
@@ -68,6 +76,80 @@ mixin predictionModelForm(store = {})
 						option(value='2') Greater than 11,000
 			li
 				label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
-					input(type='float', name='platelet_count', style='width: 100px;')
+					input(type='float', name='platelet_count', style='width: 100px;', placeholder="ex. 150,000")
 
-		input(type="submit" value="Predicted Risk" class="button")
+
+			li
+				label(for="Gender") What is your gender?
+					select(name="Gender", size='1')
+						option(value='')
+						option(value='0') Female
+						option(value='1') Male
+			li
+				label(for="Diabetes") Do you have Diabetes?
+					select(name="Diabetes", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="Revascularization") Do know what Revascularization is?
+					select(name="Revascularization", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="Smoke") Do you smoke cigerattes?
+					select(name="Smoke", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="Alcohol") Do you drink Alcohol?
+					select(name="Alcohol", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="KidneyFailure") Have you had kidney failure?
+					select(name="KidneyFailure", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="COPD") Do you have COPD?
+					select(name="COPD", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="AnxietyDepression") Does the patient have Anxiety or Depression?
+					select(name="AnxietyDepression", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="WBC") Do you have a white blood cell count of 11,000 or higher?
+					select(name="WBC", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="OutputAnticoagulants") Are you using(?) Output Anticoagulants?
+					select(name="OutputAnticoagulants", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="RestGangrene") Do you have resting pain or gangrene?
+					select(name="RestGangrene", size='1')
+						option(value='')
+						option(value='1') Yes
+						option(value='0') No
+			li
+				label(for="SelfRatedHealth") Self Rated Health: Are you in good health or bad health?
+					select(name="SelfRatedHealth", size='1')
+						option(value='')
+						option(value='1') Good Health
+						option(value='0') Bad Health
+		center 
+			input(type="submit" value="Predicted Risk" class="button" style='width: 50%;')

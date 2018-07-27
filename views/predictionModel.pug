@@ -4,19 +4,13 @@ include mixins/_predictionModelForm
 
 block content
 	.inner
-		div(style='width: 49%; float:left;')
+		div(style='width: 60%; float:left;')
 			h2 
 				center #{title}
+			if errors
+				ul
+					strong ERRORS:
+					for error in errors
+						li!= error.msg
+
 			+predictionModelForm()
-		div(style='width:2%; float:center;')
-		div(style='width: 49%; float:right;')
-			div(style='height:200px;')
-			.calc_info_body
-				h1.calibri Calculate the patient's 1-year mortality risk
-				p.calibri This calculator predicts the patients 1-year risk of mortality after <b>FIRST</b> major LEA (Lower Extremity Amputation) using the AMPREDICT Mortality Risk Calculator which has been developed in the VA population and successfully validated in different geographical VA regions (add ref)
-				p.calibri The calculator assumes that the patient is 40 years or older and has a diagnosis of peripheral artery disease or diabetes who is undergoing their first unilateral major LEA defined as a midfoot/transmetatarsal, transtibial, or transfemoral amputation.  <i>(If this is a second major LEA of the same lower extremity, a contralateral amputation after a prior major LEA, or a bilateral amputation, the calculator is not relevant.)</i>
-				p.calibri
-					font(size='+1.5') <b>The average risk of mortality in this patient population is 26.5% </b>
-				p.calibri This calculator produces a risk of mortality within the first year. It also provides a <b>“high”</b>, <b>“medium”</b>, or <b>“low”</b> risk of mortality based on the full distribution of patients in the study sample.
-				p.calibri 
-					font(color='red') Once a patient’s mortality risk has been established, the reamputation and mobility calculators can be used to determine the most appropriate level of amputation for the individual, balancing their preferences with their risks.
