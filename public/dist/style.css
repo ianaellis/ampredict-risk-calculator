@@ -2,15 +2,12 @@
 html {
   font-size: 10px; }
 
-body {
-  background: #262161;
-  background: #efefef; }
-  body:before {
-    content: '';
-    display: block;
-    background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
-    height: 10px;
-    width: 100%; }
+body:before {
+  content: '';
+  display: block;
+  background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+  height: 10px;
+  width: 100%; }
 
 .inner {
   max-width: 1300px;
@@ -703,7 +700,8 @@ label {
   border-collapse: collapse;
   border: 2px solid #c8c8c8;
   letter-spacing: 1px;
-  font-size: 1.59rem; }
+  font-size: 1.59rem;
+  margin: auto; }
   .table td, .table th {
     border: 1px solid #bebebe;
     padding: 10px 20px; }
@@ -1156,6 +1154,12 @@ pre.error {
   line-height: 3;
   white-space: pre-line; }
 
+heading_font {
+  font-size: 3rem;
+  font-family: 'Panama';
+  font-weight: 400;
+  letter-spacing: -1px; }
+
 .alert-danger {
   color: #b94a48;
   background-color: #f2dede;
@@ -1167,12 +1171,11 @@ pre.error {
   border-color: #d6e9c6; }
 
 .alert {
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
   border: 1px solid transparent;
-  border-radius: 4px;
-  width: 50%;
-  margin-left: 200px; }
+  width: 80%;
+  margin: auto; }
 
 .text-center {
   text-align: center; }
@@ -1181,26 +1184,35 @@ pre.error {
   font-family: Calibri; }
 
 .results_all {
-  width: 1625px;
-  border: 1px solid; }
+  width: 80%;
+  margin: auto; }
 
 .mobility_frame {
-  width: 800px;
+  width: 50%;
   font-family: sans-seriff;
   border: 1px solid; }
 
 .results_frame {
-  width: 800px;
+  width: 50%;
   font-family: sans-seriff;
   border: 1px solid;
   float: right; }
+
+.table_frame {
+  width: 70%;
+  border: 1px solid;
+  margin: auto;
+  postion: relative; }
+
+.risk_frame {
+  width: 100%; }
 
 #mortality,
 #reamputation,
 #basicMobility,
 #advancedMobility {
   border-radius: 12px;
-  height: 300px;
+  height: 165px;
   position: relative; }
   #mortality .track,
   #reamputation .track,
@@ -1208,7 +1220,7 @@ pre.error {
   #advancedMobility .track {
     background: #e5e5e5 none repeat scroll 0 0;
     border-radius: 8px;
-    height: 280px;
+    height: 150px;
     left: 10px;
     margin: 0 auto;
     position: relative;
@@ -1258,7 +1270,6 @@ pre.error {
   #basicMobility .average,
   #advancedMobility .average {
     position: absolute;
-    bottom: 8.5%;
     right: 0;
     padding: 0px 0px 1px 0px; }
 
