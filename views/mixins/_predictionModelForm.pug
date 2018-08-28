@@ -3,153 +3,140 @@ mixin predictionModelForm(store = {})
 		font(color='red') This risk-adjusted mortality estimate is recommended to be used for guidance in the overall conversation with the patient when choosing the most appropriate amputation level but not a recommendation for or against a specific amputation level.
 
 	form(action="/predictionModel" method="POST" class="card")
-		p.sans-seriff All parameters are required to derive an adjusted 1-year mortality risk.
-		ol
-			li
-				label(for="amputation_level") Amputation Level  
-					select(name="amputation_level", id=amputation_level, size='1')
-						option(value='')
-						option(value='1') TM
-						option(value='2') TT
-						option(value='3') TF
-			li
-				label(for="age") How old is the patient (years)?    
-					input(type='number', name='age', style='width: 100px;', placeholder="40-99")
+		p.sans-seriff All parameters are required to derive an adjusted 1-year risk of mortality, reamputation, and probability of achieving basic and advanced mobility
+		
+		label(for="amputation_level") 
+			font(size='+2') Amputation Level  
+			br
+			br
+			select(name="amputation_level", id=amputation_level, size='1')
+				option(value='')
+				option(value='1') Transmetatarsal
+				option(value='2') Transtibial
+				option(value='3') Transfemoral
+		
+		br
+		font(size='+2') Demographics
 
-			li
-				label(for="bmi") What is the patient's BMI (kg/m^2)?    
-					input(type='number', name='bmi', style='width: 100px;', placeholder="ex. 24.1")
+		label(for="age") How old is the patient (years)?    
+			input(type='number', name='age', style='width: 100px;', placeholder="40-99")
+		label(for="Gender") What is the patient's sex?
+			select(name="Gender", size='1')
+				option(value='')
+				option(value='0') Female
+				option(value='1') Male
+		label(for="bmi") What is the patient's BMI (kg/m^2)?    
+			input(type='number', name='bmi', style='width: 100px;', placeholder="ex. 24.1")
+		label(for="race") What is the patient's race? (Currently, selecting white is the only option that changes calc values)
+			select(name="race", size='1')
+				option(value='')
+				option(value='1') White
+				option(value='2') Black
+				option(value='3') Hispanic
+				option(value='4') Other
+		label(for="MaritalStatus") Is the patient married?
+			select(name="MaritalStatus", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="EducationStatus") Is the patient educated? (Currently Yes or No)
+			select(name="EducationStatus", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
+			select(name="functional_status", size='1')
+				option(value='')
+				option(value='1') Independent
+				option(value='2') Partially Dependent
+				option(value='3') Totally Dependent
+			ul
+				font(size='-2.5') <b>Independent</b>: The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
+			ul
+				font(size='-2.5') <b>Partially dependent</b>: The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
+			ul
+				font(size='-2.5') <b>Totally dependent</b>: The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
 
-			li
-				label(for="race") What is the patient's race? ?DAN?
-					select(name="race", size='1')
-						option(value='')
-						option(value='1') White
-						option(value='2') Black
-						option(value='3') Hispanic
-						option(value='4') Other
-			li
-				label(for="MaritalStatus") Is the patient married?
-					select(name="MaritalStatus", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="EducationStatus") Is the patient educated? ?DAN?
-					select(name="EducationStatus", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
-					select(name="functional_status", size='1')
-						option(value='')
-						option(value='1') Independent
-						option(value='2') Partially Dependent
-						option(value='3') Totally Dependent
-					ul
-						font(size='-2.5') <b>Independent</b>: The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
-					ul
-						font(size='-2.5') <b>Partially dependent</b>: The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
-					ul
-						font(size='-2.5') <b>Totally dependent</b>: The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
-			li
-				label(for="heart_failure") Has the patient ever been diagnosed with congestive heart failure?   
-					select(name="heart_failure", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="dialysis") Is the patient currently on dialysis?   
-					select(name="dialysis", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="blood_nitrogen") What is the patient's most recent blood nitrogen urea (mg/dl)?   
-					input(type='number', name='blood_nitrogen', style='width: 100px;', placeholder="1-157")
-			li 
-				label(for="white_cell_count") What is the patient's most recent white blood cell count?   
-					select(name="white_cell_count", size='1')
-						option(value='')
-						option(value='1') Less than 11,000 mcl
-						option(value='2') Greater than 11,000
-			li
-				label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
-					input(type='float', name='platelet_count', style='width: 100px;', placeholder="ex. 150,000")
+		br
+		font(size='+2') Comorbidities
 
+		label(for="heart_failure") Has the patient ever been diagnosed with congestive heart failure?   
+			select(name="heart_failure", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="dialysis") Is the patient currently on dialysis?   
+			select(name="dialysis", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No	
+		label(for="Diabetes") Does the patient have Diabetes?
+			select(name="Diabetes", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="Revascularization") Does the patient have a history of a revascularization on the side of their amputation (this may include open, endo, or both)?
+			select(name="Revascularization", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="KidneyFailure") Has the patient had kidney failure?
+			select(name="KidneyFailure", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="COPD") Does the patient have COPD?
+			select(name="COPD", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="AnxietyDepression") Does the patient have Anxiety or Depression?
+			select(name="AnxietyDepression", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="RestGangrene") Does the patient currently experience rest pain or do they have gangrene (rest pain defined in the 3-days preceding amputation experiencing a more severe form of ischemic pain due to occlusive disease which occurs at rest and is manifested as a severe, unrelenting pain aggravated by elevation and often preventing sleep.  Gangrene defined as a marked skin discoloration and disruption indicative of death and decay of tissues in the extremities due to severe and prolonged ischemia.  Include patients with ischemic ulceration and/or tissue loss related to peripheral vascular disease)
+			select(name="RestGangrene", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
 
-			li
-				label(for="Gender") What is your gender?
-					select(name="Gender", size='1')
-						option(value='')
-						option(value='0') Female
-						option(value='1') Male
-			li
-				label(for="Diabetes") Do you have Diabetes?
-					select(name="Diabetes", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="Revascularization") Do know what Revascularization is?
-					select(name="Revascularization", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="Smoke") Do you smoke cigerattes?
-					select(name="Smoke", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="Alcohol") Do you drink Alcohol?
-					select(name="Alcohol", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="KidneyFailure") Have you had kidney failure?
-					select(name="KidneyFailure", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="COPD") Do you have COPD?
-					select(name="COPD", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="AnxietyDepression") Does the patient have Anxiety or Depression?
-					select(name="AnxietyDepression", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="WBC") Do you have a white blood cell count of 11,000 or higher?
-					select(name="WBC", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="OutputAnticoagulants") Are you using(?) Output Anticoagulants?
-					select(name="OutputAnticoagulants", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="RestGangrene") Do you have resting pain or gangrene?
-					select(name="RestGangrene", size='1')
-						option(value='')
-						option(value='1') Yes
-						option(value='0') No
-			li
-				label(for="SelfRatedHealth") Self Rated Health: Are you in good health or bad health?
-					select(name="SelfRatedHealth", size='1')
-						option(value='')
-						option(value='1') Good Health
-						option(value='0') Bad Health
+		
+		br
+		font(size='+2') Laboratory Values
+
+		label(for="blood_nitrogen") What is the patient’s most recent blood urea nitrogen (BUN) level (mg/dl)   
+			input(type='number', name='blood_nitrogen', style='width: 100px;', placeholder="1-157")
+		label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
+			input(type='float', name='platelet_count', style='width: 100px;', placeholder="ex. 150,000")
+		label(for="WBC") Do you have a white blood cell count of 11,000 or higher?
+			select(name="WBC", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+
+		br
+		font(size='+2') Health and Behavior
+
+		label(for="Smoke") Does the patient smoke cigerattes?
+			select(name="Smoke", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="Alcohol") Does the patient drink Alcohol?
+			select(name="Alcohol", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="OutputAnticoagulants") Is the patient currently on outpatient anticoagulants?
+			select(name="OutputAnticoagulants", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="SelfRatedHealth") How does the patient rate their overall health (you need to give the patient options to select from)?
+			select(name="SelfRatedHealth", size='1')
+				option(value='')
+				option(value='1') Good Health
+				option(value='0') Bad Health
 		center 
-			input(type="submit" value="Predicted Risk" class="button" style='width: 50%;')
+			input(type="submit" value="Predicted Risks" class="button" style='width: 50%;')

@@ -40,7 +40,7 @@ exports.createStore = async (req, res) => {
 	else {
 		//For comparing results on output page
 		var predModel_TM = new Store(
-			{ amputation_level: 1, age: req.body.age, bmi: req.body.bmi, race: req.body.race, functional_status: req.body.functional_status, heart_failure: req.body.heart_failure, dialysis: req.body.dialysis, blood_nitrogen: req.body.blood_nitrogen, white_cell_count: req.body.white_cell_count, platelet_count: req.body.platelet_count}
+			{ amputation_level: 1, age: req.body.age, bmi: req.body.bmi, race: req.body.race, functional_status: req.body.functional_status, heart_failure: req.body.heart_failure, dialysis: req.body.dialysis, blood_nitrogen: req.body.blood_nitrogen, wbc: req.body.WBC, platelet_count: req.body.platelet_count}
 			);
 //
 //MORTALITY CALCULATOR
@@ -181,7 +181,7 @@ exports.createStore = async (req, res) => {
 		//     If blood nitrogen unentered, -25 is still applied.
 
 		//Question 9
-		if(req.body.white_cell_count == 2){
+		if(req.body.WBC == 1){
 			wbc_calc = .3423;
 			lower_wbc_calc = .21729;
 			upper_wbc_calc = .46732;
@@ -365,7 +365,7 @@ exports.createStore = async (req, res) => {
 	    var reamp_upper_ci = (Math.pow(2.71828, reamp_upper_logit_prob))/(1+(Math.pow(2.71828, reamp_upper_logit_prob))).toFixed(4);
 
 	    var reamp_highProb = false;
-	    if(reamp_prob > .265){
+	    if(reamp_prob > .24){
 	    	reamp_highProb = true;
 	    }
 
@@ -507,7 +507,7 @@ exports.createStore = async (req, res) => {
 	    var mob_upper_ci = (Math.pow(2.71828, mob_upper_logit_prob))/(1+(Math.pow(2.71828, mob_upper_logit_prob))).toFixed(4);
 
 	    var mob_highProb = false;
-	    if(mob_prob > .265){
+	    if(mob_prob > .66){
 	    	mob_highProb = true;
 	    }
 
@@ -617,7 +617,7 @@ exports.createStore = async (req, res) => {
 	    var aMob_upper_ci = (Math.pow(2.71828, aMob_upper_logit_prob))/(1+(Math.pow(2.71828, aMob_upper_logit_prob))).toFixed(4);
 
 	    var aMob_highProb = false;
-	    if(aMob_prob > .265){
+	    if(aMob_prob > .32){
 	    	aMob_highProb = true;
 	    }
 

@@ -1,7 +1,15 @@
+heading_font{
+  font-size: 3rem;
+  font-family: 'Panama';
+  font-weight: 400;
+  letter-spacing:-1px;
+
+}
+
 .alert-danger {
-	color: #b94a48;
-	background-color: #f2dede;
-	border-color: #eed3d7;
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
 }
 
 .alert-success {
@@ -11,12 +19,11 @@
 }
 
 .alert {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	width: 50%;
-	margin-left: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    width: 80%;
+    margin: auto;
 }
 
 .text-center {
@@ -24,36 +31,49 @@
 }
 
 .calibri {
-	font-family: Calibri;
+    font-family: Calibri;
 }
 .results_all {
-    width: 1625px;
-    border: 1px solid;
+    width: 80%;
+    margin: auto;
 }
+
 .mobility_frame {
-    width: 800px;
+    width: 50%;
     font-family: sans-seriff;
     border: 1px solid;
-
 }
+
 .results_frame {
-	width: 800px;
+    width: 50%;
     font-family: sans-seriff;
     border: 1px solid;
     float: right;
 }
+
+.table_frame{
+    width: 70%;
+    border: 1px solid;
+    margin: auto;
+    postion: relative;
+}
+
+.risk_frame{
+    width: 100%;
+}
+
 
 #mortality,
 #reamputation,
 #basicMobility,
 #advancedMobility {
     border-radius: 12px;
-    height: 300px;
+    height: 165px;
     position: relative;
     .track{
         background: #e5e5e5 none repeat scroll 0 0;
         border-radius: 8px;
-        height: 280px;
+        height: 150px;
         left: 10px;
         margin: 0 auto;
         position: relative;
@@ -93,7 +113,6 @@
     }
     .average{
         position: absolute;
-        bottom: 8.5%;
         right: 0;
         padding: 0px 0px 1px 0px;
     }
