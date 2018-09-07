@@ -46,15 +46,29 @@ exports.createStore = async (req, res) => {
 //MORTALITY CALCULATOR
 //
 		// Variable strings
-		var amp_lvl_string = "Unknown";
+		var amp_lvl_string = "-";
 		var age_string = req.body.age;
+		var gender_string = "-";
 		var bmi_string = req.body.bmi;
-		var race_string = "Unknown";
-		var function_string = "Unknown";
+		var race_string = "-";
+		var marital_string = "-";
+		var education_string = "-";
+		var smoke_string = "-";
+		var alcohol_string = "-";
+		var anticoagulants_string = "-";
+		var health_string = "-";
+		var function_string = "-";
 		var heart_failure_string = "";
 		var dialysis_string = "";
+		var diabetes_string = "-";
+		var revascularization_string = "-";
+		var kidney_string = "-";
+		var copd_string = "-";
+		var anxiety_string = "-";
+		var gangrene_string = "-";
+
 		var bun_string = req.body.blood_nitrogen;
-		var blood_string = "Unknown";
+		var blood_string = "-";
 		var platelet_string = req.body.platelet_count;
 
 		// Variables Coeffs
@@ -212,6 +226,7 @@ exports.createStore = async (req, res) => {
 //
 		//Variables
 
+
 			//Coeffs
 			var reamp_coeff_amp_lvl_calc = 0;
 			var reamp_coeff_gender = 0;
@@ -281,6 +296,9 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_gender = .894;
 			reamp_lower_gender = .841;
 			reamp_upper_gender = .947;
+			gender_string = "Male";
+		} else if (req.body.Gender == 2){
+			gender_string = "Female";
 		}
 
 		//Question 3/9/10 - TM With Diabetes \ Diabetes \ Diabetes & Revascularization
@@ -288,6 +306,7 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_diabetes = -.454;
 			reamp_lower_diabetes = -.468;
 			reamp_upper_diabetes = -.441;
+			diabetes_string = "Diabetes";
 			if (req.body.amputation_level == 1){
 				reamp_coeff_tm_with_diabetes = .881;
 				reamp_lower_tm_with_diabetes = .849;
@@ -297,6 +316,7 @@ exports.createStore = async (req, res) => {
 				reamp_coeff_diabetes_revascular = .335;
 				reamp_lower_diabetes_revascular = .320;
 				reamp_upper_diabetes_revascular = .351;
+				revascularization_string = "Revascularization";
 			}
 		}
 
@@ -305,6 +325,9 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_smoke = .316;
 			reamp_lower_smoke = .323;
 			reamp_upper_smoke = .348;
+			smoke_string = "Yes";
+		} else if (req.body.Smoke == 0){
+			smoke_string = "No";
 		}
 
 		//Question 5 - Alcohol abuse
@@ -312,7 +335,10 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_alcohol = .316;
 			reamp_lower_alcohol = .297;
 			reamp_upper_alcohol = .334;
-		}	
+			alcohol_string = "Yes";
+		}else if (req.body.Alcohol == 0){
+			alcohol_string = "No";
+		}
 
 		//Question 6/13 - TM & Kidney Failure \ TM & Smoking
 		if (req.body.amputation_level == 1){
@@ -320,6 +346,7 @@ exports.createStore = async (req, res) => {
 				reamp_coeff_tm_kidney_failure = .836;
 				reamp_lower_tm_kidney_failure = .797;
 				reamp_upper_tm_kidney_failure = .875;
+				kidney_string = "Kidney Failure";
 			}
 			if (req.body.Smoke == 1){
 				reamp_coeff_tm_smoking = -.424;
@@ -332,6 +359,7 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_copd = .326;
 			reamp_lower_copd = .310;
 			reamp_upper_copd = .341;
+			copd_string = "COPD";
 		}
 
 		//Question 8 - WBC >= 11000
@@ -346,6 +374,9 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_output_anticoag = .279;
 			reamp_lower_output_anticoag = .263;
 			reamp_upper_output_anticoag = .294;
+			anticoagulants_string = "Yes";
+		} else if (req.body.OutputAnticoagulants == 0){
+			anticoagulants_string = "No";
 		}
 
 		//Question 12 - Rest Pain / Gangrene
@@ -353,6 +384,7 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_rest_gangrene = .344;
 			reamp_lower_rest_gangrene = .333;
 			reamp_upper_rest_gangrene = .356;
+			gangrene_string = "Gangrene/Rest Pain";
 		}
 
 
@@ -454,6 +486,9 @@ exports.createStore = async (req, res) => {
 			mob_coeff_marital = 0.995;
 			mob_lower_marital = 0.133;
 			mob_upper_marital = 1.86;
+			marital_string = "Yes";
+		} else if (req.body.MaritalStatus == 0){
+			marital_string = "No";
 		}
 
 		//Question 6 - Education Level
@@ -461,6 +496,9 @@ exports.createStore = async (req, res) => {
 			mob_coeff_education = 1.28;
 			mob_lower_education = -0.678;
 			mob_upper_education = 3.24;
+			education_string = ">= High School";
+		}else if (req.body.EducationStatus == 0){
+			education_string = "< High School";
 		}
 
 		//Question 7 - Diabetes
@@ -489,6 +527,7 @@ exports.createStore = async (req, res) => {
 			mob_coeff_anxietyDepression = -0.796;
 			mob_lower_anxietyDepression = -1.7;
 			mob_upper_anxietyDepression = 0.107;
+			anxiety_string = "Anxiety/Depression";
 		}
 
 		//Question 11 - Self Rated Health
@@ -496,6 +535,9 @@ exports.createStore = async (req, res) => {
 			mob_coeff_selfHealth = -0.713;
 			mob_lower_selfHealth = -1.61;
 			mob_upper_selfHealth = 0.719;
+			health_string = "Good";
+		}else if (req.body.SelfRatedHealth == 0){
+			health_string == "Bad";
 		}
 
 		//Basic Moblity Final Calculations
@@ -628,7 +670,9 @@ exports.createStore = async (req, res) => {
 	     blood_string, platelet_string, 
 	     reamp_logit_prob, reamp_lower_logit_prob, reamp_upper_logit_prob, reamp_prob, reamp_lower_ci, reamp_upper_ci, reamp_coeff_gender, 
 	     mob_logit_prob, mob_lower_logit_prob, mob_upper_logit_prob, mob_prob, mob_lower_ci, mob_upper_ci, mob_prob, mob_highProb, 
-	     aMob_logit_prob, aMob_lower_logit_prob, aMob_upper_logit_prob, aMob_prob, aMob_lower_ci, aMob_upper_ci, aMob_prob, aMob_highProb});
+	     aMob_logit_prob, aMob_lower_logit_prob, aMob_upper_logit_prob, aMob_prob, aMob_lower_ci, aMob_upper_ci, aMob_prob, aMob_highProb, 
+	     gender_string, marital_string, education_string, diabetes_string, revascularization_string, kidney_string, copd_string, anxiety_string, gangrene_string, 
+	     smoke_string, alcohol_string, anticoagulants_string, health_string});
 	}
 
 

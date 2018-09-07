@@ -10,12 +10,12 @@ block content
 					.text-center.alert.alert-danger
 						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
 						p 
-							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is above average. (24%).
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is below average. (24%).
 				else
 					.text-center.alert.alert-success
 						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
 						p
-							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is below average. (24%).	
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is above average. (24%).	
 
 			#reamputation
 				.track
@@ -39,12 +39,12 @@ block content
 				heading_font Advanced Mobility
 			.risk_frame
 				if(aMob_highProb)
-					.text-center.alert.alert-danger
+					.text-center.alert.alert-success
 						font(size='+3') #{(aMob_prob*100).toFixed(0)}% 
 						p 
 							font(size='-1') The 1-year probability of achieving an advanced level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is higher than the average (32%)
 				else
-					.text-center.alert.alert-success
+					.text-center.alert.alert-danger
 						font(size='+3') #{(aMob_prob*100).toFixed(0)}% 
 						p
 							font(size='-1') The 1-year probability of achieving an advanced level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is lower than the average (32%)
@@ -52,7 +52,7 @@ block content
 			#advancedMobility
 				.track
 					.average(style='bottom: 7%;') 
-						font(size='-2').amount 32% Average Risk
+						font(size='-2').amount 32% Average Probability
 					.goal
 						font(size='-2').amount 100%
 					if (aMob_prob <= .750 & aMob_prob > .32)
@@ -105,12 +105,12 @@ block content
 				heading_font Basic Mobility
 			.risk_frame
 				if(mob_highProb)
-					.text-center.alert.alert-danger
+					.text-center.alert.alert-success
 						font(size='+3') #{(mob_prob*100).toFixed(0)}% 
 						p 
 							font(size='-1') The 1-year probability of achieving a basic level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is higher than the average (66%).
 				else
-					.text-center.alert.alert-success
+					.text-center.alert.alert-danger
 						font(size='+3') #{(mob_prob*100).toFixed(0)}% 
 						p
 							font(size='-1') The 1-year probability of achieving a basic level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is lower than the average (66%)
@@ -118,7 +118,7 @@ block content
 			#basicMobility
 				.track
 					.average(style='bottom: 41%;')
-						font(size='-2').amount 66% Average Risk
+						font(size='-2').amount 66% Average Probability
 					.goal
 						font(size='-2').amount 100%
 					if (mob_prob <= .750 & mob_prob > .66)
@@ -146,6 +146,7 @@ block content
 				tr
 					th Amputation Level
 					th Demographics
+					th Health & Behavior
 					th Function
 					th Comorbidities
 					th Lab Values
@@ -155,15 +156,41 @@ block content
 					td 
 						| Age: #{age_string}
 						br
+						| Gender: #{gender_string}
+						br
 						| BMI: #{bmi_string}
 						br
 						| Race: #{race_string}
+						br
+						| Married: #{marital_string}
+						br
+						| Education: #{education_string}
+					td
+						| Smoker: #{smoke_string}
+						br
+						| Drinker: #{alcohol_string}
+						br
+						| Anticoagulants: #{anticoagulants_string}
+						br
+						| Self Rated Health: #{health_string}
 					td #{function_string}
 					if comorbid
 						td 
 							| #{heart_failure_string}
 							br
 							| #{dialysis_string}
+							br
+							| #{diabetes_string}
+							br
+							| #{revascularization_string}
+							br
+							| #{kidney_string}
+							br
+							| #{copd_string}
+							br
+							| #{anxiety_string}
+							br
+							| #{gangrene_string}
 					else
 						td None
 					td 

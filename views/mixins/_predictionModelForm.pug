@@ -39,11 +39,14 @@ mixin predictionModelForm(store = {})
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
-		label(for="EducationStatus") Is the patient educated? (Currently Yes or No)
+		label(for="EducationStatus") What is the patients level of education?
 			select(name="EducationStatus", size='1')
 				option(value='')
-				option(value='1') Yes
-				option(value='0') No
+				option(value='1') Greater than high school (Graduated high school)
+				option(value='0') Less than high school
+		br
+		font(size='+2') Functional Status
+
 		label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
 			select(name="functional_status", size='1')
 				option(value='')
@@ -90,16 +93,20 @@ mixin predictionModelForm(store = {})
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
-		label(for="AnxietyDepression") Does the patient have Anxiety or Depression?
+		label(for="AnxietyDepression") Has the patient ever been treated for Anxiety or Depression?
 			select(name="AnxietyDepression", size='1')
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
-		label(for="RestGangrene") Does the patient currently experience rest pain or do they have gangrene (rest pain defined in the 3-days preceding amputation experiencing a more severe form of ischemic pain due to occlusive disease which occurs at rest and is manifested as a severe, unrelenting pain aggravated by elevation and often preventing sleep.  Gangrene defined as a marked skin discoloration and disruption indicative of death and decay of tissues in the extremities due to severe and prolonged ischemia.  Include patients with ischemic ulceration and/or tissue loss related to peripheral vascular disease)
+		label(for="RestGangrene") Does the patient currently experience rest pain or do they have gangrene?
 			select(name="RestGangrene", size='1')
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
+			ul
+				font(size='-2.5') <b>Rest Pain</b> defined in the 3-days preceding amputation experiencing a more severe form of ischemic pain due to occlusive disease which occurs at rest and is manifested as a severe, unrelenting pain aggravated by elevation and often preventing sleep.
+			ul
+				font(size='-2.5') <b>Gangrene</b> defined as a marked skin discoloration and disruption indicative of death and decay of tissues in the extremities due to severe and prolonged ischemia.  Include patients with ischemic ulceration and/or tissue loss related to peripheral vascular disease.
 
 		
 		br
@@ -109,7 +116,7 @@ mixin predictionModelForm(store = {})
 			input(type='number', name='blood_nitrogen', style='width: 100px;', placeholder="1-157")
 		label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
 			input(type='float', name='platelet_count', style='width: 100px;', placeholder="ex. 150,000")
-		label(for="WBC") Do you have a white blood cell count of 11,000 or higher?
+		label(for="WBC") Does the patient have a white blood cell count of 11,000 or higher?
 			select(name="WBC", size='1')
 				option(value='')
 				option(value='1') Yes
@@ -136,7 +143,10 @@ mixin predictionModelForm(store = {})
 		label(for="SelfRatedHealth") How does the patient rate their overall health (you need to give the patient options to select from)?
 			select(name="SelfRatedHealth", size='1')
 				option(value='')
-				option(value='1') Good Health
-				option(value='0') Bad Health
+				option(value='1') Very Good
+				option(value='1') Good
+				option(value='0') Fair
+				option(value='0') Poor
+				option(value='0') Very Poor
 		center 
 			input(type="submit" value="Predicted Risks" class="button" style='width: 50%;')
