@@ -341,12 +341,14 @@ exports.createStore = async (req, res) => {
 		}
 
 		//Question 6/13 - TM & Kidney Failure \ TM & Smoking
+		if (req.body.KidneyFailure == 1){
+			kidney_string = "Kidney Failure";
+		}
 		if (req.body.amputation_level == 1){
 			if (req.body.KidneyFailure == 1){
 				reamp_coeff_tm_kidney_failure = .836;
 				reamp_lower_tm_kidney_failure = .797;
 				reamp_upper_tm_kidney_failure = .875;
-				kidney_string = "Kidney Failure";
 			}
 			if (req.body.Smoke == 1){
 				reamp_coeff_tm_smoking = -.424;
@@ -679,5 +681,5 @@ exports.createStore = async (req, res) => {
 };
 
 exports.predictionModel = async (req, res) => {
-	res.render('predictionModel', { title: 'AMPREDICT Mortality Risk Calculator'});
+	res.render('predictionModel', { title: 'AMPREDICT Risk Calculator'});
 };
