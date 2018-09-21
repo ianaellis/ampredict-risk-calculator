@@ -46,29 +46,29 @@ exports.createStore = async (req, res) => {
 //MORTALITY CALCULATOR
 //
 		// Variable strings
-		var amp_lvl_string = "-";
+		var amp_lvl_string = "";
 		var age_string = req.body.age;
-		var gender_string = "-";
+		var gender_string = "";
 		var bmi_string = req.body.bmi;
-		var race_string = "-";
-		var marital_string = "-";
-		var education_string = "-";
-		var smoke_string = "-";
-		var alcohol_string = "-";
-		var anticoagulants_string = "-";
-		var health_string = "-";
-		var function_string = "-";
+		var race_string = "";
+		var marital_string = "";
+		var education_string = "";
+		var smoke_string = "";
+		var alcohol_string = "";
+		var anticoagulants_string = "";
+		var health_string = "";
+		var function_string = "";
 		var heart_failure_string = "";
 		var dialysis_string = "";
-		var diabetes_string = "-";
-		var revascularization_string = "-";
-		var kidney_string = "-";
-		var copd_string = "-";
-		var anxiety_string = "-";
-		var gangrene_string = "-";
+		var diabetes_string = "";
+		var revascularization_string = "";
+		var kidney_string = "";
+		var copd_string = "";
+		var anxiety_string = "";
+		var gangrene_string = "";
 
 		var bun_string = req.body.blood_nitrogen;
-		var blood_string = "-";
+		var blood_string = "";
 		var platelet_string = req.body.platelet_count;
 
 		// Variables Coeffs
