@@ -413,7 +413,7 @@ exports.createStore = async (req, res) => {
 			//Coeffs
 			var mob_coeff_amp_lvl_calc = 0;
 			var mob_coeff_age = (req.body.age - 60)*(-0.125);
-			var mob_coeff_bmi = (req.body.bmi - 25)*(-0.125); 
+			var mob_coeff_bmi = (req.body.bmi - 25)*(-0.008); 
 			var mob_coeff_race = 0;
 			var mob_coeff_marital = 0;
 			var mob_coeff_education = 0;
