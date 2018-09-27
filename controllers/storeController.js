@@ -413,7 +413,7 @@ exports.createStore = async (req, res) => {
 			//Coeffs
 			var mob_coeff_amp_lvl_calc = 0;
 			var mob_coeff_age = (req.body.age - 60)*(-0.125);
-			var mob_coeff_bmi = (req.body.bmi - 25)*(-0.008); 
+			var mob_coeff_bmi = (req.body.bmi - 30)*(-0.008); 
 			var mob_coeff_race = 0;
 			var mob_coeff_marital = 0;
 			var mob_coeff_education = 0;
@@ -427,7 +427,7 @@ exports.createStore = async (req, res) => {
 			//Lower
 			var mob_lower_amp_lvl_calc = 0;
 			var mob_lower_age = (req.body.age - 60)*(-.187);
-			var mob_lower_bmi = (req.body.bmi - 25)*(-0.1087); 
+			var mob_lower_bmi = (req.body.bmi - 30)*(-0.1087); 
 			var mob_lower_race = 0;
 			var mob_lower_marital = 0;
 			var mob_lower_education = 0;
@@ -441,7 +441,7 @@ exports.createStore = async (req, res) => {
 			//upper
 			var mob_upper_amp_lvl_calc = 0;
 			var mob_upper_age = (req.body.age - 60)*(-0.063);
-			var mob_upper_bmi = (req.body.bmi - 25)*(-0.0175); 
+			var mob_upper_bmi = (req.body.bmi - 30)*(-0.0175); 
 			var mob_upper_race = 0;
 			var mob_upper_marital = 0;
 			var mob_upper_education = 0;
@@ -563,7 +563,7 @@ exports.createStore = async (req, res) => {
 			//Coeffs
 			var aMob_coeff_amp_lvl_calc = 0;
 			var aMob_coeff_age = (req.body.age - 60)*(-0.138);
-			var aMob_coeff_bmi = (req.body.bmi - 25)*(-0.064); 
+			var aMob_coeff_bmi = (req.body.bmi - 30)*(-0.064); 
 			var aMob_coeff_race = 0;
 			var aMob_coeff_marital = 0;
 			var aMob_coeff_dialysis = 0;
@@ -574,7 +574,7 @@ exports.createStore = async (req, res) => {
 			//Lower
 			var aMob_lower_amp_lvl_calc = 0;
 			var aMob_lower_age = (req.body.age - 60)*(-0.205);
-			var aMob_lower_bmi = (req.body.bmi - 25)*(-0.125); 
+			var aMob_lower_bmi = (req.body.bmi - 30)*(-0.125); 
 			var aMob_lower_race = 0;
 			var aMob_lower_marital = 0;
 			var aMob_lower_dialysis = 0;
@@ -585,7 +585,7 @@ exports.createStore = async (req, res) => {
 			//upper
 			var aMob_upper_amp_lvl_calc = 0;
 			var aMob_upper_age = (req.body.age - 60)*(-0.071);
-			var aMob_upper_bmi = (req.body.bmi - 25)*(-0.003); 
+			var aMob_upper_bmi = (req.body.bmi - 30)*(-0.003); 
 			var aMob_upper_race = 0;
 			var aMob_upper_marital = 0;
 			var aMob_upper_dialysis = 0;
