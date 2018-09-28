@@ -7,12 +7,12 @@ block content
 				heading_font Reamputation
 			.risk_frame
 				if(reamp_highProb)
-					.text-center.alert.alert-danger
+					.text-center.alert.alert-sucess
 						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
 						p 
 							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is below average. (24%).
 				else
-					.text-center.alert.alert-success
+					.text-center.alert.alert-danger
 						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
 						p
 							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is above average. (24%).	
@@ -23,10 +23,7 @@ block content
 						font(size='-2').amount 24% Average Risk
 					.goal
 						font(size='-2').amount 100%
-					if(reamp_prob <= .750 & reamp_prob > .24)
-						.progress(style='background: orange none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}%  Predicted Risk
-					else if(reamp_prob > .750)
+					if(reamp_prob > .24)
 						.progress(style='background: red none repeat scroll 0 0;')
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}%  Predicted Risk
 					else 
@@ -55,14 +52,11 @@ block content
 						font(size='-2').amount 32% Average Probability
 					.goal
 						font(size='-2').amount 100%
-					if (aMob_prob <= .750 & aMob_prob > .32)
-						.progress(style='background: orange none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(1)}% Predicted Probability
-					else if (aMob_prob > .750)
-						.progress(style='background: red none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(1)}% Predicted Probability
-					else 
+					if (aMob_prob > .32)
 						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(1)}% Predicted Probability
+					else
+						.progress(style='background: red none repeat scroll 0 0;')
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(1)}% Predicted Probability
 
 
@@ -89,10 +83,7 @@ block content
 						font(size='-2').amount 26.5% Average Risk
 					.goal
 						font(size='-2').amount 100%
-					if (prob <= .750 & prob > .265)
-						.progress(style='background: orange none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(1)}% Predicted Risk
-					else if (prob > .750)
+					if (prob > .265)
 						.progress(style='background: red none repeat scroll 0 0;')
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(1)}% Predicted Risk
 					else 
@@ -121,8 +112,8 @@ block content
 						font(size='-2').amount 66% Average Probability
 					.goal
 						font(size='-2').amount 100%
-					if (mob_prob <= .750 & mob_prob > .66)
-						.progress(style='background: orange none repeat scroll 0 0;')
+					if (mob_prob > .66)
+						.progress
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(1)}% Predicted Probability
 					else if (mob_prob > .750)
 						.progress(style='background: red none repeat scroll 0 0;')
