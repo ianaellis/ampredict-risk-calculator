@@ -533,13 +533,13 @@ exports.createStore = async (req, res) => {
 		}
 
 		//Question 11 - Self Rated Health
-		if (req.body.SelfRatedHealth == 0){
+		if (req.body.SelfRatedHealth == 1){
 			mob_coeff_selfHealth = -0.713;
 			mob_lower_selfHealth = -1.61;
 			mob_upper_selfHealth = 0.719;
-			health_string = "Bad";
-		}else if (req.body.SelfRatedHealth == 1){
-			health_string == "Good";
+			health_string = "Fair/Poor/Very Poor";
+		}else if (req.body.SelfRatedHealth == 0){
+			health_string == "Good/Very Good";
 		}
 
 		//Basic Moblity Final Calculations

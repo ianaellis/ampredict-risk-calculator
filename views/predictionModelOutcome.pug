@@ -25,13 +25,13 @@ block content
 						font(size='-2').amount 100%
 					if(reamp_prob <= .750 & reamp_prob > .24)
 						.progress(style='background: orange none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}%  Predicted Risk
 					else if(reamp_prob > .750)
 						.progress(style='background: red none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}%  Predicted Risk
 					else 
 						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}% Predicted Risk
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}% Predicted Risk
 
 			br
 			br
@@ -57,13 +57,13 @@ block content
 						font(size='-2').amount 100%
 					if (aMob_prob <= .750 & aMob_prob > .32)
 						.progress(style='background: orange none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(1)}% Predicted Probability
 					else if (aMob_prob > .750)
 						.progress(style='background: red none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(1)}% Predicted Probability
 					else 
 						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(aMob_prob*100).toFixed(1)}% Predicted Probability
 
 
 						//- Logit Prob: #{aMob_logit_prob}, Logit Lower: #{aMob_lower_logit_prob}, Logit Upper: #{aMob_upper_logit_prob}, Reamp Prob: #{aMob_prob.toFixed(4)}, Reamp Lower CI: #{aMob_lower_ci.toFixed(4)}, Reamp Upper CI: #{aMob_upper_ci.toFixed(4)}
@@ -91,13 +91,13 @@ block content
 						font(size='-2').amount 100%
 					if (prob <= .750 & prob > .265)
 						.progress(style='background: orange none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(1)}% Predicted Risk
 					else if (prob > .750)
 						.progress(style='background: red none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(1)}% Predicted Risk
 					else 
 						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(1)}% Predicted Risk
 
 			br
 			br
@@ -123,13 +123,13 @@ block content
 						font(size='-2').amount 100%
 					if (mob_prob <= .750 & mob_prob > .66)
 						.progress(style='background: orange none repeat scroll 0 0;')
-							#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(1)}% Predicted Probability
 					else if (mob_prob > .750)
 						.progress(style='background: red none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(1)}% Predicted Probability
 					else 
 						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(1)}% Predicted Probability
 
 
 						//- Logit Prob: #{mob_logit_prob}, Logit Lower: #{mob_lower_logit_prob}, Logit Upper: #{mob_upper_logit_prob}, Reamp Prob: #{mob_prob.toFixed(4)}, Reamp Lower CI: #{mob_lower_ci.toFixed(4)}, Reamp Upper CI: #{mob_upper_ci.toFixed(4)}
