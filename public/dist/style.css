@@ -1154,10 +1154,57 @@ pre.error {
   line-height: 3;
   white-space: pre-line; }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  /* If you want dots under the hoverable text */ }
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 500px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s; }
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent; }
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1; }
+
 heading_font {
   font-size: 3rem;
   font-family: 'Panama';
   font-weight: 400;
+  letter-spacing: -1px; }
+
+title_font {
+  font-size: 5rem;
+  font-family: 'Panama';
+  font-weight: 500;
   letter-spacing: -1px; }
 
 .alert-danger {
@@ -1187,11 +1234,11 @@ heading_font {
   width: 80%;
   margin: auto; }
 
-.mobility_frame {
+.tm_frame {
   width: 50%;
   font-family: sans-seriff; }
 
-.results_frame {
+.tt_frame {
   width: 50%;
   font-family: sans-seriff;
   float: right; }
@@ -1204,16 +1251,22 @@ heading_font {
 .risk_frame {
   width: 100%; }
 
-#mortality,
-#reamputation,
-#basicMobility,
+#tm_mortality,
+#tt_mortality,
+#tm_reamputation,
+#tt_reamputation,
+#tm_mobility,
+#tt_mobility,
 #advancedMobility {
   border-radius: 12px;
   height: 165px;
   position: relative; }
-  #mortality .track,
-  #reamputation .track,
-  #basicMobility .track,
+  #tm_mortality .track,
+  #tt_mortality .track,
+  #tm_reamputation .track,
+  #tt_reamputation .track,
+  #tm_mobility .track,
+  #tt_mobility .track,
   #advancedMobility .track {
     background: #e5e5e5 none repeat scroll 0 0;
     border-radius: 8px;
@@ -1223,9 +1276,12 @@ heading_font {
     position: relative;
     top: 10px;
     width: 30px; }
-  #mortality .progress,
-  #reamputation .progress,
-  #basicMobility .progress,
+  #tm_mortality .progress,
+  #tt_mortality .progress,
+  #tm_reamputation .progress,
+  #tt_reamputation .progress,
+  #tm_mobility .progress,
+  #tt_mobility .progress,
   #advancedMobility .progress {
     background: green none repeat scroll 0 0;
     border-radius: 23px 23px 0 0;
@@ -1236,9 +1292,12 @@ heading_font {
     position: absolute;
     width: 69%;
     z-index: 100; }
-  #mortality .amount,
-  #reamputation .amount,
-  #basicMobility .amount,
+  #tm_mortality .amount,
+  #tt_mortality .amount,
+  #tm_reamputation .amount,
+  #tt_reamputation .amount,
+  #tm_mobility .amount,
+  #tt_mobility .amount,
   #advancedMobility .amount {
     border-top: 1px solid #006600;
     color: black;
@@ -1246,25 +1305,34 @@ heading_font {
     font-family: Trebuchet MS;
     font-weight: bold;
     padding: 0 75px 0 0; }
-  #mortality .progress .amount,
-  #reamputation .progress .amount,
-  #basicMobility .progress .amount,
+  #tm_mortality .progress .amount,
+  #tt_mortality .progress .amount,
+  #tm_reamputation .progress .amount,
+  #tt_reamputation .progress .amount,
+  #tm_mobility .progress .amount,
+  #tt_mobility .progress .amount,
   #advancedMobility .progress .amount {
     border-top: 1px solid #006600;
     color: #006600;
     left: 0;
     padding: 0 0 0 75px;
     position: absolute; }
-  #mortality .goal,
-  #reamputation .goal,
-  #basicMobility .goal,
+  #tm_mortality .goal,
+  #tt_mortality .goal,
+  #tm_reamputation .goal,
+  #tt_reamputation .goal,
+  #tm_mobility .goal,
+  #tt_mobility .goal,
   #advancedMobility .goal {
     position: absolute;
     right: 0;
     top: 0; }
-  #mortality .average,
-  #reamputation .average,
-  #basicMobility .average,
+  #tm_mortality .average,
+  #tt_mortality .average,
+  #tm_reamputation .average,
+  #tt_reamputation .average,
+  #tm_mobility .average,
+  #tt_mobility .average,
   #advancedMobility .average {
     position: absolute;
     right: 0;

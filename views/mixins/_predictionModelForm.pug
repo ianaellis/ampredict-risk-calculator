@@ -5,17 +5,17 @@ mixin predictionModelForm(store = {})
 	form(action="/predictionModel" method="POST" class="card")
 		p.sans-seriff All parameters are required to derive an adjusted 1-year risk of mortality, reamputation, and probability of achieving basic and advanced mobility.
 		
-		label(for="amputation_level") 
-			font(size='+2') Amputation Level  
-			br
-			br
-			select(name="amputation_level", id=amputation_level, size='1')
-				option(value='')
-				option(value='1') Transmetatarsal
-				option(value='2') Transtibial
-				option(value='3') Transfemoral
+		//- label(for="amputation_level") 
+		//- 	font(size='+2') Amputation Level  
+		//- 	br
+		//- 	br
+		//- 	select(name="amputation_level", id=amputation_level, size='1')
+		//- 		option(value='')
+		//- 		option(value='1') Transmetatarsal
+		//- 		option(value='2') Transtibial
+		//- 		option(value='3') Transfemoral
 		
-		br
+		//- br
 		font(size='+2') Demographics
 
 		label(for="age") How old is the patient (years)?    
@@ -47,18 +47,28 @@ mixin predictionModelForm(store = {})
 		br
 		font(size='+2') Functional Status
 
+
+
 		label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
+
+
 			select(name="functional_status", size='1')
 				option(value='')
 				option(value='1') Independent
 				option(value='2') Partially Dependent
 				option(value='3') Totally Dependent
 			ul
-				font(size='-2.5') <b>Independent</b>: The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
+				.tooltip
+					font(size='-2.5') <b>Independent</b>
+					span.tooltiptext The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
 			ul
-				font(size='-2.5') <b>Partially dependent</b>: The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
+				.tooltip
+					font(size='-2.5') <b>Independent dependent</b>
+					span.tooltiptext The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
 			ul
-				font(size='-2.5') <b>Totally dependent</b>: The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
+				.tooltip
+					font(size='-2.5') <b>Independent dependent</b>
+					span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
 
 		br
 		font(size='+2') Comorbidities
@@ -99,9 +109,13 @@ mixin predictionModelForm(store = {})
 				option(value='1') Yes
 				option(value='0') No
 			ul
-				font(size='-2.5') <b>Rest Pain</b> defined in the 3-days preceding amputation experiencing a more severe form of ischemic pain due to occlusive disease which occurs at rest and is manifested as a severe, unrelenting pain aggravated by elevation and often preventing sleep.
+				.tooltip
+					font(size='-2.5') <b>Rest Pain</b>
+					span.tooltiptext Defined in the 3-days preceding amputation experiencing a more severe form of ischemic pain due to occlusive disease which occurs at rest and is manifested as a severe, unrelenting pain aggravated by elevation and often preventing sleep.
 			ul
-				font(size='-2.5') <b>Gangrene</b> defined as a marked skin discoloration and disruption indicative of death and decay of tissues in the extremities due to severe and prolonged ischemia.  Include patients with ischemic ulceration and/or tissue loss related to peripheral vascular disease.
+				.tooltip
+					font(size='-2.5') <b>Gangrene</b>
+					span.tooltiptext Defined as a marked skin discoloration and disruption indicative of death and decay of tissues in the extremities due to severe and prolonged ischemia.  Include patients with ischemic ulceration and/or tissue loss related to peripheral vascular disease.
 
 		
 		br
@@ -116,7 +130,7 @@ mixin predictionModelForm(store = {})
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
-		label(for="KidneyFailure") Has the patient had an eGFR value of <15 mL/min/1.73 m2 in the last 3 months (indicative of kidney failure)?“
+		label(for="KidneyFailure") Has the patient had an eGFR value of <15 mL/min/1.73 m2 in the last 3 months (indicative of kidney failure)?
 			select(name="KidneyFailure", size='1')
 				option(value='')
 				option(value='1') Yes

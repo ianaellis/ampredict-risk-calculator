@@ -29,9 +29,11 @@ function thermometer(name, goalAmount, progressAmount, animate) {
 
 $(document).ready(function () {
 
-    thermometer("#mortality");
-    thermometer("#reamputation");
-    thermometer("#basicMobility");
-    thermometer("#advancedMobility");
-   
+    thermometer("#tt_mortality");
+    thermometer("#tt_reamputation");
+    thermometer("#tt_mobility");
+    thermometer("#tm_reamputation");
+    thermometer("#tm_mortality");
+    thermometer("#tm_mobility");
+    // thermometer("#advancedMobility");
 });
