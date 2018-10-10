@@ -26,7 +26,7 @@ mixin predictionModelForm(store = {})
 				option(value='0') Female
 				option(value='1') Male
 		label(for="bmi") What is the patient's BMI (kg/m^2)?    
-			input(type='number', name='bmi', style='width: 100px;', placeholder="ex. 24.1")
+			input(type='number', name='bmi', style='width: 100px;', placeholder="ex. 15-52")
 		label(for="race") What is the patient's race?
 			select(name="race", size='1')
 				option(value='')
@@ -83,11 +83,6 @@ mixin predictionModelForm(store = {})
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
-		label(for="KidneyFailure") Has the patient had kidney failure?
-			select(name="KidneyFailure", size='1')
-				option(value='')
-				option(value='1') Yes
-				option(value='0') No
 		label(for="COPD") Does the patient have COPD?
 			select(name="COPD", size='1')
 				option(value='')
@@ -110,20 +105,30 @@ mixin predictionModelForm(store = {})
 
 		
 		br
-		font(size='+2') Laboratory Values
+		font(size='+2') Laboratory Values and Medications
 
 		label(for="blood_nitrogen") What is the patient’s most recent blood urea nitrogen (BUN) level (mg/dl)   
 			input(type='number', name='blood_nitrogen', style='width: 100px;', placeholder="1-157")
 		label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
-			input(type='float', name='platelet_count', style='width: 100px;', placeholder="ex. 150,000")
+			input(type='number', name='platelet_count', style='width: 100px;', placeholder="ex. 150000")
 		label(for="WBC") Does the patient have a white blood cell count of 11,000 or higher?
 			select(name="WBC", size='1')
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
+		label(for="KidneyFailure") Has the patient had an eGFR value of <15 mL/min/1.73 m2 in the last 3 months (indicative of kidney failure)?“
+			select(name="KidneyFailure", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
+		label(for="OutputAnticoagulants") Has the patient been on outpatient anticoagulants in the past 3 months?
+			select(name="OutputAnticoagulants", size='1')
+				option(value='')
+				option(value='1') Yes
+				option(value='0') No
 
 		br
-		font(size='+2') Health and Behavior
+		font(size='+2') Health Behaviors
 
 		label(for="Smoke") Does the patient smoke cigerattes?
 			select(name="Smoke", size='1')
@@ -135,12 +140,11 @@ mixin predictionModelForm(store = {})
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
-		label(for="OutputAnticoagulants") Is the patient currently on outpatient anticoagulants?
-			select(name="OutputAnticoagulants", size='1')
-				option(value='')
-				option(value='1') Yes
-				option(value='0') No
-		label(for="SelfRatedHealth") How does the patient rate their overall health (you need to give the patient options to select from)?
+
+		br
+		font(size='+2') Self-reported Health
+
+		label(for="SelfRatedHealth") In general, would you say your health is…? <i>(ask the patient this question and provide the options)</i>
 			select(name="SelfRatedHealth", size='1')
 				option(value='')
 				option(value='0') Very Good
@@ -148,5 +152,6 @@ mixin predictionModelForm(store = {})
 				option(value='1') Fair
 				option(value='1') Poor
 				option(value='1') Very Poor
+				
 		center 
 			input(type="submit" value="Predicted Risks" class="button" style='width: 50%;')
