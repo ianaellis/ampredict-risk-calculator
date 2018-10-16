@@ -171,7 +171,7 @@ exports.createStore = async (req, res) => {
 			func_status_calc = .95483;
 			lower_func_status_calc = .7722;
 			upper_func_status_calc = 1.1375;
-			function_string = "Tottally Dependent";
+			function_string = "Totally Dependent";
 		}
 
 		//Question 6
@@ -566,14 +566,52 @@ exports.createStore = async (req, res) => {
 		}
 
 		//Question 11 - Self Rated Health
-		if (req.body.SelfRatedHealth == 1){
-			mob_coeff_selfHealth = -0.713;
-			mob_lower_selfHealth = -1.61;
-			mob_upper_selfHealth = 0.719;
-			health_string = "Fair/Poor/Very Poor";
-		}else if (req.body.SelfRatedHealth == 0){
-			health_string == "Good/Very Good";
+		// if (req.body.SelfRatedHealth == (3 | 4 | 5){
+		// 	mob_coeff_selfHealth = -0.713;
+		// 	mob_lower_selfHealth = -1.61;
+		// 	mob_upper_selfHealth = 0.719;
+		// 	health_string = "Fair/Poor/Very Poor";
+		// }else if (req.body.SelfRatedHealth == (1 | 2)){
+		// 	health_string == "Good/Very Good";
+		// }
+
+		//Question 11 - Self Rated Health
+		switch(req.body.SelfRatedHealth)
+		{
+			case "1":
+				health_string = "Very Good";
+				break;
+
+			case "2":
+				health_string = "Good";
+				break;
+
+			case "3":
+				health_string = "Fair";
+				mob_coeff_selfHealth = -0.713;
+				mob_lower_selfHealth = -1.61;
+				mob_upper_selfHealth = 0.719;
+				break;
+
+			case "4":
+				health_string = "Poor";
+				mob_coeff_selfHealth = -0.713;
+				mob_lower_selfHealth = -1.61;
+				mob_upper_selfHealth = 0.719;
+				break;
+
+			case "5":
+				health_string = "Very Poor";
+				mob_coeff_selfHealth = -0.713;
+				mob_lower_selfHealth = -1.61;
+				mob_upper_selfHealth = 0.719;
+				break;
+
+			default:
+				health_string = "";
+				break;
 		}
+
 
 		//Moblity Final Calculations -- TM
 		var mob_logit_prob = (mob_coeff_amp_lvl_calc + mob_coeff_age + mob_coeff_bmi + mob_coeff_race + mob_coeff_marital + mob_coeff_education + mob_coeff_diabetes + mob_coeff_dialysis + mob_coeff_copd + mob_coeff_anxietyDepression + mob_coeff_selfHealth + mob_coeff_CONSTANT).toFixed(4);

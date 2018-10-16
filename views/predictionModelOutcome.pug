@@ -8,33 +8,7 @@ block content
 			.heading_frame.text-center
 				title_font Transtibial
 				br
-				heading_font Reamputation
-			.risk_frame
-				if(!tt_reamp_highProb)
-					.text-center.alert.alert-success 
-						font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
-						p 
-							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is below average. (26.0%).
-				else
-					.text-center.alert.alert-danger
-						font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
-						p
-							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is above average. (26.0%).	
-			#tt_reamputation
-				.track
-					.average(style='bottom: 1%;') 
-						font(size='-2').amount 24% Average Risk
-					.goal
-						font(size='-2').amount 100%
-					if(tt_reamp_prob > .26)
-						.progress(style='background: red none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_reamp_prob*100).toFixed(1)}%  Predicted Risk
-					else 
-						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_reamp_prob*100).toFixed(1)}% Predicted Risk
-			br
-			br
-			// MORTALITY
+				// MORTALITY
 			.heading_frame.text-center
 				heading_font Mortality
 			.risk_frame
@@ -51,7 +25,7 @@ block content
 			#tt_mortality
 				.track
 					.average(style='bottom: 0%;')
-						font(size='-2').amount 25.0% Average Risk
+						font(size='-2').amount 25% Average Risk
 					.goal
 						font(size='-2').amount 100%
 					if(tt_prob > .25)
@@ -62,22 +36,48 @@ block content
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_prob*100).toFixed(1)}% Predicted Risk
 			br
 			br
+			.heading_frame.text-center
+				heading_font Reamputation
+			.risk_frame
+				if(!tt_reamp_highProb)
+					.text-center.alert.alert-success 
+						font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
+						p 
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is below average. (24.0%).
+				else
+					.text-center.alert.alert-danger
+						font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
+						p
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is above average. (24.0%).	
+			#tt_reamputation
+				.track
+					.average(style='bottom: 1%;') 
+						font(size='-2').amount 24% Average Risk
+					.goal
+						font(size='-2').amount 100%
+					if(tt_reamp_prob > .26)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_reamp_prob*100).toFixed(1)}%  Predicted Risk
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_reamp_prob*100).toFixed(1)}% Predicted Risk
+			br
+			br
 			// MOBILITY
 			.heading_frame.text-center
 				.tooltip
 					heading_font Mobility
-					span.tooltiptext This represents the probability that you will be able to do at least the following mobility tasks without any help from another person with or without a mobility aid like a cane, walker or crutches
 			.risk_frame
 				if(tt_mob_highProb)
 					.text-center.alert.alert-success
 						font(size='+3') #{(tt_mob_prob*100).toFixed(0)}% 
 						p 
-							font(size='-1') The 1-year probability of achieving a basic level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is higher than the average (62.0%).
+							font(size='-1') The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility is higher than the average (62.0%).
 				else
 					.text-center.alert.alert-danger
 						font(size='+3') #{(tt_mob_prob*100).toFixed(0)}% 
 						p
-							font(size='-1') The 1-year probability of achieving a basic level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is lower than the average (62.0%).
+							font(size='-1') The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility is lower than the average (62.0%).
 
 			#tt_mobility
 				.track
@@ -94,38 +94,10 @@ block content
 
 		// TM TM LEFT SIDE LEFT SIDE LEFT SIDE TM TM
 		.tm_frame
-			// REAMPUTATION
+			// MORTALITY
 			.heading_frame.text-center
 				title_font Transmetatarsal
 				br
-				heading_font Reamputation
-			.risk_frame
-				if(!reamp_highProb)
-					.text-center.alert.alert-success
-						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
-						p 
-							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is below average (24.0%).
-				else
-					.text-center.alert.alert-danger
-						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
-						p
-							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is above average (24.0%).	
-			#tm_reamputation
-				.track
-					.average(style='bottom: 15%;') 
-						font(size='-2').amount 40% Average Risk
-					.goal
-						font(size='-2').amount 100%
-					if(reamp_prob > .40)
-						.progress(style='background: red none repeat scroll 0 0;')
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}%  Predicted Risk
-					else 
-						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}% Predicted Risk
-			br
-			br
-			// MORTALITY
-			.heading_frame.text-center
 				heading_font Mortality
 			.risk_frame
 				if(highProb)
@@ -141,7 +113,7 @@ block content
 			#tm_mortality
 				.track
 					.average(style='bottom: -7.0%;')
-						font(size='-2').amount 18.0% Average Risk
+						font(size='-2').amount 18% Average Risk
 					.goal
 						font(size='-2').amount 100%
 					if(prob > .18)
@@ -152,6 +124,35 @@ block content
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(1)}% Predicted Risk
 			br
 			br
+			// REAMPUTATION
+			.heading_frame.text-center
+				heading_font Reamputation
+			.risk_frame
+				if(reamp_prob < .40)
+					.text-center.alert.alert-success
+						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
+						p 
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is below average (40.0%).
+				else
+					.text-center.alert.alert-danger
+						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
+						p
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation is above average (40.0%).	
+			#tm_reamputation
+				.track
+					.average(style='bottom: 15%;') 
+						font(size='-2').amount 40% Average Risk
+					.goal
+						font(size='-2').amount 100%
+					if(reamp_prob > .40)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}%  Predicted Risk
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(1)}% Predicted Risk
+			br
+			br
+
 			// MOBILITY
 			.heading_frame.text-center
 				heading_font Mobility
@@ -160,12 +161,12 @@ block content
 					.text-center.alert.alert-success
 						font(size='+3') #{(mob_prob*100).toFixed(0)}% 
 						p 
-							font(size='-1') The 1-year probability of achieving a basic level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is higher than the average (83.0%).
+							font(size='-1') The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility is higher than the average (83.0%).
 				else
 					.text-center.alert.alert-danger
 						font(size='+3') #{(mob_prob*100).toFixed(0)}% 
 						p
-							font(size='-1') The 1-year probability of achieving a basic level of mobility after this amputation.  Based on this prediction model, this patients probable mobility is lower than the average (83.0%).
+							font(size='-1') The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility is lower than the average (83.0%).
 			#tm_mobility
 				.track
 					.average(style='bottom: 58%;')
@@ -183,7 +184,7 @@ block content
 	br
 	.table_frame
 		p.text-center 
-			strong You will need to balance this risk of mortality with the risk of failure of healing/need for reamputation as well as the probability of achieving different levels of mobility when making the decision about the most appropriate level of amputation.
+			strong You will need to balance this risk of mortality with the risk of failure of healing/need for reamputation as well as the probability of achieving at least a functional level of independent mobility when making the decision about the most appropriate level of amputation.
 		p.text-center
 		
 		table.table

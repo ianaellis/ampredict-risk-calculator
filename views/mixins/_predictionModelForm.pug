@@ -1,9 +1,9 @@
 mixin predictionModelForm(store = {})
 	p.disclaimer.sans-seriff
-		font(color='red') These risk-adjusted mortality, reamputation, and mobility estimates are recommended to be used for guidance in the overall conversation with the patient when choosing the most appropriate amputation level but not a recommendation for or against a specific amputation level.
+		font(color='red') These risk-adjusted mortality, reamputation, and mobility estimates, comparing transmetatarsal to transtibial amputation, are recommended to be used for guidance in the overall conversation with the patient when choosing the most appropriate amputation level but not a recommendation for or against a specific amputation level.
 
 	form(action="/predictionModel" method="POST" class="card")
-		p.sans-seriff All parameters are required to derive an adjusted 1-year risk of mortality, reamputation, and probability of achieving basic and advanced mobility.
+		p.sans-seriff All parameters are required to derive an adjusted 1-year risk of mortality, reamputation, and probability of achieving at least a functional level of independent mobility.
 		
 		//- label(for="amputation_level") 
 		//- 	font(size='+2') Amputation Level  
@@ -63,11 +63,11 @@ mixin predictionModelForm(store = {})
 					span.tooltiptext The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
 			ul
 				.tooltip
-					font(size='-2.5') <b>Independent dependent</b>
+					font(size='-2.5') <b>Partially Dependent</b>
 					span.tooltiptext The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
 			ul
 				.tooltip
-					font(size='-2.5') <b>Independent dependent</b>
+					font(size='-2.5') <b>Totally Dependent</b>
 					span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
 
 		br
@@ -124,7 +124,7 @@ mixin predictionModelForm(store = {})
 		label(for="blood_nitrogen") What is the patient’s most recent blood urea nitrogen (BUN) level (mg/dl)   
 			input(type='number', name='blood_nitrogen', style='width: 100px;', placeholder="1-157")
 		label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
-			input(type='number', name='platelet_count', style='width: 100px;', placeholder="ex. 150000")
+			input(type='number', name='platelet_count', style='width: 150px;', placeholder="ex. 150000")
 		label(for="WBC") Does the patient have a white blood cell count of 11,000 or higher?
 			select(name="WBC", size='1')
 				option(value='')
@@ -161,11 +161,11 @@ mixin predictionModelForm(store = {})
 		label(for="SelfRatedHealth") In general, would you say your health is…? <i>(ask the patient this question and provide the options)</i>
 			select(name="SelfRatedHealth", size='1')
 				option(value='')
-				option(value='0') Very Good
-				option(value='0') Good
-				option(value='1') Fair
-				option(value='1') Poor
-				option(value='1') Very Poor
+				option(value='1') Very Good
+				option(value='2') Good
+				option(value='3') Fair
+				option(value='4') Poor
+				option(value='5') Very Poor
 				
 		center 
 			input(type="submit" value="Predicted Risks" class="button" style='width: 50%;')
