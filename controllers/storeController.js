@@ -75,7 +75,7 @@ exports.createStore = async (req, res) => {
 
 		var amp_lvl_calc = 0; 							//Question 1 -- TM
 		var tt_amp_lvl_calc = .295483; 					//Question 1 -- TT
-		var age_calc = (req.body.age - 60)*0.04708; 	//Question 2
+		var age_calc = (req.body.age - 65)*0.04708; 	//Question 2
 		var bmi_calc = (req.body.bmi - 25)*-0.05016; 	//Question 3
 		var race_calc = 0; 								//Question 4
 		var func_status_calc = 0; 						//Question 5
