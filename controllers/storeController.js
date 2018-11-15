@@ -81,7 +81,7 @@ exports.createStore = async (req, res) => {
 		var func_status_calc = 0; 						//Question 5
 		var heart_failure_calc = 0; 					//Question 6
 		var dialysis_calc = 0;							//Question 7
-		var blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0158; // Question 8
+		var blood_nitrogen_calc = (req.body.blood_nitrogen)*0.0158; // Question 8
 		var wbc_calc = 0								//Question 9
 		var platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.7239; //Question 10
 		const constant_var = -2.1923 					//Constant formula variable
@@ -90,13 +90,13 @@ exports.createStore = async (req, res) => {
 
 		var lower_amp_lvl_calc = 0; 							//Question 1 -- TM
 		var tt_lower_amp_lvl_calc = .12677; 					//Question 1 -- TT 
-		var lower_age_calc = (req.body.age - 60)*0.04114; 		//Question 2
+		var lower_age_calc = (req.body.age - 65)*0.04114; 		//Question 2
 		var lower_bmi_calc = (req.body.bmi - 25)*-0.06102; 		//Question 3
 		var lower_race_calc = 0; 								//Question 4
 		var lower_func_status_calc = 0; 						//Question 5
 		var lower_heart_failure_calc = 0; 						//Question 6
 		var lower_dialysis_calc = 0;							//Question 7
-		var lower_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0123; // Question 8
+		var lower_blood_nitrogen_calc = (req.body.blood_nitrogen)*0.0123; // Question 8
 		var lower_wbc_calc = 0									//Question 9
 		var lower_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.291; //Question 10
 		const lower_constant_var = -2.37						//Constant formula variable
@@ -105,13 +105,13 @@ exports.createStore = async (req, res) => {
 
 		var upper_amp_lvl_calc = 0; 							//Question 1 -- TM
 		var tt_upper_amp_lvl_calc = .46419; 					//Question 1 -- TT
-		var upper_age_calc = (req.body.age - 60)*0.05302; 		//Question 2
+		var upper_age_calc = (req.body.age - 65)*0.05302; 		//Question 2
 		var upper_bmi_calc = (req.body.bmi - 25)*-0.0393; 		//Question 3
 		var upper_race_calc = 0; 								//Question 4
 		var upper_func_status_calc = 0; 						//Question 5
 		var upper_heart_failure_calc = 0; 						//Question 6
 		var upper_dialysis_calc = 0;							//Question 7
-		var upper_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.01929; // Question 8
+		var upper_blood_nitrogen_calc = (req.body.blood_nitrogen)*0.01929; // Question 8
 		var upper_wbc_calc = 0									//Question 9
 		var upper_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*2.157; //Question 10
 		const upper_constant_var = -2.014
@@ -754,7 +754,7 @@ exports.createStore = async (req, res) => {
 	    	highProb, prob, reamp_prob, tt_prob, tt_highProb, mob_prob, mob_highProb, tt_reamp_prob, tt_reamp_highProb, tt_mob_prob, tt_mob_highProb,
 	    	amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, 
 	    	platelet_string,gender_string, marital_string, education_string, diabetes_string, revascularization_string, kidney_string, copd_string, 
-	    	anxiety_string, gangrene_string, smoke_string, alcohol_string, anticoagulants_string, health_string});
+	    	anxiety_string, gangrene_string, smoke_string, alcohol_string, anticoagulants_string, health_string, platelet_calc});
 	}
 
 
