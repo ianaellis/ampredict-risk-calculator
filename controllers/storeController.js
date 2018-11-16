@@ -323,12 +323,10 @@ exports.createStore = async (req, res) => {
 			reamp_coeff_diabetes = -.454;
 			reamp_lower_diabetes = -.468;
 			reamp_upper_diabetes = -.441;
+			reamp_coeff_tm_with_diabetes = .881;
+			reamp_lower_tm_with_diabetes = .849;
+			reamp_upper_tm_with_diabetes = .913;
 			diabetes_string = "Diabetes";
-			if (req.body.amputation_level == 1){
-				reamp_coeff_tm_with_diabetes = .881;
-				reamp_lower_tm_with_diabetes = .849;
-				reamp_upper_tm_with_diabetes = .913;
-			}
 			if (req.body.Revascularization == 1){
 				reamp_coeff_diabetes_revascular = .335;
 				reamp_lower_diabetes_revascular = .320;
@@ -361,18 +359,18 @@ exports.createStore = async (req, res) => {
 		if (req.body.KidneyFailure == 1){
 			kidney_string = "Kidney Failure";
 		}
-		if (req.body.amputation_level == 1){
-			if (req.body.KidneyFailure == 1){
-				reamp_coeff_tm_kidney_failure = .836;
-				reamp_lower_tm_kidney_failure = .797;
-				reamp_upper_tm_kidney_failure = .875;
-			}
-			if (req.body.Smoke == 1){
-				reamp_coeff_tm_smoking = -.424;
-				reamp_lower_tm_smoking = -.449;
-				reamp_upper_tm_smoking = -.398;
-			}
+		
+		if (req.body.KidneyFailure == 1){
+			reamp_coeff_tm_kidney_failure = .836;
+			reamp_lower_tm_kidney_failure = .797;
+			reamp_upper_tm_kidney_failure = .875;
 		}
+		if (req.body.Smoke == 1){
+			reamp_coeff_tm_smoking = -.424;
+			reamp_lower_tm_smoking = -.449;
+			reamp_upper_tm_smoking = -.398;
+		}
+		
 		//Question 7 - COPD
 		if (req.body.COPD == 1){
 			reamp_coeff_copd = .326;
@@ -421,9 +419,9 @@ exports.createStore = async (req, res) => {
 	    }
 
 	//Final Calculations -- TT
-		var tt_reamp_logit_prob = (tt_reamp_coeff_amp_lvl_calc + reamp_coeff_gender + reamp_coeff_tm_with_diabetes + reamp_coeff_smoke + reamp_coeff_alcohol + reamp_coeff_tm_kidney_failure + reamp_coeff_copd + reamp_coeff_wbc + reamp_coeff_diabetes + reamp_coeff_diabetes_revascular + reamp_coeff_output_anticoag + reamp_coeff_rest_gangrene + reamp_coeff_tm_smoking + reamp_coeff_CONSTANT).toFixed(4);
-	    var tt_reamp_lower_logit_prob = (tt_reamp_lower_amp_lvl_calc + reamp_lower_gender + reamp_lower_tm_with_diabetes + reamp_lower_smoke + reamp_lower_alcohol + reamp_lower_tm_kidney_failure + reamp_lower_copd + reamp_lower_wbc + reamp_lower_diabetes + reamp_lower_diabetes_revascular + reamp_lower_output_anticoag + reamp_lower_rest_gangrene + reamp_lower_tm_smoking + reamp_lower_CONSTANT).toFixed(4);
-	    var tt_reamp_upper_logit_prob = (tt_reamp_upper_amp_lvl_calc + reamp_upper_gender + reamp_upper_tm_with_diabetes + reamp_upper_smoke + reamp_upper_alcohol + reamp_upper_tm_kidney_failure + reamp_upper_copd + reamp_upper_wbc + reamp_upper_diabetes + reamp_upper_diabetes_revascular + reamp_upper_output_anticoag + reamp_upper_rest_gangrene + reamp_upper_tm_smoking + reamp_upper_CONSTANT).toFixed(4);
+		var tt_reamp_logit_prob = (tt_reamp_coeff_amp_lvl_calc + reamp_coeff_gender  + reamp_coeff_smoke + reamp_coeff_alcohol + reamp_coeff_copd + reamp_coeff_wbc + reamp_coeff_diabetes + reamp_coeff_diabetes_revascular + reamp_coeff_output_anticoag + reamp_coeff_rest_gangrene + reamp_coeff_CONSTANT).toFixed(4);
+	    var tt_reamp_lower_logit_prob = (tt_reamp_lower_amp_lvl_calc + reamp_lower_gender + reamp_lower_smoke + reamp_lower_alcohol + reamp_lower_copd + reamp_lower_wbc + reamp_lower_diabetes + reamp_lower_diabetes_revascular + reamp_lower_output_anticoag + reamp_lower_rest_gangrene + reamp_lower_CONSTANT).toFixed(4);
+	    var tt_reamp_upper_logit_prob = (tt_reamp_upper_amp_lvl_calc + reamp_upper_gender + reamp_upper_smoke + reamp_upper_alcohol + reamp_upper_copd + reamp_upper_wbc + reamp_upper_diabetes + reamp_upper_diabetes_revascular + reamp_upper_output_anticoag + reamp_upper_rest_gangrene + reamp_upper_CONSTANT).toFixed(4);
 	    var tt_reamp_prob = (Math.pow(2.71828, tt_reamp_logit_prob))/(1+(Math.pow(2.71828, tt_reamp_logit_prob))).toFixed(4);
 	    var tt_reamp_lower_ci = (Math.pow(2.71828, tt_reamp_lower_logit_prob))/(1+(Math.pow(2.71828, tt_reamp_lower_logit_prob))).toFixed(4);
 	    var tt_reamp_upper_ci = (Math.pow(2.71828, tt_reamp_upper_logit_prob))/(1+(Math.pow(2.71828, tt_reamp_upper_logit_prob))).toFixed(4);
