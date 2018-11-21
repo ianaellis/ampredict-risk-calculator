@@ -67,7 +67,7 @@ block content
 			.heading_frame.text-center
 				.tooltip
 					heading_font Mobility
-					//- span.tooltiptext This represents the probability that you will be able to do at least the following mobility tasks without any help from another person with or without a mobility aid like a cane, walker or crutches.
+					span.tooltiptext This represents the probability that you will be able to do at least the following mobility tasks without any help from another person with or without a mobility aid like a cane, walker or crutches.
 			.risk_frame
 				if(tt_mob_highProb)
 					.text-center.alert.alert-success
@@ -156,7 +156,9 @@ block content
 
 			// MOBILITY
 			.heading_frame.text-center
-				heading_font Mobility
+				.tooltip
+					heading_font Mobility
+					span.tooltiptext This represents the probability that you will be able to do at least the following mobility tasks without any help from another person with or without a mobility aid like a cane, walker or crutches.
 			.risk_frame
 				if(mob_highProb)
 					.text-center.alert.alert-success
