@@ -243,7 +243,7 @@ exports.createStore = async (req, res) => {
 		//Variables
 			//Coeffs
 			var reamp_coeff_amp_lvl_calc = 0;
-			var tt_reamp_coeff_amp_lvl_calc = -.1499;
+			var tt_reamp_coeff_amp_lvl_calc = -.167;
 			var reamp_coeff_gender = 0;
 			var reamp_coeff_tm_with_diabetes = 0;
 			var reamp_coeff_smoke = 0;
@@ -256,11 +256,11 @@ exports.createStore = async (req, res) => {
 			var reamp_coeff_output_anticoag = 0;
 			var reamp_coeff_rest_gangrene = 0;
 			var reamp_coeff_tm_smoking = 0;
-			var reamp_coeff_CONSTANT = -2.280;
+			var reamp_coeff_CONSTANT = -2.293;
 
 			//Lower
 			var reamp_lower_amp_lvl_calc = 0;
-			var tt_reamp_lower_amp_lvl_calc = -.183;
+			var tt_reamp_lower_amp_lvl_calc = -.572;
 			var reamp_lower_gender = 0;
 			var reamp_lower_tm_with_diabetes = 0;
 			var reamp_lower_smoke = 0;
@@ -273,11 +273,11 @@ exports.createStore = async (req, res) => {
 			var reamp_lower_output_anticoag = 0;
 			var reamp_lower_rest_gangrene = 0;
 			var reamp_lower_tm_smoking = 0;
-			var reamp_lower_CONSTANT = -2.34;
+			var reamp_lower_CONSTANT = -3.190;
 
 			//upper
 			var reamp_upper_amp_lvl_calc = 0;
-			var tt_reamp_upper_amp_lvl_calc = -.116;
+			var tt_reamp_upper_amp_lvl_calc = .237;
 			var reamp_upper_gender = 0;
 			var reamp_upper_tm_with_diabetes = 0;
 			var reamp_upper_smoke = 0;
@@ -290,29 +290,13 @@ exports.createStore = async (req, res) => {
 			var reamp_upper_output_anticoag = 0;
 			var reamp_upper_rest_gangrene = 0;
 			var reamp_upper_tm_smoking = 0;
-			var reamp_upper_CONSTANT = -2.22;
-
-		//Question 1 - Tm/TT/TF
-		// if (req.body.amputation_level == 1){ //TM
-		// 	//Do Nothing, value remains 0
-		// 	amp_lvl_string = "Transmetatarsal";
-		// } else if (req.body.amputation_level == 2){ //TT
-		// 	reamp_coeff_amp_lvl_calc = -.1499;
-		// 	reamp_lower_amp_lvl_calc = -.183;
-		// 	reamp_upper_amp_lvl_calc = -.116;
-		// 	amp_lvl_string = "TT";
-		// } else if (req.body.amputation_level == 3){ //TF
-		// 	reamp_coeff_amp_lvl_calc = -1.474;
-		// 	reamp_lower_amp_lvl_calc = -1.51;
-		// 	reamp_upper_amp_lvl_calc = -1.44;
-		// 	amp_lvl_string = "TF";
-		// }
+			var reamp_upper_CONSTANT = -1.400;
 
 		//Question 2 - Male
 		if (req.body.Gender == 1){
-			reamp_coeff_gender = .894;
-			reamp_lower_gender = .841;
-			reamp_upper_gender = .947;
+			reamp_coeff_gender = .891;
+			reamp_lower_gender = .081;
+			reamp_upper_gender = 1.700;
 			gender_string = "Male";
 		} else if (req.body.Gender == 2){
 			gender_string = "Female";
@@ -320,26 +304,26 @@ exports.createStore = async (req, res) => {
 
 		//Question 3/9/10 - TM With Diabetes \ Diabetes \ Diabetes & Revascularization
 		if (req.body.Diabetes == 1){
-			reamp_coeff_diabetes = -.454;
-			reamp_lower_diabetes = -.468;
-			reamp_upper_diabetes = -.441;
-			reamp_coeff_tm_with_diabetes = .881;
-			reamp_lower_tm_with_diabetes = .849;
-			reamp_upper_tm_with_diabetes = .913;
+			reamp_coeff_diabetes = -.446;
+			reamp_lower_diabetes = -.637;
+			reamp_upper_diabetes = -.256;
+			reamp_coeff_tm_with_diabetes = .878;
+			reamp_lower_tm_with_diabetes = .490;
+			reamp_upper_tm_with_diabetes = 1.27;
 			diabetes_string = "Diabetes";
 			if (req.body.Revascularization == 1){
-				reamp_coeff_diabetes_revascular = .335;
-				reamp_lower_diabetes_revascular = .320;
-				reamp_upper_diabetes_revascular = .351;
+				reamp_coeff_diabetes_revascular = .329;
+				reamp_lower_diabetes_revascular = .138;
+				reamp_upper_diabetes_revascular = .520;
 				revascularization_string = "Revascularization";
 			}
 		}
 
 		//Question 4 - Smoke
 		if (req.body.Smoke == 1){
-			reamp_coeff_smoke = .316;
-			reamp_lower_smoke = .323;
-			reamp_upper_smoke = .348;
+			reamp_coeff_smoke = .367;
+			reamp_lower_smoke = .195;
+			reamp_upper_smoke = .539;
 			smoke_string = "Yes";
 		} else if (req.body.Smoke == 0){
 			smoke_string = "No";
@@ -347,9 +331,9 @@ exports.createStore = async (req, res) => {
 
 		//Question 5 - Alcohol abuse
 		if (req.body.Alcohol == 1){
-			reamp_coeff_alcohol = .316;
-			reamp_lower_alcohol = .297;
-			reamp_upper_alcohol = .334;
+			reamp_coeff_alcohol = .318;
+			reamp_lower_alcohol = .091;
+			reamp_upper_alcohol = .544;
 			alcohol_string = "Yes";
 		}else if (req.body.Alcohol == 0){
 			alcohol_string = "No";
@@ -361,36 +345,36 @@ exports.createStore = async (req, res) => {
 		}
 		
 		if (req.body.KidneyFailure == 1){
-			reamp_coeff_tm_kidney_failure = .836;
-			reamp_lower_tm_kidney_failure = .797;
-			reamp_upper_tm_kidney_failure = .875;
+			reamp_coeff_tm_kidney_failure = .818;
+			reamp_lower_tm_kidney_failure = .381;
+			reamp_upper_tm_kidney_failure = 1.26;
 		}
 		if (req.body.Smoke == 1){
-			reamp_coeff_tm_smoking = -.424;
-			reamp_lower_tm_smoking = -.449;
-			reamp_upper_tm_smoking = -.398;
+			reamp_coeff_tm_smoking = -.456;
+			reamp_lower_tm_smoking = -.764;
+			reamp_upper_tm_smoking = -.148;
 		}
 		
 		//Question 7 - COPD
 		if (req.body.COPD == 1){
-			reamp_coeff_copd = .326;
-			reamp_lower_copd = .310;
-			reamp_upper_copd = .341;
+			reamp_coeff_copd = .321;
+			reamp_lower_copd = .126;
+			reamp_upper_copd = .517;
 			copd_string = "COPD";
 		}
 
 		//Question 8 - WBC >= 11000
 		if (req.body.WBC == 1){
 			reamp_coeff_wbc = .583;
-			reamp_lower_wbc = .572;
-			reamp_upper_wbc = .593;
+			reamp_lower_wbc = .447;
+			reamp_upper_wbc = .719;
 		}
 
 		//Question 11 - Output Anticoagulants
 		if (req.body.OutputAnticoagulants == 1){
-			reamp_coeff_output_anticoag = .279;
-			reamp_lower_output_anticoag = .263;
-			reamp_upper_output_anticoag = .294;
+			reamp_coeff_output_anticoag = .280;
+			reamp_lower_output_anticoag = .082;
+			reamp_upper_output_anticoag = .478;
 			anticoagulants_string = "Yes";
 		} else if (req.body.OutputAnticoagulants == 0){
 			anticoagulants_string = "No";
@@ -398,9 +382,9 @@ exports.createStore = async (req, res) => {
 
 		//Question 12 - Rest Pain / Gangrene
 		if (req.body.RestGangrene == 1){
-			reamp_coeff_rest_gangrene = .344;
-			reamp_lower_rest_gangrene = .333;
-			reamp_upper_rest_gangrene = .356;
+			reamp_coeff_rest_gangrene = .373;
+			reamp_lower_rest_gangrene = .215;
+			reamp_upper_rest_gangrene = .530;
 			gangrene_string = "Gangrene/Rest Pain";
 		}
 
