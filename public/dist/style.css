@@ -1166,7 +1166,7 @@ pre.error {
   width: 500px;
   background-color: #555;
   color: #fff;
-  text-align: center;
+  text-align: left;
   padding: 5px 0;
   border-radius: 6px;
   /* Position the tooltip text */
