@@ -42,7 +42,7 @@ mixin predictionModelForm(store = {})
 		label(for="EducationStatus") What is the patients level of education?
 			select(name="EducationStatus", size='1')
 				option(value='')
-				option(value='1') Greater than high school (Graduated high school)
+				option(value='1') At least high school
 				option(value='0') Less than high school
 		br
 		font(size='+2') Functional Status
@@ -144,7 +144,7 @@ mixin predictionModelForm(store = {})
 		br
 		font(size='+2') Health Behaviors
 
-		label(for="Smoke") Does the patient smoke cigerattes?
+		label(for="Smoke") Is the patient currently a smoker?
 			select(name="Smoke", size='1')
 				option(value='')
 				option(value='1') Yes

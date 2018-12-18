@@ -81,7 +81,7 @@ exports.createStore = async (req, res) => {
 		var func_status_calc = 0; 						//Question 5
 		var heart_failure_calc = 0; 					//Question 6
 		var dialysis_calc = 0;							//Question 7
-		var blood_nitrogen_calc = (req.body.blood_nitrogen)*0.0158; // Question 8
+		var blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.0158; // Question 8
 		var wbc_calc = 0								//Question 9
 		var platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.7239; //Question 10
 		const constant_var = -2.1923 					//Constant formula variable
@@ -96,7 +96,7 @@ exports.createStore = async (req, res) => {
 		var lower_func_status_calc = 0; 						//Question 5
 		var lower_heart_failure_calc = 0; 						//Question 6
 		var lower_dialysis_calc = 0;							//Question 7
-		var lower_blood_nitrogen_calc = (req.body.blood_nitrogen)*0.0123; // Question 8
+		var lower_blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.0123; // Question 8
 		var lower_wbc_calc = 0									//Question 9
 		var lower_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.291; //Question 10
 		const lower_constant_var = -2.37						//Constant formula variable
@@ -111,7 +111,7 @@ exports.createStore = async (req, res) => {
 		var upper_func_status_calc = 0; 						//Question 5
 		var upper_heart_failure_calc = 0; 						//Question 6
 		var upper_dialysis_calc = 0;							//Question 7
-		var upper_blood_nitrogen_calc = (req.body.blood_nitrogen)*0.01929; // Question 8
+		var upper_blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.01929; // Question 8
 		var upper_wbc_calc = 0									//Question 9
 		var upper_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*2.157; //Question 10
 		const upper_constant_var = -2.014
