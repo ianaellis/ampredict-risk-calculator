@@ -381,12 +381,12 @@ exports.createStore = async (req, res) => {
 		}
 
 		//Question 12 - Rest Pain / Gangrene
-		if (req.body.RestGangrene == 1){
-			reamp_coeff_rest_gangrene = .373;
-			reamp_lower_rest_gangrene = .215;
-			reamp_upper_rest_gangrene = .530;
-			gangrene_string = "Gangrene/Rest Pain";
-		}
+		
+		reamp_coeff_rest_gangrene = .373;
+		reamp_lower_rest_gangrene = .215;
+		reamp_upper_rest_gangrene = .530;
+		gangrene_string = "Gangrene/Rest Pain";
+		
 
 
 	//Final Calculations -- TM

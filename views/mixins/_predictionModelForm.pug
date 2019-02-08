@@ -103,20 +103,6 @@ mixin predictionModelForm(store = {})
 				option(value='')
 				option(value='1') Yes
 				option(value='0') No
-		label(for="RestGangrene") Does the patient currently experience rest pain or do they have gangrene?
-			select(name="RestGangrene", size='1')
-				option(value='')
-				option(value='1') Yes
-				option(value='0') No
-			ul
-				.tooltip
-					font(size='-2.5') <b>Rest Pain</b>
-					span.tooltiptext Defined in the 3-days preceding amputation experiencing a more severe form of ischemic pain due to occlusive disease which occurs at rest and is manifested as a severe, unrelenting pain aggravated by elevation and often preventing sleep.
-			ul
-				.tooltip
-					font(size='-2.5') <b>Gangrene</b>
-					span.tooltiptext Defined as a marked skin discoloration and disruption indicative of death and decay of tissues in the extremities due to severe and prolonged ischemia.  Include patients with ischemic ulceration and/or tissue loss related to peripheral vascular disease.
-
 		
 		br
 		font(size='+2') Laboratory Values and Medications
