@@ -65,7 +65,7 @@ exports.createStore = async (req, res) => {
 		var kidney_string = "";
 		var copd_string = "";
 		var anxiety_string = "";
-		var gangrene_string = "";
+		var gangrene_string = "Gangrene/Rest Pain";
 
 		var bun_string = req.body.blood_nitrogen;
 		var blood_string = "";
@@ -234,9 +234,9 @@ exports.createStore = async (req, res) => {
 	    }
 
 	    var comorbid = true;
-	    if(heart_failure_string == "" & dialysis_string == ""){
-	    	comorbid = false;
-	    }
+	    // if(heart_failure_string == "" & dialysis_string == ""){
+	    // 	comorbid = false;
+	    // }
 //
 //REAMPUTATION CALCULATOR
 //
@@ -254,7 +254,7 @@ exports.createStore = async (req, res) => {
 			var reamp_coeff_diabetes = 0;
 			var reamp_coeff_diabetes_revascular = 0;
 			var reamp_coeff_output_anticoag = 0;
-			var reamp_coeff_rest_gangrene = 0;
+			var reamp_coeff_rest_gangrene = .373;
 			var reamp_coeff_tm_smoking = 0;
 			var reamp_coeff_CONSTANT = -2.293;
 
@@ -271,7 +271,7 @@ exports.createStore = async (req, res) => {
 			var reamp_lower_diabetes = 0;
 			var reamp_lower_diabetes_revascular = 0;
 			var reamp_lower_output_anticoag = 0;
-			var reamp_lower_rest_gangrene = 0;
+			var reamp_lower_rest_gangrene = .215;
 			var reamp_lower_tm_smoking = 0;
 			var reamp_lower_CONSTANT = -3.190;
 
@@ -288,9 +288,10 @@ exports.createStore = async (req, res) => {
 			var reamp_upper_diabetes = 0;
 			var reamp_upper_diabetes_revascular = 0;
 			var reamp_upper_output_anticoag = 0;
-			var reamp_upper_rest_gangrene = 0;
+			var reamp_upper_rest_gangrene = .530;
 			var reamp_upper_tm_smoking = 0;
 			var reamp_upper_CONSTANT = -1.400;
+
 
 		//Question 2 - Male
 		if (req.body.Gender == 1){
@@ -317,6 +318,10 @@ exports.createStore = async (req, res) => {
 				reamp_upper_diabetes_revascular = .520;
 				revascularization_string = "Revascularization";
 			}
+		}
+
+		if (req.body.Revascularization == 1){
+			revascularization_string = "Revascularization";
 		}
 
 		//Question 4 - Smoke
@@ -379,13 +384,8 @@ exports.createStore = async (req, res) => {
 		} else if (req.body.OutputAnticoagulants == 0){
 			anticoagulants_string = "No";
 		}
-
-		//Question 12 - Rest Pain / Gangrene
 		
-		reamp_coeff_rest_gangrene = .373;
-		reamp_lower_rest_gangrene = .215;
-		reamp_upper_rest_gangrene = .530;
-		gangrene_string = "Gangrene/Rest Pain";
+
 		
 
 
