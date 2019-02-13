@@ -24,6 +24,7 @@ exports.createStore = async (req, res) => {
 
 	//Validation Checks
 	req.checkBody('platelet_count', 'Question 10 cannot be left blank. Please fill in value for platelet count.').notEmpty();
+	// req.checkBody('age', "")
 	// req.checkBody('platelet_count', 'Question 10 cannot be left blank. Please fill in value for platelet count.').isNumber();
 	var errors = req.validationErrors();
 

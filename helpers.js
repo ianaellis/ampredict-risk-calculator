@@ -23,7 +23,7 @@ exports.title = 'Prediction Model';
 
 exports.menu = [
   { slug: '/', title: 'Home', icon: 'tag', },
-  { slug: '/predictionModel', title: 'New Patient', icon: 'store', },
+  { slug: '/predictionModel', title: 'Risk Calculator', icon: 'store', },
   // { slug: '/top', title: 'Top', icon: 'top', },
   // { slug: '/add', title: 'Add', icon: 'add', },
   // { slug: '/map', title: 'Map', icon: 'map', },
