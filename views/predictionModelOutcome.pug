@@ -238,10 +238,7 @@ block content
 					td #{function_string}
 					if comorbid
 						td 
-							if(gangrene_string != "")
-								| #{gangrene_string}
 							if(heart_failure_string != "")
-								br
 								| #{heart_failure_string}
 							if(dialysis_string != "")	
 								br
@@ -258,7 +255,6 @@ block content
 							if(anxiety_string != "")
 								br
 								| #{anxiety_string}
-								| #{platelet_calc}
 					else
 						td None
 					td
