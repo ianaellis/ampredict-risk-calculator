@@ -2,18 +2,24 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs');
 
+// const storeSchema = new mongoose.Schema({
+// 	store: {
+// 		type: String,
+// 		trim: true, //Takes tailing and opening whitespaces out
+// 	},
+// 	slug: String,
+// 	description: {
+// 		type: String,
+// 		trim: true
+// 	},
+// 	tags: [String]
+// });
+
 const storeSchema = new mongoose.Schema({
-	store: {
-		type: String,
-		trim: true, //Takes tailing and opening whitespaces out
-		required: 'Please select an amt'
-	},
-	slug: String,
-	description: {
-		type: String,
-		trim: true
-	},
-	tags: [String]
+	store: {type: String, trim: true},
+	slug: {type: String},
+	description: {type: String, trim: true},
+	tags: {type: String}
 });
 
 storeSchema.pre('save', function(next) {
