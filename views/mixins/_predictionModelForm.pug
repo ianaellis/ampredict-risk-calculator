@@ -10,26 +10,26 @@ mixin predictionModelForm(store = {})
 		label(for="age") How old is the patient (years)?    
 			input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89")
 		label(for="Gender") What is the patient's sex?
-			select(type='number', name="Gender", size='1', value=(predModel_TM ? predModel_TM.gender : ''))
+			select(type='number', name="Gender", size='1', value=(predModel_TM ? predModel_TM.gender : ''), required=true)
 				option(value='')
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.gender!='0' ? false:'selected')) Female
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.gender!='1' ? false:'selected')) Male
 		label(for="bmi") What is the patient's BMI (kg/m^2)?    
 			input(type='number', name='bmi', style='width: 100px;', value=(predModel_TM ? predModel_TM.bmi : ''), placeholder="ex. 15-52")
 		label(for="race") What is the patient's race?
-			select(name="race", size='1')
+			select(name="race", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.race!='1' ? false:'selected')) White
 				option(value='2', selected=(undefined===predModel_TM || predModel_TM.race!='2' ? false:'selected')) Black
 				option(value='3', selected=(undefined===predModel_TM || predModel_TM.race!='3' ? false:'selected')) Hispanic
 				option(value='4', selected=(undefined===predModel_TM || predModel_TM.race!='4' ? false:'selected')) Other
 		label(for="MaritalStatus") Is the patient married?
-			select(name="MaritalStatus", size='1')
+			select(name="MaritalStatus", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.marital_status!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.marital_status!='0' ? false:'selected')) No
 		label(for="EducationStatus") What is the patients level of education?
-			select(name="EducationStatus", size='1')
+			select(name="EducationStatus", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.education_status!='1' ? false:'selected')) At least high school
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.education_status!='0' ? false:'selected')) Less than high school
@@ -39,7 +39,7 @@ mixin predictionModelForm(store = {})
 		label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
 
 
-			select(name="functional_status", size='1')
+			select(name="functional_status", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.functional_status!='1' ? false:'selected')) Independent
 				option(value='2', selected=(undefined===predModel_TM || predModel_TM.functional_status!='2' ? false:'selected')) Partially Dependent
@@ -61,32 +61,32 @@ mixin predictionModelForm(store = {})
 		font(size='+2') Comorbidities
 
 		label(for="heart_failure") Has the patient ever been diagnosed with congestive heart failure?   
-			select(name="heart_failure", size='1')
+			select(name="heart_failure", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='0' ? false:'selected')) No
 		label(for="dialysis") Is the patient currently on dialysis?   
-			select(name="dialysis", size='1')
+			select(name="dialysis", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.dialysis!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.dialysis!='0' ? false:'selected')) No	
 		label(for="Diabetes") Does the patient have Diabetes?
-			select(name="Diabetes", size='1')
+			select(name="Diabetes", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.diabetes!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.diabetes!='0' ? false:'selected')) No
 		label(for="Revascularization") Does the patient have a history of a revascularization on the side of their amputation (this may include open, endo, or both)?
-			select(name="Revascularization", size='1')
+			select(name="Revascularization", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.revascularization!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.revascularization!='0' ? false:'selected')) No
 		label(for="COPD") Does the patient have COPD?
-			select(name="COPD", size='1')
+			select(name="COPD", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.copd!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.copd!='0' ? false:'selected')) No
 		label(for="AnxietyDepression") Has the patient ever been treated for Anxiety or Depression?
-			select(name="AnxietyDepression", size='1')
+			select(name="AnxietyDepression", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='0' ? false:'selected')) No
@@ -95,21 +95,21 @@ mixin predictionModelForm(store = {})
 		font(size='+2') Laboratory Values and Medications
 
 		label(for="blood_nitrogen") What is the patient’s most recent blood urea nitrogen (BUN) level (mg/dl)   
-			input(type='number', name='blood_nitrogen', style='width: 100px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157")
+			input(type='number', name='blood_nitrogen', style='width: 100px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157", required=true)
 		label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
-			input(type='number', name='platelet_count', style='width: 150px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150")
+			input(type='number', name='platelet_count', style='width: 150px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150", required=true)
 		label(for="WBC") Does the patient have a white blood cell count of 11,000 or higher?
-			select(name="WBC", size='1')
+			select(name="WBC", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.wbc!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.wbc!='0' ? false:'selected')) No
 		label(for="KidneyFailure") Has the patient had an eGFR value of <15 mL/min/1.73 m2 in the last 3 months (indicative of kidney failure)?
-			select(name="KidneyFailure", size='1')
+			select(name="KidneyFailure", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.egfr!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.egfr!='0' ? false:'selected')) No
 		label(for="OutputAnticoagulants") Has the patient been on outpatient anticoagulants in the past 3 months?
-			select(name="OutputAnticoagulants", size='1')
+			select(name="OutputAnticoagulants", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.out_anti!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.out_anti!='0' ? false:'selected')) No
@@ -118,12 +118,12 @@ mixin predictionModelForm(store = {})
 		font(size='+2') Health Behaviors
 
 		label(for="Smoke") Is the patient currently a smoker?
-			select(name="Smoke", size='1')
+			select(name="Smoke", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.smoke!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.smoke!='0' ? false:'selected')) No
 		label(for="Alcohol") Does the patient report drinking >2 drinks/day in last 2 weeks?
-			select(name="Alcohol", size='1')
+			select(name="Alcohol", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.alcohol!='1' ? false:'selected')) Yes
 				option(value='0', selected=(undefined===predModel_TM || predModel_TM.alcohol!='0' ? false:'selected')) No
@@ -132,7 +132,7 @@ mixin predictionModelForm(store = {})
 		font(size='+2') Self-reported Health
 
 		label(for="SelfRatedHealth") In general, would you say your health is…? <i>(ask the patient this question and provide the options)</i>
-			select(name="SelfRatedHealth", size='1')
+			select(name="SelfRatedHealth", size='1', required=true)
 				option(value='')
 				option(value='1', selected=(undefined===predModel_TM || predModel_TM.srh!='1' ? false:'selected')) Very Good
 				option(value='2', selected=(undefined===predModel_TM || predModel_TM.srh!='2' ? false:'selected')) Good
