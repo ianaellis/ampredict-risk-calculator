@@ -23,8 +23,10 @@ exports.store_create_post = [
 	
 	//Validation 
 	body('age', 'Please enter a value for age').not().isEmpty(),
+	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 10, max: 100}),
 	body('Gender', 'Please select an option for gender').not().isEmpty(),
 	body('bmi', 'Please enter a value for bmi').not().isEmpty(),
+	body('bmi', 'Please provide a number for bmi that is between 10 and 60').isInt({min: 10, max: 60}),
 	body('race', 'Please select an option for race').not().isEmpty(),
 	body('MaritalStatus', 'Please select an option for marital status').not().isEmpty(),
 	body('EducationStatus', 'Please select an option for education status').not().isEmpty(),
@@ -36,7 +38,9 @@ exports.store_create_post = [
 	body('COPD', 'Please select an option for COPD').not().isEmpty(),
 	body('AnxietyDepression', 'Please select an option for anxiety/depression').not().isEmpty(),
 	body('blood_nitrogen', 'Please enter a value for BUN').not().isEmpty(),
+	body('blood_nitrogen', 'Please enter a value for BUN that is between 1 and 157').isInt({min: 1, max: 157}),
 	body('platelet_count', 'Please enter a value for platelet count').not().isEmpty(),
+	body('platelet_count', 'Please enter a non-negative number for platelet count').isInt({min: 1 }),
 	body('WBC', 'Please select an option for white blood cell count').not().isEmpty(),
 	body('KidneyFailure', 'Please select an option for eGFR value').not().isEmpty(),
 	body('OutputAnticoagulants', 'Please select an option for outpatient anticoagulants').not().isEmpty(),

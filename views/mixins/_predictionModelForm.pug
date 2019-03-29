@@ -8,7 +8,7 @@ mixin predictionModelForm(store = {})
 		font(size='+2') Demographics
 
 		label(for="age") How old is the patient (years)?    
-			input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89")
+			input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", range=1 to 100)
 		label(for="Gender") What is the patient's sex?
 			select(type='number', name="Gender", size='1', value=(predModel_TM ? predModel_TM.gender : ''), required=true)
 				option(value='')
