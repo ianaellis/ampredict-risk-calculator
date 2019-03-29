@@ -26,7 +26,7 @@ exports.store_create_post = [
 	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 10, max: 100}),
 	body('Gender', 'Please select an option for gender').not().isEmpty(),
 	body('bmi', 'Please enter a value for bmi').not().isEmpty(),
-	body('bmi', 'Please provide a number for bmi that is between 10 and 60').isInt({min: 10, max: 60}),
+	body('bmi', 'Please provide a number for bmi that is between 5 and 60').isInt({min: 5, max: 60}),
 	body('race', 'Please select an option for race').not().isEmpty(),
 	body('MaritalStatus', 'Please select an option for marital status').not().isEmpty(),
 	body('EducationStatus', 'Please select an option for education status').not().isEmpty(),
