@@ -4,16 +4,15 @@ block content
 	.results_all
 		// MORTALITY
 		.heading_frame
-			.output_title_center
-				category_font
-					strong Transtibial
+			.output_title_left
+				heading_font Transtibial
 			.output_title_right
-				category_font
-					strong Transmetatarsal
-		br
-		#mortality_frame
+				heading_font Transmetatarsal
+		.heading_frame
+			category_font
+				center Mortality
 			hr
-			heading_font Mortality
+		#mortality_frame
 			#tt_mortality_frame
 				.risk_frame
 					.text-center.alert.alert-success
@@ -53,13 +52,12 @@ block content
 							font(size='-2').amount 100%
 						.progress
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
-
-
-		#reamputation_frame
-			hr
+		.heading_frame.text-center
 			.tooltip
 				heading_font Reamputation
 				span.tooltiptext Any additional surgery on the amputate limb included soft tissue revision, bony revision at the same level, or conversion to the next level.
+			hr
+		#reamputation_frame
 			#tt_reamputation_frame
 				.risk_frame
 					.text-center.alert.alert-success 
@@ -74,7 +72,7 @@ block content
 				#tt_reamputation
 					.track
 						.average(style='bottom: 1%;') 
-							font(size='-2').amount 26% Average Risk
+							font(size='-2').amount 24% Average Risk
 						.goal
 							font(size='-2').amount 100%
 						.progress
@@ -98,9 +96,7 @@ block content
 							font(size='-2').amount 100%
 						.progress
 							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
-
-		#mobility_frame
-			hr
+		.heading_frame.text-center
 			.tooltip
 				heading_font Functional Mobility
 				span.tooltiptext This represents the probability that you will be able to achieve this level of mobility with or without a mobility aid such as a cane, crutch or walker but there would be no need for physical assistance from someone to be able to perform these tasks.
@@ -112,6 +108,8 @@ block content
 						li Go downstairs with a handrail
 						li Step up a sidewalk curb
 						li Step down a sidewalk curb
+			hr
+		#mobility_frame
 			#tt_mobility_frame
 				.risk_frame
 					if(tt_mob_highProb)

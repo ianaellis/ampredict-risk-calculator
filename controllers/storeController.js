@@ -10,6 +10,10 @@ exports.homePage = (req, res) => {
 	res.render('index');
 };
 
+exports.about = (req, res) => {
+	res.render('about');
+};
+
 exports.outcome = (req, res) => {
 	res.render('outcome');
 };
@@ -25,8 +29,6 @@ exports.store_create_post = [
 	body('age', 'Please enter a value for age').not().isEmpty(),
 	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 10, max: 100}),
 	body('Gender', 'Please select an option for gender').not().isEmpty(),
-	body('bmi', 'Please enter a value for bmi').not().isEmpty(),
-	body('bmi', 'Please provide a number for bmi that is between 5 and 60').isInt({min: 5, max: 60}),
 	body('race', 'Please select an option for race').not().isEmpty(),
 	body('MaritalStatus', 'Please select an option for marital status').not().isEmpty(),
 	body('EducationStatus', 'Please select an option for education status').not().isEmpty(),
@@ -47,12 +49,15 @@ exports.store_create_post = [
 	body('Smoke', 'Please select an option for patient reported smoking').not().isEmpty(),
 	body('Alcohol', 'Please select an option for patient reported drinking').not().isEmpty(),
 	body('SelfRatedHealth', 'Please select an option for self rated health').not().isEmpty(),
+	body('Height', 'Please enter a value for height').not().isEmpty(),
+	body('Weight', 'Please enter a weight').not().isEmpty(),
 
 
 	sanitizeBody('age').trim().escape(),
-	sanitizeBody('bmi').trim().escape(),
 	sanitizeBody('blood_nitrogen').trim().escape(),
 	sanitizeBody('platelet_count').trim().escape(),
+	sanitizeBody('Height').trim().escape(),
+	sanitizeBody('Weight').trim().escape(),
 
 	(req, res, next) => {
 		//Extract the validation errors from a request.
@@ -63,7 +68,8 @@ exports.store_create_post = [
 			amputation_level: 1, 
 			age: req.body.age, 
 			gender: req.body.Gender,
-			bmi: req.body.bmi, 
+			height: req.body.Height, 
+			weight: req.body.Weight, 
 			race: req.body.race, 
 			marital_status: req.body.MaritalStatus,
 			education_status: req.body.EducationStatus,
@@ -98,11 +104,15 @@ exports.store_create_post = [
 	//
 	//MORTALITY CALCULATOR
 	//
+		// Calculated variables
+			var weight = req.body.Weight;
+			var height = req.body.Height;
+			var bmi = (weight/height/height)*703;
 		// Variable strings
 			var amp_lvl_string = "";
 			var age_string = req.body.age;
 			var gender_string = "";
-			var bmi_string = req.body.bmi;
+			var bmi_string = Math.round(bmi);
 			var race_string = "";
 			var marital_string = "";
 			var education_string = "";
@@ -129,7 +139,7 @@ exports.store_create_post = [
 			var amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_amp_lvl_calc = .295483; 					//Question 1 -- TT
 			var age_calc = (req.body.age - 65)*0.04708; 	//Question 2
-			var bmi_calc = (req.body.bmi - 25)*-0.05016; 	//Question 3
+			var bmi_calc = (bmi - 25)*-0.05016; 	//Question 3
 			var race_calc = 0; 								//Question 4
 			var func_status_calc = 0; 						//Question 5
 			var heart_failure_calc = 0; 					//Question 6
@@ -144,7 +154,7 @@ exports.store_create_post = [
 			var lower_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_lower_amp_lvl_calc = .12677; 					//Question 1 -- TT 
 			var lower_age_calc = (req.body.age - 65)*0.04114; 		//Question 2
-			var lower_bmi_calc = (req.body.bmi - 25)*-0.06102; 		//Question 3
+			var lower_bmi_calc = (bmi - 25)*-0.06102; 		//Question 3
 			var lower_race_calc = 0; 								//Question 4
 			var lower_func_status_calc = 0; 						//Question 5
 			var lower_heart_failure_calc = 0; 						//Question 6
@@ -159,7 +169,7 @@ exports.store_create_post = [
 			var upper_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_upper_amp_lvl_calc = .46419; 					//Question 1 -- TT
 			var upper_age_calc = (req.body.age - 65)*0.05302; 		//Question 2
-			var upper_bmi_calc = (req.body.bmi - 25)*-0.0393; 		//Question 3
+			var upper_bmi_calc = (bmi - 25)*-0.0393; 		//Question 3
 			var upper_race_calc = 0; 								//Question 4
 			var upper_func_status_calc = 0; 						//Question 5
 			var upper_heart_failure_calc = 0; 						//Question 6
@@ -479,7 +489,7 @@ exports.store_create_post = [
 			var mob_coeff_amp_lvl_calc = 0;
 			var tt_mob_coeff_amp_lvl_calc = -1.12;
 			var mob_coeff_age = (req.body.age - 60)*(-0.125);
-			var mob_coeff_bmi = (req.body.bmi - 30)*(-0.008); 
+			var mob_coeff_bmi = (bmi - 30)*(-0.008); 
 			var mob_coeff_race = 0;
 			var mob_coeff_marital = 0;
 			var mob_coeff_education = 0;
@@ -494,7 +504,7 @@ exports.store_create_post = [
 			var mob_lower_amp_lvl_calc = 0;
 			var tt_mob_lower_amp_lvl_calc = -2.19;
 			var mob_lower_age = (req.body.age - 60)*(-.187);
-			var mob_lower_bmi = (req.body.bmi - 30)*(-0.1087); 
+			var mob_lower_bmi = (bmi - 30)*(-0.1087); 
 			var mob_lower_race = 0;
 			var mob_lower_marital = 0;
 			var mob_lower_education = 0;
@@ -509,7 +519,7 @@ exports.store_create_post = [
 			var mob_upper_amp_lvl_calc = 0;
 			var tt_mob_upper_amp_lvl_calc = -0.054;
 			var mob_upper_age = (req.body.age - 60)*(-0.063);
-			var mob_upper_bmi = (req.body.bmi - 30)*(-0.0175); 
+			var mob_upper_bmi = (bmi - 30)*(-0.0175); 
 			var mob_upper_race = 0;
 			var mob_upper_marital = 0;
 			var mob_upper_education = 0;
@@ -682,7 +692,7 @@ exports.store_create_post = [
 			//Coeffs
 			var aMob_coeff_amp_lvl_calc = 0;
 			var aMob_coeff_age = (req.body.age - 60)*(-0.138);
-			var aMob_coeff_bmi = (req.body.bmi - 30)*(-0.064); 
+			var aMob_coeff_bmi = (bmi - 30)*(-0.064); 
 			var aMob_coeff_race = 0;
 			var aMob_coeff_marital = 0;
 			var aMob_coeff_dialysis = 0;
@@ -693,7 +703,7 @@ exports.store_create_post = [
 			//Lower
 			var aMob_lower_amp_lvl_calc = 0;
 			var aMob_lower_age = (req.body.age - 60)*(-0.205);
-			var aMob_lower_bmi = (req.body.bmi - 30)*(-0.125); 
+			var aMob_lower_bmi = (bmi - 30)*(-0.125); 
 			var aMob_lower_race = 0;
 			var aMob_lower_marital = 0;
 			var aMob_lower_dialysis = 0;
@@ -704,7 +714,7 @@ exports.store_create_post = [
 			//upper
 			var aMob_upper_amp_lvl_calc = 0;
 			var aMob_upper_age = (req.body.age - 60)*(-0.071);
-			var aMob_upper_bmi = (req.body.bmi - 30)*(-0.003); 
+			var aMob_upper_bmi = (bmi - 30)*(-0.003); 
 			var aMob_upper_race = 0;
 			var aMob_upper_marital = 0;
 			var aMob_upper_dialysis = 0;
@@ -785,7 +795,7 @@ exports.store_create_post = [
 		    }
 
 		    res.render('predictionModelOutcome', {
-		    	comorbid,
+		    	comorbid, weight, height,
 		    	highProb, prob, reamp_prob, tt_prob, tt_highProb, mob_prob, mob_highProb, tt_reamp_prob, tt_reamp_highProb, tt_mob_prob, tt_mob_highProb,
 		    	amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, 
 		    	platelet_string,gender_string, marital_string, education_string, diabetes_string, revascularization_string, kidney_string, copd_string, 

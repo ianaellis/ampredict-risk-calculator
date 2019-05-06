@@ -1,144 +1,198 @@
 mixin predictionModelForm(store = {})
-	p.disclaimer.sans-seriff
-		font(color='red') These risk-adjusted mortality, reamputation, and mobility estimates, comparing transmetatarsal to transtibial amputation, are recommended to be used for guidance in the overall conversation with the patient when choosing the most appropriate amputation level but not a recommendation for or against a specific amputation level.
+	form(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
+		.form_section
+			center
+				h2 #{title}
+			p.calibri <i>All parameters are required.</i>
+			font(size='+2')
+				center Demographics
+				hr
+			label(for="age") Age:    
+				input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", required=true)
 
-	form(action="/predictionModel" method="POST" class="card")
-		p.sans-seriff All parameters are required to derive an adjusted 1-year risk of mortality, reamputation, and probability of achieving at least a functional level of independent mobility.
+			label(for="Gender") Gender:
+				.radio_align
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.gender!='0' ? false:'selected'), name='Gender', required=true)
+					|  Female
+					br
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.gender!='1' ? false:'selected'), name='Gender', required=true)
+					|  Male
+			label(for="race") Race: 
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.race!='1' ? false:'selected'), name='race', required=true)
+					|  White
+					br
+					input(type='radio', value='2', selected=(undefined===predModel_TM || predModel_TM.race!='2' ? false:'selected'), name='race', required=true)
+					|  Black
+					br
+					input(type='radio', value='3', selected=(undefined===predModel_TM || predModel_TM.race!='3' ? false:'selected'), name='race', required=true)
+					|  Hispanic
+					br
+					input(type='radio', value='4', selected=(undefined===predModel_TM || predModel_TM.race!='4' ? false:'selected'), name='race', required=true)
+					|  Other	
+			label(for="MaritalStatus") Married:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.marital_status!='1' ? false:'selected'), name='MaritalStatus', required=true)
+					|  Yes
+					br 
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.marital_status!='0' ? false:'selected'), name='MaritalStatus', required=true)
+					|  No 
+			label(for="EducationStatus") Education Level:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.education_statusr!='1' ? false:'selected'), name='EducationStatus', required=true) 
+					|  At least high school
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.education_status!='0' ? false:'selected'), name='EducationStatus', required=true)
+					|  Less than high school 
+			
+			br
 
-		font(size='+2') Demographics
+		.form_section
+			font(size='+2') 
+				center Comorbidities
+				hr
 
-		label(for="age") How old is the patient (years)?    
-			input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", required=true)
-		label(for="Gender") What is the patient's sex?
-			select(type='number', name="Gender", size='1', value=(predModel_TM ? predModel_TM.gender : ''), required=true)
-				option(value='')
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.gender!='0' ? false:'selected')) Female
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.gender!='1' ? false:'selected')) Male
-		label(for="bmi") What is the patient's BMI (kg/m^2)?    
-			input(type='number', name='bmi', style='width: 100px;', value=(predModel_TM ? predModel_TM.bmi : ''), placeholder="ex. 15-52")
-		label(for="race") What is the patient's race?
-			select(name="race", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.race!='1' ? false:'selected')) White
-				option(value='2', selected=(undefined===predModel_TM || predModel_TM.race!='2' ? false:'selected')) Black
-				option(value='3', selected=(undefined===predModel_TM || predModel_TM.race!='3' ? false:'selected')) Hispanic
-				option(value='4', selected=(undefined===predModel_TM || predModel_TM.race!='4' ? false:'selected')) Other
-		label(for="MaritalStatus") Is the patient married?
-			select(name="MaritalStatus", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.marital_status!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.marital_status!='0' ? false:'selected')) No
-		label(for="EducationStatus") What is the patients level of education?
-			select(name="EducationStatus", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.education_status!='1' ? false:'selected')) At least high school
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.education_status!='0' ? false:'selected')) Less than high school
-		br
-		
-		font(size='+2') Functional Status
-		label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
+			label(for="heart_failure") Diagnosis of congestive heart failure: 
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='1' ? false:'selected'), name='heart_failure', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='0' ? false:'selected'), name='heart_failure', required=true)
+					|  No
+			label(for="dialysis") Currently on dialysis:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.dialysis!='1' ? false:'selected'), name='dialysis', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.dialysise!='0' ? false:'selected'), name='dialysis', required=true)
+					|  No
+			label(for="Diabetes") Diagnosis of diabetes:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.diabetes!='1' ? false:'selected'), name='Diabetes', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.diabetes!='0' ? false:'selected'), name='Diabetes', required=true)
+					|  No	
+			label(for="Revascularization") History of a revascularization (open, endo, or both):
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.revascularization!='1' ? false:'selected'), name='Revascularization', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.revascularization!='0' ? false:'selected'), name='Revascularization', required=true)
+					|  No
+			label(for="COPD") Diagnosis of COPD:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.copd!='1' ? false:'selected'), name='COPD', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.copd!='0' ? false:'selected'), name='COPD', required=true)
+					|  No
+			label(for="AnxietyDepression") History of treatment for depression:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='1' ? false:'selected'), name='AnxietyDepression', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='0' ? false:'selected'), name='AnxietyDepression', required=true)
+					|  No
+			br
+		.form_section
+			font(size='+2') 
+				center Laboratory Values and Medications
+				hr
+
+			.lab_number_box_align
+				label(for="blood_nitrogen") Recent BUN level (mg/dl):
+					input(type='number', name='blood_nitrogen', style='width: 100px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157", required=true)
+				label(for="platelet_count") Most recent platelet count (per mL):
+					input(type='number', name='platelet_count', style='width: 100px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150", required=true)
+			label(for="WBC") White blood cell count of  >= 11,000:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.wbc!='1' ? false:'selected'), name='WBC', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.wbc!='0' ? false:'selected'), name='WBC', required=true)
+					|  No
+			label(for="KidneyFailure") eGFR value of <15 in the last 3 months:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.egfr!='1' ? false:'selected'), name='KidneyFailure', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.egfr!='0' ? false:'selected'), name='KidneyFailure', required=true)
+					|  No
+
+			label(for="OutputAnticoagulants") Outpatient Anticoagulants in the past 3 months:
+				.radio_align
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.out_anti!='1' ? false:'selected'), name='OutputAnticoagulants', required=true) 
+					|  Yes
+					br
+					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.out_anti!='0' ? false:'selected'), name='OutputAnticoagulants', required=true)
+					|  No
 
 
-			select(name="functional_status", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.functional_status!='1' ? false:'selected')) Independent
-				option(value='2', selected=(undefined===predModel_TM || predModel_TM.functional_status!='2' ? false:'selected')) Partially Dependent
-				option(value='3', selected=(undefined===predModel_TM || predModel_TM.functional_status!='3' ? false:'selected')) Totally Dependent
-			ul
-				.tooltip
-					font(size='-2.5') <b>Independent</b>
-					span.tooltiptext The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
-			ul
-				.tooltip
-					font(size='-2.5') <b>Partially Dependent</b>
-					span.tooltiptext The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
-			ul
-				.tooltip
-					font(size='-2.5') <b>Totally Dependent</b>
-					span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
+			br
+		.form_section
+			font(size='+2') 
+				center Health Factors
+				hr
+			.bmi_align
+				label(for="Height") Height:
+					input(type='number', name='Height', style='width: 100px;', value=(predModel_TM ? predModel_TM.height : ''), placeholder="inches", required=true)
+				label(for="Weight") Weight:
+					input(type='number', name='Weight', style='width: 100px;', value=(predModel_TM ? predModel_TM.weight : ''), placeholder="lbs", required=true)
 
-		br
-		font(size='+2') Comorbidities
+			label(for="Smoke") Is the patient currently a smoker?
+				.radio_align
+						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.smoke!='1' ? false:'selected'), name='Smoke', required=true) 
+						|  Yes
+						br
+						input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.smoke!='0' ? false:'selected'), name='Smoke', required=true)
+						|  No
+			label(for="Alcohol") Does the patient report drinking >2 drinks/day in last 2 weeks?
+				.radio_align
+						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.alcohol!='1' ? false:'selected'), name='Alcohol', required=true) 
+						|  Yes
+						br
+						input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.alcohol!='0' ? false:'selected'), name='Alcohol', required=true)
+						|  No
+			br
+			font(size='+1') 
+				center Patient Reported
+				hr
 
-		label(for="heart_failure") Has the patient ever been diagnosed with congestive heart failure?   
-			select(name="heart_failure", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='0' ? false:'selected')) No
-		label(for="dialysis") Is the patient currently on dialysis?   
-			select(name="dialysis", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.dialysis!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.dialysis!='0' ? false:'selected')) No	
-		label(for="Diabetes") Does the patient have Diabetes?
-			select(name="Diabetes", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.diabetes!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.diabetes!='0' ? false:'selected')) No
-		label(for="Revascularization") Does the patient have a history of a revascularization on the side of their amputation (this may include open, endo, or both)?
-			select(name="Revascularization", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.revascularization!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.revascularization!='0' ? false:'selected')) No
-		label(for="COPD") Does the patient have COPD?
-			select(name="COPD", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.copd!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.copd!='0' ? false:'selected')) No
-		label(for="AnxietyDepression") Has the patient ever been treated for Anxiety or Depression?
-			select(name="AnxietyDepression", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='0' ? false:'selected')) No
-		
-		br
-		font(size='+2') Laboratory Values and Medications
+			label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
+				.radio_align_functional_status
+					.tooltip
+						br
+						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.functional_status!='1' ? false:'selected'), name='functional_status', required=true)
+						|  Independent
+						span.tooltiptext The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
+					.tooltip(style="padding-left:2em;")
+						input(type='radio', value='2', selected=(undefined===predModel_TM || predModel_TM.functional_status!='2' ? false:'selected'), name='functional_status', required=true)
+						|  Partially Dependent
+						span.tooltiptext The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
+					.tooltip(style="padding-left:2em;")
+						input(type='radio', value='3', selected=(undefined===predModel_TM || predModel_TM.functional_status!='3' ? false:'selected'), name='functional_status', required=true)
+						|  Totally Dependent
+						span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
 
-		label(for="blood_nitrogen") What is the patient’s most recent blood urea nitrogen (BUN) level (mg/dl)   
-			input(type='number', name='blood_nitrogen', style='width: 100px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157", required=true)
-		label(for="platelet_count") What is the patient's most recent platelet count (per mL)?   
-			input(type='number', name='platelet_count', style='width: 150px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150", required=true)
-		label(for="WBC") Does the patient have a white blood cell count of 11,000 or higher?
-			select(name="WBC", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.wbc!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.wbc!='0' ? false:'selected')) No
-		label(for="KidneyFailure") Has the patient had an eGFR value of <15 mL/min/1.73 m2 in the last 3 months (indicative of kidney failure)?
-			select(name="KidneyFailure", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.egfr!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.egfr!='0' ? false:'selected')) No
-		label(for="OutputAnticoagulants") Has the patient been on outpatient anticoagulants in the past 3 months?
-			select(name="OutputAnticoagulants", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.out_anti!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.out_anti!='0' ? false:'selected')) No
+			label(for="SelfRatedHealth") In general, would you say your health is…? <i>(ask the patient this question and provide the options)</i>
+				.radio_align
+						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.srh!='1' ? false:'selected'), name='SelfRatedHealth', required=true) 
+						|  Very Good
+						br
+						input(type='radio', value='2', selected=(undefined===predModel_TM || predModel_TM.srh!='2' ? false:'selected'), name='SelfRatedHealth', required=true)
+						|  Good
+						br
+						input(type='radio', value='3', selected=(undefined===predModel_TM || predModel_TM.srh!='3' ? false:'selected'), name='SelfRatedHealth', required=true)
+						|  Fair
+						br
+						input(type='radio', value='4', selected=(undefined===predModel_TM || predModel_TM.srh!='4' ? false:'selected'), name='SelfRatedHealth', required=true)
+						|  Poor
+						br
+						input(type='radio', value='5', selected=(undefined===predModel_TM || predModel_TM.srh!='5' ? false:'selected'), name='SelfRatedHealth', required=true)
+						|  Very Poor
+			
 
-		br
-		font(size='+2') Health Behaviors
 
-		label(for="Smoke") Is the patient currently a smoker?
-			select(name="Smoke", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.smoke!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.smoke!='0' ? false:'selected')) No
-		label(for="Alcohol") Does the patient report drinking >2 drinks/day in last 2 weeks?
-			select(name="Alcohol", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.alcohol!='1' ? false:'selected')) Yes
-				option(value='0', selected=(undefined===predModel_TM || predModel_TM.alcohol!='0' ? false:'selected')) No
-
-		br
-		font(size='+2') Self-reported Health
-
-		label(for="SelfRatedHealth") In general, would you say your health is…? <i>(ask the patient this question and provide the options)</i>
-			select(name="SelfRatedHealth", size='1', required=true)
-				option(value='')
-				option(value='1', selected=(undefined===predModel_TM || predModel_TM.srh!='1' ? false:'selected')) Very Good
-				option(value='2', selected=(undefined===predModel_TM || predModel_TM.srh!='2' ? false:'selected')) Good
-				option(value='3', selected=(undefined===predModel_TM || predModel_TM.srh!='3' ? false:'selected')) Fair
-				option(value='4', selected=(undefined===predModel_TM || predModel_TM.srh!='4' ? false:'selected')) Poor
-				option(value='5', selected=(undefined===predModel_TM || predModel_TM.srh!='5' ? false:'selected')) Very Poor
-				
 		center 
 			input(type="submit" value="Predicted Risks" class="button" style='width: 50%;')

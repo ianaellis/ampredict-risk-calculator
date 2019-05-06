@@ -1,0 +1,67 @@
+extends layout
+
+block content
+	.text_pages
+		h1
+			center About this tool
+		p.calibri The AMPREDICT Risk Calculator was designed to inform health professionals and their patients about important outcomes as they consider how to choose an amputation level that will best meet their patients’ values and priorities.  The Risk Calculator will specifically inform the outcomes of probable mortality, need for reamputation, and achieving a functional mobility level at one-year post amputation. 
+		p.calibri It is recommended that the first step to consider is the patients probable one-year mortality.  The patients’ mortality risk in the following year may affect their perspective as they balance their risk of reamputation with their anticipated functional mobility level with each amputation level. The goal is to determine the most appropriate level of amputation for each individual patient to best ensure that their outcomes will be in concordance with their values.
+		p.calibri
+			i If you are not a health professional, you are encouraged to discuss the results with your health care provider.
+		p.calibri
+			strong 
+				font(size='+2') AMPREDICT Development and Validation
+		p.calibri AMPREDICT prediction models, which inform the AMPREDICT Risk Calculator, were developed in a national sample of over 7,000 veterans undergoing their first major (Transmetatarsal, Transtibial, or Transfemoral) dysvascular lower extremity amputation.  The details of the development and validation studies of the mortality, reamputation, and mobility models were published in peer-reviewed scientific journals 
+			a(href="https://www.ncbi.nlm.nih.gov/pubmed/?term=ampredict+mobility")  (Link to references).
+		p.calibri The calculator is only applicable to veteran amputees that:
+		ul.calibri
+			li Are 40 years old or older
+			li Have not had a previous amputation at or above the transmetatarsal amputation level
+			li Require their amputation because of diabetes and/or peripheral arterial disease
+		p.calibri
+			strong
+				font(size='+2') Input Predictors
+			p.calibri One-year risk calculations for mortality, reamputation, and probability of achieving functional mobility are based on 21 factors that are relatively easy to obtain from the patient or the medical record. All 21 factors must be input into the calculator to obtain a risk for all 3 outcomes.
+
+		table.table
+			tbody
+				tr
+					th Demographics
+					td Age
+					td Sex
+					td BMI
+					td Race
+					td Marital status
+					td Highest education level
+					td Functional status
+			tbody
+				tr
+					th Comorbidities
+					td CHF
+					td Diabetes
+					td COPD
+					td Anxiety or depression
+					td Prior revascularization
+					td Currently on dialysis
+			tbody
+				tr
+					th Labs and Meds
+					td BUN level
+					td Platelet count
+					td WBC count
+					td eGFR value
+					td Outpatient anticoagulants
+			tbody
+				tr
+					th Health Behaviors
+					td Current smoker
+					td Current alcohol misuse
+					td Self rated health
+
+		p.calibri
+			i
+				strong
+					font(size='-1') ***Please note the risk percentages provided to you by the AMPREDICT Risk Calculator are only estimates. The risk estimates only take certain information into account. There may be other factors that are not included in the estimates which may increase or decrease the presented risks. These estimates are not a guarantee of results. A patient may die or experience a reamputation even if the risk is low. This information is not intended to replace the advice of a doctor or healthcare provider about the decision to perform an amputation, the most appropriate amputation level, or potential outcomes.
+
+		div 
+			i Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>

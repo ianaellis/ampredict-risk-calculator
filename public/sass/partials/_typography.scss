@@ -7,6 +7,12 @@
 
 }
 
+table_desc {
+  font-family: Calibri;
+  line-height: 1.2rem;
+  font-size: 1.6rem;
+}
+
 html {
   font-size:10px;
 }
@@ -17,7 +23,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, {
-  font-size: 5rem;
+  font-size: 4rem;
   font-family: 'Panama';
   font-weight: 600;
   letter-spacing:-1px;
@@ -25,15 +31,13 @@ h1, h2, h3, h4, h5, h6, {
 
 a {
   text-decoration: none;
-  color:$black;
+  color: #42a1f4;
 }
 
-p a {
-  border-bottom: 2px solid $yellow;
-}
 
 p {
-  line-height: 2;
+  font-family: Calibri;
+  line-height: 1.2;
   font-size: 1.6rem;
 }
 
@@ -75,4 +79,26 @@ p {
   margin-top: -9rem;
   font-size: 10rem;
   text-align: center;
+}
+
+heading_font{
+  font-size: 3rem;
+  font-family: 'Calbri';
+  font-weight: 300;
+  letter-spacing:-1px;
+}
+category_font{
+  font-size: 3rem;
+  font-family: Calibri;
+  font-weight: 300;
+  letter-spacing:-1px;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.calibri {
+    font-family: Calibri;
 }

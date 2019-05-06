@@ -35,4 +35,7 @@ router.post('/predictionModel', storeController.store_create_post);
 //Results Page
 router.get('/predictionModelOutcome', storeController.outcome);
 
+//About Page
+router.get('/about', storeController.about);
+
 module.exports = router;

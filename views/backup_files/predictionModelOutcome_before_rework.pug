@@ -1,0 +1,282 @@
+extends layout
+
+block content
+	.results_all
+		// TT TT RIGHT SIDE RIGHT SIDE RIGHT SIDE TT TT
+		.tt_frame
+			// REAMPUTATION
+			.heading_frame.text-center
+				title_font Transtibial
+				br
+				// MORTALITY
+			.heading_frame.text-center
+				heading_font Mortality
+			.risk_frame
+				if(tt_highProb)
+					.text-center.alert.alert-danger
+						font(size='+3') #{(tt_prob*100).toFixed(0)}% 
+						p 
+							font(size='-1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
+				else
+					.text-center.alert.alert-success
+						font(size='+3') #{(tt_prob*100).toFixed(0)}% 
+						p
+							font(size='-1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
+			#tt_mortality
+				.track
+					.average(style='bottom: 0%;')
+						font(size='-2').amount 25% Average Risk
+					.goal
+						font(size='-2').amount 100%
+					if(tt_prob > .25)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_prob*100).toFixed(0)}% Predicted Risk
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_prob*100).toFixed(0)}% Predicted Risk
+			br
+			br
+			.heading_frame.text-center
+				heading_font Reamputation
+			.risk_frame
+				if(!tt_reamp_highProb)
+					.text-center.alert.alert-success 
+						font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
+						p 
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is below average. (26%).
+				else
+					.text-center.alert.alert-danger
+						font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
+						p
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is above average. (26%).	
+			#tt_reamputation
+				.track
+					.average(style='bottom: 1%;') 
+						font(size='-2').amount 24% Average Risk
+					.goal
+						font(size='-2').amount 100%
+					if(tt_reamp_prob > .26)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_reamp_prob*100).toFixed(0)}%  Predicted Risk
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_reamp_prob*100).toFixed(0)}% Predicted Risk
+			br
+			br
+			// MOBILITY
+			.heading_frame.text-center
+				.tooltip
+					heading_font Functional Mobility
+					span.tooltiptext This represents the probability that you will be able to achieve this level of mobility with or without a mobility aid such as a cane, crutch or walker but there would be no need for physical assistance from someone to be able to perform these tasks.
+						ul
+							li Get up from a chair
+							li Walk in the house
+							li Walk outside on even ground
+							li Go upstairs with a handrail
+							li Go downstairs with a handrail
+							li Step up a sidewalk curb
+							li Step down a sidewalk curb
+			.risk_frame
+				if(tt_mob_highProb)
+					.text-center.alert.alert-success
+						font(size='+3') #{(tt_mob_prob*100).toFixed(0)}% 
+						p 
+							font(size='-1') The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TT amputation, is above average (62%).
+				else
+					.text-center.alert.alert-danger
+						font(size='+3') #{(tt_mob_prob*100).toFixed(0)}% 
+						p
+							font(size='-1') The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TT amputation, is below average (62%).
+
+			#tt_mobility
+				.track
+					.average(style='bottom: 37%;')
+						font(size='-2').amount 62% Average Probability
+					.goal
+						font(size='-2').amount 100%
+					if(!tt_mob_highProb)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_mob_prob*100).toFixed(0)}% Predicted Probability
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(tt_mob_prob*100).toFixed(0)}% Predicted Probability
+
+		// TM TM LEFT SIDE LEFT SIDE LEFT SIDE TM TM
+		.tm_frame
+			// MORTALITY
+			.heading_frame.text-center
+				title_font Transmetatarsal
+				br
+				heading_font Mortality
+			.risk_frame
+				if(highProb)
+					.text-center.alert.alert-danger
+						font(size='+3') #{(prob*100).toFixed(0)}% 
+						p 
+							font(size='-1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is above average (18%).
+				else
+					.text-center.alert.alert-success
+						font(size='+3') #{(prob*100).toFixed(0)}% 
+						p
+							font(size='-1') 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is below average (18%).
+			#tm_mortality
+				.track
+					.average(style='bottom: -7.0%;')
+						font(size='-2').amount 18% Average Risk
+					.goal
+						font(size='-2').amount 100%
+					if(prob > .18)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+			br
+			br
+			// REAMPUTATION
+			.heading_frame.text-center
+				heading_font Reamputation
+			.risk_frame
+				if(reamp_prob < .40)
+					.text-center.alert.alert-success
+						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
+						p 
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TM amputation, is below average (40%).
+				else
+					.text-center.alert.alert-danger
+						font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
+						p
+							font(size='-1') 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TM amputation, is above average (40%).	
+			#tm_reamputation
+				.track
+					.average(style='bottom: 15%;') 
+						font(size='-2').amount 40% Average Risk
+					.goal
+						font(size='-2').amount 100%
+					if(reamp_prob > .40)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}% Predicted Risk
+			br
+			br
+
+			// MOBILITY
+			.heading_frame.text-center
+				.tooltip
+					heading_font Functional Mobility
+					span.tooltiptext This represents the probability that you will be able to achieve this level of mobility with or without a mobility aid such as a cane, crutch or walker but there would be no need for physical assistance from someone to be able to perform these tasks.
+						ul
+							li Get up from a chair
+							li Walk in the house
+							li Walk outside on even ground
+							li Go upstairs with a handrail
+							li go downstairs with a handrail
+							li Step up a sidewalk curb
+							li Step down a sidewalk curb
+			.risk_frame
+				.text-center.alert.alert-success
+					if(mob_highProb)
+						.tooltip
+							font(size='+3') #{(mob_prob*100).toFixed(0)}% 
+							span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TM amputation, is above average (83%).
+					else
+						.tooltip
+							font(size='+3') #{(mob_prob*100).toFixed(0)}% 
+							span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TM amputation, is below average (83%).
+			#tm_mobility
+				.track
+					.average(style='bottom: 58%;')
+						font(size='-2').amount 83% Average Probability
+					.goal
+						font(size='-2').amount 100%
+					if(!mob_highProb)
+						.progress(style='background: red none repeat scroll 0 0;')
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
+					else 
+						.progress
+							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
+						//- Logit Prob: #{mob_logit_prob}, Logit Lower: #{mob_lower_logit_prob}, Logit Upper: #{mob_upper_logit_prob}, Reamp Prob: #{mob_prob.toFixed(4)}, Reamp Lower CI: #{mob_lower_ci.toFixed(4)}, Reamp Upper CI: #{mob_upper_ci.toFixed(4)}
+	br
+	br
+	.table_frame
+		p.text-center 
+			strong The clinician and patient will need to balance this risk of mortality with the risk of failure of healing/need for reamputation as well as the probability of achieving at least a functional level of independent mobility when making the decision about the most appropriate level of amputation.
+		p.text-center
+		
+		table.table
+			thead
+				tr
+					th Demographics
+					th Function
+					th Comorbidities
+					th Lab Values
+					th Health Behaviors
+					th Self Rated Health
+			tbody
+				tr
+					td
+						if(age_string != "")
+							| Age: #{age_string}
+							br
+						if(gender_string != "")
+							| Gender: #{gender_string}
+							br
+						if(bmi_string != "")
+							| BMI: #{bmi_string}
+							br
+						if(race_string != "")
+							| Race: #{race_string}
+							br
+						if(marital_string != "")
+							| Married: #{marital_string}
+							br
+						if(education_string != "")
+							| Education: #{education_string}
+					td #{function_string}
+					if comorbid
+						td 
+							if(heart_failure_string != "")
+								| #{heart_failure_string}
+							if(dialysis_string != "")	
+								br
+								| #{dialysis_string}
+							if(diabetes_string != "")
+								br
+								| #{diabetes_string}
+							if(revascularization_string != "")
+								br
+								| #{revascularization_string}
+							if(copd_string != "")
+								br
+								| #{copd_string}
+							if(anxiety_string != "")
+								br
+								| #{anxiety_string}
+					else
+						td None
+					td
+						if(bun_string != "")
+							| BUN: #{bun_string}
+							br
+						if(platelet_string != "")
+							| Platelets: #{platelet_string}
+							br
+						if(blood_string != "")
+							| WBC: #{blood_string}
+							br
+						if(kidney_string != "")
+							| #{kidney_string}
+							br
+						if(anticoagulants_string != "")
+							| Anticoagulants: #{anticoagulants_string}
+					td
+						if(smoke_string != "")
+							| Smoker: #{smoke_string}
+							br
+						if(alcohol_string != "")
+							| Drinker: #{alcohol_string}
+					td #{health_string}
+	br
+	br

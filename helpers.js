@@ -22,8 +22,9 @@ exports.siteName = `AMPREDICT Risk Calculator`;
 exports.title = 'Prediction Model';
 
 exports.menu = [
-  { slug: '/', title: 'Home', icon: 'tag', },
-  { slug: '/predictionModel', title: 'Risk Calculator', icon: 'store', },
+  { slug: '/', title: 'Home', icon: 'home', },
+  { slug: '/predictionModel', title: 'Risk Calculator', icon: 'calculator', },
+  { slug: '/about', title: 'About', icon: 'open-book'},
   // { slug: '/top', title: 'Top', icon: 'top', },
   // { slug: '/add', title: 'Add', icon: 'add', },
   // { slug: '/map', title: 'Map', icon: 'map', },

@@ -1,0 +1,145 @@
+//Alert Boxes for showing the percentage
+.alert-success {
+    color: black;
+    background:#efefef;
+    border-color: #d6e9c6;
+}
+.alert {
+    border-radius: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+.output_title_left {
+    outline: 1px dotted #1C6EA4;
+    width:33%;
+    float: left;
+    text-align: center;
+}
+.output_title_center {
+	width:33%;
+	float: right;
+	text-align: center;
+}
+.output_title_right {
+	width:33%;
+	float: right;
+	text-align: center;
+}
+//The box that holds all results
+.results_all {
+    background: white;
+    border-radius: 40px;
+   // outline: 1px dotted #1C6EA4;
+    width: 700px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.heading_frame {
+    //outline: 1px dotted #1C6EA4;
+    width:660px;
+    height: 30px;
+    //margin-bottom: 20px;
+
+}
+
+#mortality_frame,
+#reamputation_frame,
+#mobility_frame{
+	//outline: 1px dotted #1C6EA4;
+	width: 660px;
+	height: 240px;
+}
+
+#tt_mortality_frame,
+#tt_reamputation_frame,
+#tt_mobility_frame {
+	//outline: 1px dotted #1C6EA4;
+	width: 33%;
+	float: right;
+}
+#tm_mortality_frame,
+#tm_reamputation_frame,
+#tm_mobility_frame{
+	//outline: 1px dotted #1C6EA4;
+	width: 33%;
+	float:right;
+}
+
+
+
+//The table at the bottom of the page
+.table_frame{
+    width: 70%;
+    margin: auto;
+    postion: relative;
+}
+
+.risk_frame{
+    width: 100%
+}
+
+
+
+//The logic behind making the thermometer work
+#tm_mortality,
+#tt_mortality,
+#tm_reamputation,
+#tt_reamputation,
+#tm_mobility,
+#tt_mobility,
+#advancedMobility {
+    //outline: 1px dotted #1C6EA4;
+    border-radius: 12px;
+    height: 165px;
+    position: relative;
+    .track{
+        background: #e5e5e5 none repeat scroll 0 0;
+        border-radius: 8px;
+        height: 150px;
+        margin: 0 auto;
+        position: relative;
+        top: 10px;
+        width: 30px;
+    }
+    .progress{
+        background: #FC3A50 none repeat scroll 0 0;
+        border-radius: 23px 23px 0 0;
+        bottom: 0;
+        height: 0;
+        left: 5px;
+        margin-bottom: 0 !important;
+        position: absolute;
+        width: 69%;
+        z-index: 100;
+    }
+    .amount{
+        border-top: 1px solid #006600;
+        color: black;
+        display: inline-block;
+        font-weight: bold;
+        padding: 0 50px 0 0;
+    }
+    .progress .amount{
+        border-top: 1px solid #006600;
+        left: 0;
+        padding: 0 0 0 50px;
+        position: right;
+        display: block;
+    }
+    .goal{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .average{
+        position: absolute;
+        right: 0;
+        padding: 0px 0px 1px 0px;
+    }
+}

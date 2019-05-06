@@ -9,12 +9,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .tooltip {
+    //font-family: 'Calibri';
+    color: #42a1f4;
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    //border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
-
-
 
 /* Tooltip text */
 .tooltip .tooltiptext {
@@ -22,7 +22,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 500px;
     background-color: #555;
     color: #fff;
-    text-align: left;
+    //text-align: left;
     padding: 5px 0;
     border-radius: 6px;
 
@@ -56,129 +56,23 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
 }
 
-heading_font{
-  font-size: 3rem;
-  font-family: 'Panama';
-  font-weight: 400;
-  letter-spacing:-1px;
-}
-title_font{
-  font-size: 5rem;
-  font-family: 'Panama';
-  font-weight: 500;
-  letter-spacing:-1px;
+#calc_pic_box {
+    //background-color: Grey;
+    //background-image: url(`./public/images/icons/calculator.svg`) no-repeat left top;
+    height: auto;
+    width: 100px;
+    margin-left: 50px;
+    border-radius: 20px;
+    padding: 10px;
 }
 
-.alert-danger {
-    color: #b94a48;
-    background-color: #f2dede;
-    border-color: #eed3d7;
-}
-
-.alert-success {
-    color: #468847;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-}
-
-.alert {
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid transparent;
-    width: 80%;
-    margin: auto;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.calibri {
-    font-family: Calibri;
-}
-.results_all {
-    width: 80%;
-    margin: auto;
-}
-
-.tm_frame {
-    width: 50%;
-    font-family: sans-seriff;
-}
-
-.tt_frame {
-    width: 50%;
-    font-family: sans-seriff;
-    float: right;
-}
-
-.table_frame{
-    width: 70%;
-    margin: auto;
-    postion: relative;
-}
-
-.risk_frame{
-    width: 100%;
+#calc_pic_box:hover {
+    background-color: #efefef;
 }
 
 
-#tm_mortality,
-#tt_mortality,
-#tm_reamputation,
-#tt_reamputation,
-#tm_mobility,
-#tt_mobility,
-#advancedMobility {
-    border-radius: 12px;
-    height: 165px;
-    position: relative;
-    .track{
-        background: #e5e5e5 none repeat scroll 0 0;
-        border-radius: 8px;
-        height: 150px;
-        left: 10px;
-        margin: 0 auto;
-        position: relative;
-        top: 10px;
-        width: 30px;
-    }
-    .progress{
-        background: green none repeat scroll 0 0;
-        border-radius: 23px 23px 0 0;
-        bottom: 0;
-        height: 0;
-        left: 5px;
-        margin-bottom: 0 !important;
-        position: absolute;
-        width: 69%;
-        z-index: 100;
-    }
-    .amount{
-        border-top: 1px solid #006600;
-        color: black;
-        display: inline-block;
-        font-family: Trebuchet MS;
-        font-weight: bold;
-        padding: 0 75px 0 0;
-    }
-    .progress .amount{
-        border-top: 1px solid #006600;
-        color: #006600;
-        left: 0;
-        padding: 0 0 0 75px;
-        position: absolute;
-    }
-    .goal{
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .average{
-        position: absolute;
-        right: 0;
-        padding: 0px 0px 1px 0px;
-    }
-}
+
+
+
 
 

@@ -1,5 +1,4 @@
 input, textarea {
-  width:100%;
   padding:10px;
   border: 1px solid $grey;
   &.input {
@@ -29,4 +28,30 @@ label {
     margin-bottom: 2rem;
     border-bottom: 1px solid $grey;
   }
+}
+
+.form_section {
+  //outline: 1px dotted #1C6EA4;
+  margin: auto;
+  width: 100%;
+}
+
+.radio_align {
+  //outline: 1px dotted #1C6EA4;
+  margin-left: 40px;
+}
+
+.radio_align_functional_status {
+  //outline: 1px dotted #1C6EA4;
+  text-align: center;
+}
+
+.lab_number_box_align {
+  //outline: 1px dotted #1C6EA4;
+  //width: 50%;
+  //text-align: right;
+}
+
+.bmi_align {
+  //outline: 1px dotted #1C6EA4;
 }

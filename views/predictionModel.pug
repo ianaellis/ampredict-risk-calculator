@@ -3,10 +3,8 @@ extends layout
 include mixins/_predictionModelForm
 
 block content
-	.inner
-		div(style='width: 60%; float:left;')
-			h2 
-				center #{title}
+	.risk_calc
+		div(style='width: 100%;')
 			if errors
 				ul
 					strong ERRORS:
