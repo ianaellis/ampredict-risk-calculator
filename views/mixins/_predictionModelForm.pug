@@ -7,7 +7,8 @@ mixin predictionModelForm(store = {})
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
 		.form_section
 			font(size='+2')
-				center Demographics
+				center
+					strong Demographics
 				hr
 			label(for="age" id='age') Age:    
 				input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", data-parsley-range='[40, 89]', required=true)
@@ -48,7 +49,8 @@ mixin predictionModelForm(store = {})
 					|  Less than high school 
 		.form_section
 			font(size='+2') 
-				center Comorbidities
+				center 
+					strong Comorbidities
 				hr
 
 			label(for="heart_failure" id='heart_failure') Diagnosis of congestive heart failure: 
@@ -72,7 +74,11 @@ mixin predictionModelForm(store = {})
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.diabetes!='0' ? false:'selected'), name='Diabetes', required=true)
 					|  No	
-			label(for="Revascularization" id='Revascularization') History of a revascularization (open, endo, or both):
+			label(for="Revascularization" id='Revascularization') History of a revascularization 
+				.tooltip 
+					| on side of amputation.
+					span.tooltiptext This may include on open procedure, and endovascualr procedure, or both.
+
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.revascularization!='1' ? false:'selected'), name='Revascularization', required=true) 
 					|  Yes
@@ -86,7 +92,7 @@ mixin predictionModelForm(store = {})
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.copd!='0' ? false:'selected'), name='COPD', required=true)
 					|  No
-			label(for="AnxietyDepression" id='AnxietyDepression') History of treatment for depression:
+			label(for="AnxietyDepression" id='AnxietyDepression') History of treatment for anxiety or depression:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='1' ? false:'selected'), name='AnxietyDepression', required=true) 
 					|  Yes
@@ -95,7 +101,8 @@ mixin predictionModelForm(store = {})
 					|  No
 		.form_section
 			font(size='+2') 
-				center Laboratory Values and Medications
+				center 
+					strong Laboratory Values and Medications
 				hr
 
 			.lab_number_box_align
@@ -117,8 +124,9 @@ mixin predictionModelForm(store = {})
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.egfr!='0' ? false:'selected'), name='KidneyFailure', required=true)
 					|  No
-
-			label(for="OutputAnticoagulants") Outpatient Anticoagulants in the past 3 months:
+				.tooltip
+					label(for="OutputAnticoagulants") Outpatient Anticoagulants in the past 3 months:
+					span.tooltiptext This may include Coumadin or newer drugs such as Factor X inhibitors and anisindione and dibigitran.
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.out_anti!='1' ? false:'selected'), name='OutputAnticoagulants', required=true) 
 					|  Yes
@@ -127,7 +135,8 @@ mixin predictionModelForm(store = {})
 					|  No
 		.form_section
 			font(size='+2') 
-				center Health Factors
+				center 
+					strong Health Factors
 				hr
 			.bmi_align
 				label(for="Height") Height:
@@ -149,15 +158,10 @@ mixin predictionModelForm(store = {})
 						br
 						input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.alcohol!='0' ? false:'selected'), name='Alcohol', required=true)
 						|  No
-			br
-			font(size='+2') 
-				center Patient Reported
-				hr
-
 			label(for="functional_status", required=true) What has been the patient's functional status in the past 30 days prior to surgery?   
 				.radio_align_functional_status
+					br
 					.tooltip
-						br
 						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.functional_status!='1' ? false:'selected'), name='functional_status', required=true)
 						|  Independent
 						span.tooltiptext The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
