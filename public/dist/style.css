@@ -459,6 +459,18 @@ body {
   font-size: 1.5rem;
   color: #303030; }
 
+risk_title {
+  font-size: 4rem;
+  font-family: 'Panama';
+  font-weight: 600;
+  letter-spacing: -1px; }
+
+sub_title {
+  font-size: 3rem;
+  font-family: 'Panama';
+  font-weight: 600;
+  letter-spacing: -1px; }
+
 h1, h2, h3, h4, h5, h6 {
   font-size: 4rem;
   font-family: 'Panama';
@@ -539,6 +551,12 @@ label {
 #pred_model {
   padding: 20px; }
 
+.calc_title_div {
+  /*outline: 1px dotted #1C6EA4;*/
+  width: 800px;
+  margin: auto;
+  padding-bottom: 10px; }
+
 #risk_calc {
   width: 650px;
   margin: auto;
@@ -563,8 +581,10 @@ label {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
   }*/ }
   #risk_calc .form_section {
+    /*outline: 1px dotted #1C6EA4;*/
     margin: auto;
     width: 100%;
+    /*box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);*/
     /*stack sections ontop of each other*/
     display: none;
     /*position: relative;  */ }

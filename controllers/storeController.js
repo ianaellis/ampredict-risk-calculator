@@ -30,7 +30,7 @@ exports.store_create_post = [
 	
 	//Validation 
 	body('age', 'Please enter a value for age').not().isEmpty(),
-	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 10, max: 100}),
+	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 20, max: 100}),
 	body('Gender', 'Please select an option for gender').not().isEmpty(),
 	body('race', 'Please select an option for race').not().isEmpty(),
 	body('MaritalStatus', 'Please select an option for marital status').not().isEmpty(),

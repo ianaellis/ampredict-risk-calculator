@@ -2,6 +2,7 @@
 //Mostly taken from http://parsleyjs.org/doc/examples/multisteps.html
 var $sections = $('.form_section');
 
+
 function navigateTo(index) {
   // Mark the current section with the class 'current'
   $sections

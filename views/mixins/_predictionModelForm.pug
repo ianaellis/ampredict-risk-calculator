@@ -1,13 +1,16 @@
 mixin predictionModelForm(store = {})
+	.calc_title_div
+		center
+			risk_title VA AMPREDICT
+			br
+			sub_title Risk Calculator
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
 		.form_section
-			center
-				h2 #{title}
 			font(size='+2')
 				center Demographics
 				hr
 			label(for="age" id='age') Age:    
-				input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", class="form-control", required=true)
+				input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", data-parsley-range='[40, 89]', required=true)
 
 			label(for="Gender" id='Gender') Gender:
 				.radio_align
@@ -97,9 +100,9 @@ mixin predictionModelForm(store = {})
 
 			.lab_number_box_align
 				label(for="blood_nitrogen" id='blood_nitrogen') Recent BUN level (mg/dl):
-					input(type='number', name='blood_nitrogen', style='width: 100px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157", required=true)
+					input(type='number', name='blood_nitrogen', style='width: 100px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157", data-parsley-range='[1, 157]', required=true)
 				label(for="platelet_count" id='platelet_count') Most recent platelet count (per mL):
-					input(type='number', name='platelet_count', style='width: 100px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150", required=true)
+					input(type='number', name='platelet_count', style='width: 100px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150", data-parsley-min='1', required=true)
 			label(for="WBC") White blood cell count of  >= 11,000:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.wbc!='1' ? false:'selected'), name='WBC', required=true) 
@@ -128,9 +131,9 @@ mixin predictionModelForm(store = {})
 				hr
 			.bmi_align
 				label(for="Height") Height:
-					input(type='number', name='Height', style='width: 100px;', value=(predModel_TM ? predModel_TM.height : ''), placeholder="inches", required=true)
+					input(type='number', name='Height', style='width: 100px;', value=(predModel_TM ? predModel_TM.height : ''), placeholder="inches", data-parsley-range='[48, 84]', required=true)
 				label(for="Weight") Weight:
-					input(type='number', name='Weight', style='width: 100px;', value=(predModel_TM ? predModel_TM.weight : ''), placeholder="lbs", required=true)
+					input(type='number', name='Weight', style='width: 100px;', value=(predModel_TM ? predModel_TM.weight : ''), placeholder="lbs", data-parsley-range='[80, 500]', required=true)
 
 			label(for="Smoke") Is the patient currently a smoker?
 				.radio_align
@@ -151,7 +154,7 @@ mixin predictionModelForm(store = {})
 				center Patient Reported
 				hr
 
-			label(for="functional_status") What has been the patient's functional status in the past 30 days prior to surgery?   
+			label(for="functional_status", required=true) What has been the patient's functional status in the past 30 days prior to surgery?   
 				.radio_align_functional_status
 					.tooltip
 						br

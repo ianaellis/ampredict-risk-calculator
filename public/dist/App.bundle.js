@@ -104,7 +104,7 @@ $(document).ready(function () {
   thermometer("#tt_mobility");
   thermometer("#tm_reamputation");
   thermometer("#tm_mortality");
-  thermometer("#tm_mobility"); // thermometer("#advancedMobility");
+  thermometer("#tm_mobility");
 });
 /* unused harmony default export */ var _unused_webpack_default_export = thermometer;
 

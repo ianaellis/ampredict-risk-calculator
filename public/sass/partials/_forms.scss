@@ -17,6 +17,13 @@ label {
   padding: 20px;
 }
 
+.calc_title_div {
+  /*outline: 1px dotted #1C6EA4;*/
+  width: 800px;
+  margin: auto;
+  padding-bottom: 10px;
+}
+
 #risk_calc{
   //outline: 1px dotted #1C6EA4;
   width: 650px;
@@ -24,10 +31,10 @@ label {
   padding: 20px;
 
   .form_section {
-    //outline: 1px dotted #1C6EA4;
+    /*outline: 1px dotted #1C6EA4;*/
     margin: auto;
     width: 100%;
-    //box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    /*box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);*/
 
     /*stack sections ontop of each other*/
     display: none;
