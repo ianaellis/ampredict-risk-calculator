@@ -31,12 +31,11 @@ block content
 				#tt_mortality
 					.track
 						.average(style='bottom: 0%;')
-							font(size='-2').amount 25% Average Risk
+							font(size='-1').amount 25% Average Risk
 						.goal
-							font(size='-2').amount 100%
+							font(size='-1').amount 100%
 						.progress
-							font(size='-2')#progessAmount.amount #{(tt_prob*100).toFixed(0)}% Predicted Risk
-
+							font(size='-1')#progessAmount.amount #{(tt_prob*100).toFixed(0)}% Predicted Risk
 			#tm_mortality_frame
 				.risk_frame
 					.text-center.alert.alert-success
@@ -51,11 +50,11 @@ block content
 				#tm_mortality
 					.track
 						.average(style='bottom: -7.0%;')
-							font(size='-2').amount 18% Average Risk
+							font(size='-1').amount 18% Average Risk
 						.goal
-							font(size='-2').amount 100%
+							font(size='-1').amount 100%
 						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
+							font(size='-1')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
 
 
 		#reamputation_frame
@@ -77,11 +76,11 @@ block content
 				#tt_reamputation
 					.track
 						.average(style='bottom: 1%;') 
-							font(size='-2').amount 26% Average Risk
+							font(size='-1').amount 26% Average Risk
 						.goal
-							font(size='-2').amount 100%
+							font(size='-1').amount 100%
 						.progress
-							font(size='-2')#progessAmount.amount #{(tt_reamp_prob*100).toFixed(0)}%  Predicted Risk	
+							font(size='-1')#progessAmount.amount #{(tt_reamp_prob*100).toFixed(0)}%  Predicted Risk	
 			#tm_reamputation_frame
 				.risk_frame
 					.text-center.alert.alert-success
@@ -96,11 +95,11 @@ block content
 				#tm_reamputation
 					.track
 						.average(style='bottom: 15%;') 
-							font(size='-2').amount 40% Average Risk
+							font(size='-1').amount 40% Average Risk
 						.goal
-							font(size='-2').amount 100%
+							font(size='-1').amount 100%
 						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
+							font(size='-1')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
 
 		#mobility_frame
 			hr
@@ -131,11 +130,11 @@ block content
 				#tt_mobility
 					.track
 						.average(style='bottom: 37%;')
-							font(size='-2').amount 62% Average Probability
+							font(size='-1.5').amount 62% Average Probability
 						.goal
-							font(size='-2').amount 100%
+							font(size='-1.5').amount 100%
 						.progress
-							font(size='-2')#progessAmount.amount #{(tt_mob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-1.5')#progessAmount.amount #{(tt_mob_prob*100).toFixed(0)}% Predicted Probability
 			#tm_mobility_frame
 				.risk_frame
 					.text-center.alert.alert-success
@@ -149,12 +148,12 @@ block content
 								span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TM amputation, is below average (83%).
 				#tm_mobility
 					.track
-						.average(style='bottom: 58%;')
-							font(size='-2').amount 83% Average Probability
+						.average(style='bottom: 56%;')
+							font(size='-1.5').amount 83% Average Probability
 						.goal
-							font(size='-2').amount 100%
+							font(size='-1.5').amount 100%
 						.progress
-							font(size='-2')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
+							font(size='-1')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
 	
 	.table_frame_s
 		table_desc The clinician and patient will need to balance this risk of mortality with the risk of failure of healing/need for reamputation as well as the probability of achieving at least a functional level of independent mobility when making the decision about the most appropriate level of amputation.

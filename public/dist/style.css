@@ -1442,6 +1442,7 @@ input[type=number]::-webkit-outer-spin-button {
 .results_all {
   background: white;
   border-radius: 40px;
+  /*outline: 1px dotted #1C6EA4;*/
   width: 700px;
   margin: auto;
   padding: 20px;
@@ -1449,24 +1450,29 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 2rem; }
 
 .heading_frame {
+  /*outline: 1px dotted #1C6EA4;*/
   width: 660px;
-  height: 30px; }
+  height: 30px;
+  /*margin-bottom: 20px;*/ }
 
 #mortality_frame,
 #reamputation_frame,
 #mobility_frame {
+  /*outline: 1px dotted #1C6EA4;*/
   width: 660px;
-  height: 240px; }
+  height: 280px; }
 
 #tt_mortality_frame,
 #tt_reamputation_frame,
 #tt_mobility_frame {
+  /*outline: 1px dotted #1C6EA4;*/
   width: 33%;
   float: right; }
 
 #tm_mortality_frame,
 #tm_reamputation_frame,
 #tm_mobility_frame {
+  /*outline: 1px dotted #1C6EA4;*/
   width: 33%;
   float: right; }
 
@@ -1485,6 +1491,7 @@ input[type=number]::-webkit-outer-spin-button {
 #tm_mobility,
 #tt_mobility,
 #advancedMobility {
+  /*outline: 1px dotted #1C6EA4;*/
   border-radius: 12px;
   height: 165px;
   position: relative; }
