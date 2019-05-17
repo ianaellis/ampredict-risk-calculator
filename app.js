@@ -12,6 +12,8 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+// const jquery = require('jquery');
+// const parsley = require('parsleyjs');
 
 // create our Express app
 const app = express();

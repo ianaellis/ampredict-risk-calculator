@@ -18,14 +18,6 @@ body {
   margin: 2rem auto;
   padding: 20px; }
 
-.risk_calc {
-  width: 700px;
-  margin: auto;
-  padding: 20px; }
-  @media all and (max-width: 900px) {
-    .risk_calc {
-      padding: 2rem; } }
-
 .hr {
   display: block;
   height: 1px;
@@ -544,28 +536,134 @@ label {
   padding: 10px 0;
   display: block; }
 
-.form {
-  background: white;
-  padding: 2rem;
-  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
-  .form + .form {
-    margin-top: 4rem; }
-  .form h2 {
-    margin: 0;
-    font-size: 2rem;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #e6e6e6; }
+#pred_model {
+  padding: 20px; }
 
-.form_section {
+#risk_calc {
+  width: 650px;
   margin: auto;
-  width: 100%; }
+  padding: 20px;
+  /*Hide all sections except first */
+  /*  form_section:not(:first-of-type) {
+    display: none;
+  }*/
+  /*buttons*/
+  /*  .action-button {
+    width: 100px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+  }
+  .action-button:hover, .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+  }*/ }
+  #risk_calc .form_section {
+    margin: auto;
+    width: 100%;
+    /*stack sections ontop of each other*/
+    display: none;
+    /*position: relative;  */ }
+  #risk_calc .form_section.current {
+    display: inherit; }
+
+.btn-info, .btn-default {
+  margin-top: 5px; }
+
+button {
+  background-color: #4CAF50;
+  /*  border-style: solid;
+  border-color:black;*/
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+  width: 121px;
+  margin: 10px; }
+
+button:hover {
+  opacity: 0.8; }
+
+#prevBtn {
+  background-color: #bbbbbb; }
+
+/* Mark input boxes that gets an error on validation: */
+.invalid {
+  background-color: #ffdddd; }
+
+/*Buttons on form*/
+/*.buttons {
+  //outline: 1px dotted #1C6EA4;
+  margin: auto;
+  /*backgroun-color:*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+  /*progressbar connectors*/
+  /*marking active/completed steps green*/
+  /*The number of the step and the connector before it = green*/ }
+  #progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    float: left;
+    position: relative; }
+  #progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    color: #333;
+    background: white;
+    border-radius: 3px;
+    margin: 0 auto 5px auto; }
+  #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1;
+    /*put it behind the numbers*/ }
+  #progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none; }
+  #progressbar li.active:before, #progressbar li.active:after {
+    background: #27AE60;
+    color: white; }
 
 .radio_align {
   margin-left: 40px; }
 
 .radio_align_functional_status {
   text-align: center; }
+
+.form_deletethis {
+  background: white;
+  padding: 2rem;
+  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
+  .form_deletethis + .form {
+    margin-top: 4rem; }
+  .form_deletethis h2 {
+    margin: 0;
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e6e6e6; }
 
 .search {
   position: relative;
@@ -1235,6 +1333,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 500px;
   background-color: #555;
   color: #fff;
+  text-align: center;
   padding: 5px 0;
   border-radius: 6px;
   /* Position the tooltip text */
@@ -1272,6 +1371,23 @@ input[type=number]::-webkit-outer-spin-button {
 
 #calc_pic_box:hover {
   background-color: #efefef; }
+
+/*/*Form step graphic*/
+.stepX {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5; }
+
+.stepX.active {
+  opacity: 1; }
+
+.stepX.finish {
+  background-color: #265728; }
 
 .alert-success {
   color: black;
@@ -1426,5 +1542,35 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     right: 0;
     padding: 0px 0px 1px 0px; }
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6; }
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7; }
+
+.parsley-errors-list {
+  margin: 2px 0 3px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  opacity: 0;
+  color: #B94A48;
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in; }
+
+.parsley-errors-list.filled {
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map*/

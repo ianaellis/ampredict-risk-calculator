@@ -3,12 +3,16 @@ extends layout
 include mixins/_predictionModelForm
 
 block content
-	.risk_calc
-		div(style='width: 100%;')
-			if errors
-				ul
-					strong ERRORS:
-					for error in errors
-						li!= error.msg
+	#pred_model
+		//- ul#progressbar
+		//- 	li.active Demographics
+		//- 	li Comorbidities
+		//- 	li Lab Values
+		//- 	li Health Factors
+		if errors
+			ul
+				strong ERRORS:
+				for error in errors
+					li!= error.msg
 
-			+predictionModelForm()
+		+predictionModelForm()

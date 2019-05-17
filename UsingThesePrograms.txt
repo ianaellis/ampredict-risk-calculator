@@ -59,6 +59,7 @@ Adding A New Route (New Webpage):
 
 Creating a form
 	Refer to storeForm.pug for a great example. Pretty typical.
+	Pagination form called Wizard From (multi-step form). Trying out react-stepzilla.
 
 Form Sanitation
 	Installed express-validator

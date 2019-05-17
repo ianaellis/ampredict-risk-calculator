@@ -6,6 +6,8 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+// const jquery = require('jquery');
+// const parsley = require('parsleyjs');
 /*
   webpack sees every file as a module.
   How to handle those files is up to loaders.
@@ -14,12 +16,17 @@ const autoprefixer = require('autoprefixer');
 
 // This is our JavaScript rule that specifies what to do with .js files
 const javascript = {
-  test: /\.(js)$/, // see how we match anything that ends in `.js`? Cool
-  use: [{
+  test: /\.m?js$/,
+  exclude: /(node_modules|bower_components)/,
+  use: {
     loader: 'babel-loader',
-    options: { presets: ['es2015'] } // this is one way of passing options
-  }],
+    options: {
+      presets: ['@babel/preset-env']
+    }
+  }
 };
+
+
 
 /*
   This is our postCSS loader which gets fed into the next loader. I'm setting it up in it's own variable because its a didgeridog
@@ -73,6 +80,10 @@ const config = {
   plugins: [
     // here is where we tell it to output our css to a separate file
     new ExtractTextPlugin('style.css'),
+    // new webpack.ProvidePlugin({
+    //   parsley: './node_modules/parsleyjs/dist/parsley.js'
+    // }),
+    // new webpack.ProvidePlugin({ parsley: 'parsley'})
   ]
 };
 // webpack is cranky about some packages using a soon to be deprecated API. shhhhhhh

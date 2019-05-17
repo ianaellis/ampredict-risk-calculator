@@ -13,7 +13,9 @@ block content
 		br
 		#mortality_frame
 			hr
-			heading_font Mortality
+			.tooltip
+				heading_font Mortality
+				span.tooltiptext Risk of dying within the first year after amputation.
 			#tt_mortality_frame
 				.risk_frame
 					.text-center.alert.alert-success
@@ -70,7 +72,7 @@ block content
 						else
 							.tooltip
 								font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
-								span.tooltiptext1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is above average. (26%).	
+								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is above average. (26%).	
 				#tt_reamputation
 					.track
 						.average(style='bottom: 1%;') 

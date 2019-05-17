@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Store = mongoose.model('Store');
 
 
+
+
 //Nessesary to use validator
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
@@ -21,6 +23,7 @@ exports.outcome = (req, res) => {
 
 exports.store_create_get = function (req, res, next) {
 	res.render('predictionModel', {title: 'AMPREDICT Mortality Risk Calculator'});
+
 };
 
 exports.store_create_post = [

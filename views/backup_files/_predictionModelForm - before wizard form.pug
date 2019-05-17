@@ -1,22 +1,23 @@
 mixin predictionModelForm(store = {})
-	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
+	form(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
 		.form_section
 			center
 				h2 #{title}
+			p.calibri <i>All parameters are required.</i>
 			font(size='+2')
 				center Demographics
 				hr
-			label(for="age" id='age') Age:    
-				input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", class="form-control", required=true)
+			label(for="age") Age:    
+				input(type='number', name='age', style='width: 100px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", required=true)
 
-			label(for="Gender" id='Gender') Gender:
+			label(for="Gender") Gender:
 				.radio_align
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.gender!='0' ? false:'selected'), name='Gender', required=true)
 					|  Female
 					br
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.gender!='1' ? false:'selected'), name='Gender', required=true)
 					|  Male
-			label(for="race" id='race') Race: 
+			label(for="race") Race: 
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.race!='1' ? false:'selected'), name='race', required=true)
 					|  White
@@ -29,76 +30,80 @@ mixin predictionModelForm(store = {})
 					br
 					input(type='radio', value='4', selected=(undefined===predModel_TM || predModel_TM.race!='4' ? false:'selected'), name='race', required=true)
 					|  Other	
-			label(for="MaritalStatus" id='MaritalStatus') Married:
+			label(for="MaritalStatus") Married:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.marital_status!='1' ? false:'selected'), name='MaritalStatus', required=true)
 					|  Yes
 					br 
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.marital_status!='0' ? false:'selected'), name='MaritalStatus', required=true)
 					|  No 
-			label(for="EducationStatus" id='EducationStatus') Education Level:
+			label(for="EducationStatus") Education Level:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.education_statusr!='1' ? false:'selected'), name='EducationStatus', required=true) 
 					|  At least high school
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.education_status!='0' ? false:'selected'), name='EducationStatus', required=true)
 					|  Less than high school 
+			
+			br
+
 		.form_section
 			font(size='+2') 
 				center Comorbidities
 				hr
 
-			label(for="heart_failure" id='heart_failure') Diagnosis of congestive heart failure: 
+			label(for="heart_failure") Diagnosis of congestive heart failure: 
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='1' ? false:'selected'), name='heart_failure', required=true) 
 					|  Yes
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.heart_failure!='0' ? false:'selected'), name='heart_failure', required=true)
 					|  No
-			label(for="dialysis" id='dialysis') Currently on dialysis:
+			label(for="dialysis") Currently on dialysis:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.dialysis!='1' ? false:'selected'), name='dialysis', required=true) 
 					|  Yes
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.dialysise!='0' ? false:'selected'), name='dialysis', required=true)
 					|  No
-			label(for="Diabetes" id='Diabetes') Diagnosis of diabetes:
+			label(for="Diabetes") Diagnosis of diabetes:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.diabetes!='1' ? false:'selected'), name='Diabetes', required=true) 
 					|  Yes
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.diabetes!='0' ? false:'selected'), name='Diabetes', required=true)
 					|  No	
-			label(for="Revascularization" id='Revascularization') History of a revascularization (open, endo, or both):
+			label(for="Revascularization") History of a revascularization (open, endo, or both):
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.revascularization!='1' ? false:'selected'), name='Revascularization', required=true) 
 					|  Yes
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.revascularization!='0' ? false:'selected'), name='Revascularization', required=true)
 					|  No
-			label(for="COPD" id='COPD') Diagnosis of COPD:
+			label(for="COPD") Diagnosis of COPD:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.copd!='1' ? false:'selected'), name='COPD', required=true) 
 					|  Yes
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.copd!='0' ? false:'selected'), name='COPD', required=true)
 					|  No
-			label(for="AnxietyDepression" id='AnxietyDepression') History of treatment for depression:
+			label(for="AnxietyDepression") History of treatment for depression:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='1' ? false:'selected'), name='AnxietyDepression', required=true) 
 					|  Yes
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='0' ? false:'selected'), name='AnxietyDepression', required=true)
 					|  No
+			br
 		.form_section
 			font(size='+2') 
 				center Laboratory Values and Medications
 				hr
 
 			.lab_number_box_align
-				label(for="blood_nitrogen" id='blood_nitrogen') Recent BUN level (mg/dl):
+				label(for="blood_nitrogen") Recent BUN level (mg/dl):
 					input(type='number', name='blood_nitrogen', style='width: 100px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157", required=true)
-				label(for="platelet_count" id='platelet_count') Most recent platelet count (per mL):
+				label(for="platelet_count") Most recent platelet count (per mL):
 					input(type='number', name='platelet_count', style='width: 100px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150", required=true)
 			label(for="WBC") White blood cell count of  >= 11,000:
 				.radio_align
@@ -122,6 +127,9 @@ mixin predictionModelForm(store = {})
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.out_anti!='0' ? false:'selected'), name='OutputAnticoagulants', required=true)
 					|  No
+
+
+			br
 		.form_section
 			font(size='+2') 
 				center Health Factors
@@ -183,15 +191,8 @@ mixin predictionModelForm(store = {})
 						br
 						input(type='radio', value='5', selected=(undefined===predModel_TM || predModel_TM.srh!='5' ? false:'selected'), name='SelfRatedHealth', required=true)
 						|  Very Poor
-		.form-navigation
-			.buttons
-				center
-					button.previous.btn.btn-info.pull-left(type='button') &larr; Previous
-					button.next.btn.btn-info.pull-right(type='button') Next &rarr;
-					button.btn.btn-default.pull-right(type='submit') Submit
-					span.clearfix
-			div(style='text-align:center;margin-top:10px;')
-				span.stepX
-				span.stepX
-				span.stepX
-				span.stepX
+			
+
+
+		center 
+			input(type="submit" value="Predicted Risks" class="button" style='width: 50%;')

@@ -37,3 +37,5 @@ $(document).ready(function () {
     thermometer("#tm_mobility");
     // thermometer("#advancedMobility");
 });
+
+export default thermometer
