@@ -21,11 +21,11 @@ block content
 					.text-center.alert.alert-success
 						if(tt_highProb)
 							.tooltip
-								font(size='+3') #{(tt_prob*100).toFixed(0)}% 
+								font(size='+4') #{(tt_prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
 						else
 							.tooltip
-								font(size='+3') #{(tt_prob*100).toFixed(0)}% 
+								font(size='+4') #{(tt_prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
 				#tt_mortality
 					.track
@@ -41,11 +41,11 @@ block content
 					.text-center.alert.alert-success
 						if(highProb)
 							.tooltip
-								font(size='+3') #{(prob*100).toFixed(0)}% 
+								font(size='+4') #{(prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is above average (18%).
 						else
 							.tooltip
-								font(size='+3') #{(prob*100).toFixed(0)}% 
+								font(size='+4') #{(prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is below average (18%).
 				#tm_mortality
 					.track
@@ -67,11 +67,11 @@ block content
 					.text-center.alert.alert-success 
 						if(!tt_reamp_highProb)
 							.tooltip
-								font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
+								font(size='+4') #{(tt_reamp_prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is below average. (26%).
 						else
 							.tooltip
-								font(size='+3') #{(tt_reamp_prob*100).toFixed(0)}% 
+								font(size='+4') #{(tt_reamp_prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is above average. (26%).	
 				#tt_reamputation
 					.track
@@ -86,11 +86,11 @@ block content
 					.text-center.alert.alert-success
 						if(reamp_prob < .40)
 							.tooltip
-								font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
+								font(size='+4') #{(reamp_prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TM amputation, is below average (40%).
 						else
 							.tooltip
-								font(size='+3') #{(reamp_prob*100).toFixed(0)}% 
+								font(size='+4') #{(reamp_prob*100).toFixed(0)}% 
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TM amputation, is above average (40%).	
 				#tm_reamputation
 					.track
@@ -119,12 +119,12 @@ block content
 					if(tt_mob_highProb)
 						.text-center.alert.alert-success
 							.tooltip
-								font(size='+3') #{(tt_mob_prob*100).toFixed(0)}% 
+								font(size='+4') #{(tt_mob_prob*100).toFixed(0)}% 
 								span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TT amputation, is above average (62%).
 					else
 						.text-center.alert.alert-success
 							.tooltip
-								font(size='+3') #{(tt_mob_prob*100).toFixed(0)}% 
+								font(size='+4') #{(tt_mob_prob*100).toFixed(0)}% 
 								span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TT amputation, is below average (62%).
 
 				#tt_mobility
@@ -140,11 +140,11 @@ block content
 					.text-center.alert.alert-success
 						if(mob_highProb)
 							.tooltip
-								font(size='+3') #{(mob_prob*100).toFixed(0)}% 
+								font(size='+4') #{(mob_prob*100).toFixed(0)}% 
 								span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TM amputation, is above average (83%).
 						else
 							.tooltip
-								font(size='+3') #{(mob_prob*100).toFixed(0)}% 
+								font(size='+4') #{(mob_prob*100).toFixed(0)}% 
 								span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TM amputation, is below average (83%).
 				#tm_mobility
 					.track
