@@ -30,10 +30,9 @@ block content
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
 				#tt_mortality
 					.track
-						.average(style='bottom: 0%;')
+						.average(style='bottom: -8.4%;')
 							font(size='-1').amount 25% Average Risk
 						.goal
-							font(size='-1').amount 100%
 						.progress
 							font(size='-1')#progessAmount.amount #{(tt_prob*100).toFixed(0)}% Predicted Risk
 			#tm_mortality_frame
@@ -49,10 +48,9 @@ block content
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is below average (18%).
 				#tm_mortality
 					.track
-						.average(style='bottom: -7.0%;')
+						.average(style='bottom: -15.4%;')
 							font(size='-1').amount 18% Average Risk
 						.goal
-							font(size='-1').amount 100%
 						.progress
 							font(size='-1')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}% Predicted Risk
 
@@ -61,7 +59,7 @@ block content
 			hr
 			.tooltip
 				heading_font Reamputation
-				span.tooltiptext Any additional surgery on the amputate limb included soft tissue revision, bony revision at the same level, or conversion to the next level.
+				span.tooltiptext Any additional surgery on the amputated limb including soft tissue revision, bony revision at the same level, or conversion to a higher level.
 			#tt_reamputation_frame
 				.risk_frame
 					.text-center.alert.alert-success 
@@ -75,10 +73,9 @@ block content
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is above average. (26%).	
 				#tt_reamputation
 					.track
-						.average(style='bottom: 1%;') 
+						.average(style='bottom: -7.4%;') 
 							font(size='-1').amount 26% Average Risk
 						.goal
-							font(size='-1').amount 100%
 						.progress
 							font(size='-1')#progessAmount.amount #{(tt_reamp_prob*100).toFixed(0)}%  Predicted Risk	
 			#tm_reamputation_frame
@@ -94,10 +91,9 @@ block content
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TM amputation, is above average (40%).	
 				#tm_reamputation
 					.track
-						.average(style='bottom: 15%;') 
+						.average(style='bottom: 6.6%;') 
 							font(size='-1').amount 40% Average Risk
 						.goal
-							font(size='-1').amount 100%
 						.progress
 							font(size='-1')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}%  Predicted Risk
 
@@ -105,7 +101,7 @@ block content
 			hr
 			.tooltip
 				heading_font Functional Mobility
-				span.tooltiptext This represents the probability that you will be able to achieve this level of mobility with or without a mobility aid such as a cane, crutch or walker but there would be no need for physical assistance from someone to be able to perform these tasks.
+				span.tooltiptext The probability that you will be able to achieve the following tasks with or without a mobility aid such as a cane, crutch or walker but there would be no need for physical assistance from another person.
 					ul
 						li Get up from a chair
 						li Walk in the house
@@ -129,10 +125,9 @@ block content
 
 				#tt_mobility
 					.track
-						.average(style='bottom: 37%;')
+						.average(style='bottom: 28.6%;')
 							font(size='-1.5').amount 62% Average Probability
 						.goal
-							font(size='-1.5').amount 100%
 						.progress
 							font(size='-1.5')#progessAmount.amount #{(tt_mob_prob*100).toFixed(0)}% Predicted Probability
 			#tm_mobility_frame
@@ -148,10 +143,9 @@ block content
 								span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TM amputation, is below average (83%).
 				#tm_mobility
 					.track
-						.average(style='bottom: 56%;')
+						.average(style='bottom: 49.6%;')
 							font(size='-1.5').amount 83% Average Probability
 						.goal
-							font(size='-1.5').amount 100%
 						.progress
 							font(size='-1')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
 	

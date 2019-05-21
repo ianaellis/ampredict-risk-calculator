@@ -5,7 +5,7 @@ function thermometer(name, goalAmount, progressAmount, animate) {
         $goal = $(".goal", $thermo),
         percentageAmount;
 
-    goalAmount = goalAmount || parseFloat($goal.text()),
+    goalAmount = 100,
     progressAmount = progressAmount || parseFloat($progress.text()),
     percentageAmount = Math.min(Math.round(progressAmount / goalAmount * 1000) / 10, 100); //make sure we have 1 decimal point
 

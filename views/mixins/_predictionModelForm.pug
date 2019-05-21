@@ -74,11 +74,11 @@ mixin predictionModelForm(store = {})
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.diabetes!='0' ? false:'selected'), name='Diabetes', required=true)
 					|  No	
-			label(for="Revascularization" id='Revascularization') History of a revascularization 
+			label(for="Revascularization" id='Revascularization') History of a 
 				.tooltip 
-					| on side of amputation.
+					| revascularization 
 					span.tooltiptext This may include on open procedure, and endovascualr procedure, or both.
-
+				|  on side of amputation.
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.revascularization!='1' ? false:'selected'), name='Revascularization', required=true) 
 					|  Yes
