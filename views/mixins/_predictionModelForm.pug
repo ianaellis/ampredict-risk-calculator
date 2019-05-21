@@ -48,7 +48,7 @@ mixin predictionModelForm(store = {})
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.education_status!='0' ? false:'selected'), name='EducationStatus', required=true)
 					|  Less than high school 
 		.form_section
-			font(size='+2') 
+			font(size='+3') 
 				center 
 					strong Comorbidities
 				hr
@@ -100,7 +100,7 @@ mixin predictionModelForm(store = {})
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.anxiety_depression!='0' ? false:'selected'), name='AnxietyDepression', required=true)
 					|  No
 		.form_section
-			font(size='+2') 
+			font(size='+3') 
 				center 
 					strong Laboratory Values and Medications
 				hr
@@ -134,7 +134,7 @@ mixin predictionModelForm(store = {})
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.out_anti!='0' ? false:'selected'), name='OutputAnticoagulants', required=true)
 					|  No
 		.form_section
-			font(size='+2') 
+			font(size='+3') 
 				center 
 					strong Health Factors
 				hr
