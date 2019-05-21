@@ -29,6 +29,7 @@ label {
   width: 650px;
   margin: auto;
   padding: 20px;
+  font-size: 2rem;
 
   .form_section {
     /*outline: 1px dotted #1C6EA4;*/
@@ -190,25 +191,3 @@ button:hover {
 
 
 
-
-
-.form_deletethis {
-  //outline: 1px dotted #1C6EA4;
-  background: white;
-  padding: 2rem;
-  box-shadow: $grad;
-  & + .form {
-    margin-top: 4rem;
-  }
-  // I know this isn't bem but meh
-  h2 {
-    margin: 0;
-    font-size: 2rem;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid $grey;
-  }
-}
-
-
-//Multi Step form code from https://codepen.io/atakan/pen/gqbIz

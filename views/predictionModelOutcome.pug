@@ -30,7 +30,7 @@ block content
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
 				#tt_mortality
 					.track
-						.average(style='bottom: -8.4%;')
+						.average(style='bottom: -7.4%;')
 							font(size='-1').amount 25% Average Risk
 						.goal
 						.progress
@@ -48,7 +48,7 @@ block content
 								span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is below average (18%).
 				#tm_mortality
 					.track
-						.average(style='bottom: -15.4%;')
+						.average(style='bottom: -14.4%;')
 							font(size='-1').amount 18% Average Risk
 						.goal
 						.progress
@@ -73,7 +73,7 @@ block content
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is above average. (26%).	
 				#tt_reamputation
 					.track
-						.average(style='bottom: -7.4%;') 
+						.average(style='bottom: -6.4%;') 
 							font(size='-1').amount 26% Average Risk
 						.goal
 						.progress
@@ -91,7 +91,7 @@ block content
 								span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TM amputation, is above average (40%).	
 				#tm_reamputation
 					.track
-						.average(style='bottom: 6.6%;') 
+						.average(style='bottom: 7.6%;') 
 							font(size='-1').amount 40% Average Risk
 						.goal
 						.progress
@@ -125,7 +125,7 @@ block content
 
 				#tt_mobility
 					.track
-						.average(style='bottom: 28.6%;')
+						.average(style='bottom: 29.6%;')
 							font(size='-1.5').amount 62% Average Probability
 						.goal
 						.progress
@@ -143,16 +143,14 @@ block content
 								span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TM amputation, is below average (83%).
 				#tm_mobility
 					.track
-						.average(style='bottom: 49.6%;')
+						.average(style='bottom: 50.6%;')
 							font(size='-1.5').amount 83% Average Probability
 						.goal
 						.progress
 							font(size='-1')#progessAmount.amount(style='display: block;') #{(mob_prob*100).toFixed(0)}% Predicted Probability
 	
 	.table_frame_s
-		table_desc The clinician and patient will need to balance this risk of mortality with the risk of failure of healing/need for reamputation as well as the probability of achieving at least a functional level of independent mobility when making the decision about the most appropriate level of amputation.
-		br
-		br
+		.table_desc The clinician and patient will need to balance this risk of mortality with the risk of failure of healing/need for reamputation as well as the probability of achieving at least a functional level of independent mobility when making the decision about the most appropriate level of amputation.
 		table.table
 			thead
 				tr

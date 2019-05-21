@@ -561,6 +561,7 @@ label {
   width: 650px;
   margin: auto;
   padding: 20px;
+  font-size: 2rem;
   /*Hide all sections except first */
   /*  form_section:not(:first-of-type) {
     display: none;
@@ -671,19 +672,6 @@ button:hover {
 
 .radio_align_functional_status {
   text-align: center; }
-
-.form_deletethis {
-  background: white;
-  padding: 2rem;
-  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
-  .form_deletethis + .form {
-    margin-top: 4rem; }
-  .form_deletethis h2 {
-    margin: 0;
-    font-size: 2rem;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #e6e6e6; }
 
 .search {
   position: relative;
@@ -1335,13 +1323,15 @@ pre.error {
   white-space: pre-line; }
 
 /* Remove up and down arrows from number boxes */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0; }
-
+/*
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+*/
 .tooltip {
   color: #42a1f4;
   position: relative;
@@ -1454,6 +1444,13 @@ input[type=number]::-webkit-outer-spin-button {
   width: 660px;
   height: 30px;
   /*margin-bottom: 20px;*/ }
+
+.table_desc {
+  font-size: 1.8rem;
+  width: 800px;
+  text-align: left;
+  margin: auto;
+  padding: 5px; }
 
 #mortality_frame,
 #reamputation_frame,
