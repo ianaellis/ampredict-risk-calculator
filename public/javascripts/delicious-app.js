@@ -6,6 +6,9 @@ import parsley from 'parsleyjs';
 import navigateTo from './modules/wizardForm';
 import thermometer from './modules/thermometer';
 
+$(document).ready(function () {
+    $('#output_tabs').tabs();
+});
 
 
 // import showSection from './modules/multiStepForm';

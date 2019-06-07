@@ -33,9 +33,6 @@ body {
 html {
   box-sizing: border-box; }
 
-*, *:before, *:after {
-  box-sizing: inherit; }
-
 img {
   max-width: 100%; }
 
@@ -81,7 +78,7 @@ section {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0; }
+  margin: 0.4em 0; }
 
 /* Grouping content
    ========================================================================== */
@@ -888,10 +885,7 @@ button:hover {
 .table_frame_s {
   text-align: center;
   background: white;
-  width: 1000px;
-  margin: auto;
-  padding: 10px;
-  margin-top: 2rem;
+  width: 500px;
   border-radius: 20px; }
 
 .stores {
@@ -1375,7 +1369,6 @@ input[type=number]::-webkit-outer-spin-button {
 #calc_pic_box {
   height: auto;
   width: 100px;
-  margin-left: 50px;
   border-radius: 20px;
   padding: 10px; }
 
@@ -1433,7 +1426,7 @@ input[type=number]::-webkit-outer-spin-button {
   background: white;
   border-radius: 40px;
   /*outline: 1px dotted #1C6EA4;*/
-  width: 700px;
+  width: 750px;
   margin: auto;
   padding: 20px;
   margin-top: 2rem;
@@ -1447,7 +1440,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .table_desc {
   font-size: 1.8rem;
-  width: 800px;
+  width: 690px;
   text-align: left;
   margin: auto;
   padding: 5px; }
@@ -1474,8 +1467,7 @@ input[type=number]::-webkit-outer-spin-button {
   float: right; }
 
 .table_frame {
-  width: 70%;
-  margin: auto;
+  width: 100%;
   postion: relative; }
 
 .risk_frame {
@@ -1566,6 +1558,18 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     right: 0;
     padding: 0px 0px 1px 0px; }
+
+/* The tab view */
+#output_tabs {
+  border: none;
+  font-family: Calibri;
+  /* Tab buttons */ }
+  #output_tabs .ui-widget-header {
+    background: none;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-color: #dddddd;
+    border-bottom_width: .5px; }
 
 input.parsley-success,
 select.parsley-success,

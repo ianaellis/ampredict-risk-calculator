@@ -1,7 +1,7 @@
 mixin predictionModelForm(store = {})
 	.calc_title_div
 		center
-			risk_title VA AMPREDICT
+			risk_title AMPREDICT
 			br
 			sub_title Risk Calculator
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
@@ -22,14 +22,14 @@ mixin predictionModelForm(store = {})
 					|  Male
 			label(for="race" id='race') Race: 
 				.radio_align
-					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.race!='1' ? false:'selected'), name='race', required=true)
-					|  White
-					br
 					input(type='radio', value='2', selected=(undefined===predModel_TM || predModel_TM.race!='2' ? false:'selected'), name='race', required=true)
 					|  Black
 					br
 					input(type='radio', value='3', selected=(undefined===predModel_TM || predModel_TM.race!='3' ? false:'selected'), name='race', required=true)
 					|  Hispanic
+					br
+					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.race!='1' ? false:'selected'), name='race', required=true)
+					|  White
 					br
 					input(type='radio', value='4', selected=(undefined===predModel_TM || predModel_TM.race!='4' ? false:'selected'), name='race', required=true)
 					|  Other	
@@ -106,18 +106,18 @@ mixin predictionModelForm(store = {})
 				hr
 
 			.lab_number_box_align
-				label(for="blood_nitrogen" id='blood_nitrogen') Recent BUN level (mg/dl): 
-					input(type='number', name='blood_nitrogen', style='width: 130px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), placeholder="1-157", data-parsley-range='[1, 157]', required=true)
+				label(for="blood_nitrogen" id='blood_nitrogen') Most recent BUN (mg/dl): 
+					input(type='number', name='blood_nitrogen', style='width: 130px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), data-parsley-range='[1, 157]', required=true)
 				label(for="platelet_count" id='platelet_count') Most recent platelet count (per mL): 
-					input(type='number', name='platelet_count', style='width: 130px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), placeholder="ex. 150", data-parsley-min='1', required=true)
-			label(for="WBC") White blood cell count of  >= 11,000:
+					input(type='number', name='platelet_count', style='width: 130px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), data-parsley-min='1', required=true)
+			label(for="WBC") White blood cell count >= 11,000:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.wbc!='1' ? false:'selected'), name='WBC', required=true) 
 					|  Yes
 					br
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.wbc!='0' ? false:'selected'), name='WBC', required=true)
 					|  No
-			label(for="KidneyFailure") eGFR value of <15 in the last 3 months:
+			label(for="KidneyFailure") eGFR <15 in the last 3 months:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.egfr!='1' ? false:'selected'), name='KidneyFailure', required=true) 
 					|  Yes
@@ -139,26 +139,26 @@ mixin predictionModelForm(store = {})
 					strong Health Factors
 				hr
 			.bmi_align
-				label(for="Height") Height: 
-					input(type='number', name='Height', style='width: 130px;', value=(predModel_TM ? predModel_TM.height : ''), placeholder="inches", data-parsley-range='[48, 84]', required=true)
-				label(for="Weight") Weight: 
-					input(type='number', name='Weight', style='width: 130px;', value=(predModel_TM ? predModel_TM.weight : ''), placeholder="lbs", data-parsley-range='[80, 500]', required=true)
+				label(for="Height") Height (inches): 
+					input(type='number', name='Height', style='width: 130px;', value=(predModel_TM ? predModel_TM.height : ''), data-parsley-range='[48, 84]', required=true)
+				label(for="Weight") Weight (lbs): 
+					input(type='number', name='Weight', style='width: 130px;', value=(predModel_TM ? predModel_TM.weight : ''), data-parsley-range='[80, 500]', required=true)
 
-			label(for="Smoke") Is the patient currently a smoker?
+			label(for="Smoke") Currently a smoker?
 				.radio_align
 						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.smoke!='1' ? false:'selected'), name='Smoke', required=true) 
 						|  Yes
 						br
 						input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.smoke!='0' ? false:'selected'), name='Smoke', required=true)
 						|  No
-			label(for="Alcohol") Does the patient report drinking >2 drinks/day in last 2 weeks?
+			label(for="Alcohol") Self-rated alcohol use of >2 drinks/day in last 2 weeks?
 				.radio_align
 						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.alcohol!='1' ? false:'selected'), name='Alcohol', required=true) 
 						|  Yes
 						br
 						input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.alcohol!='0' ? false:'selected'), name='Alcohol', required=true)
 						|  No
-			label(for="functional_status", required=true) What has been the patient's functional status in the past 30 days prior to surgery?   
+			label(for="functional_status", required=true) Functional status in the past 30 days prior to surgery?   
 				.radio_align_functional_status
 					br
 					.tooltip
@@ -174,7 +174,9 @@ mixin predictionModelForm(store = {})
 						|  Totally Dependent
 						span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
 
-			label(for="SelfRatedHealth") In general, would you say your health is…? <i>(ask the patient this question and provide the options)</i>
+			label(for="SelfRatedHealth") Patient reported self-rated health:
+				br
+				i In general, would you say your health is…?
 				.radio_align
 						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.srh!='1' ? false:'selected'), name='SelfRatedHealth', required=true) 
 						|  Very Good

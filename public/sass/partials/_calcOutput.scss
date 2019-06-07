@@ -34,7 +34,7 @@
     background: white;
     border-radius: 40px;
     /*outline: 1px dotted #1C6EA4;*/
-    width: 700px;
+    width: 750px;
     margin: auto;
     padding: 20px;
     margin-top: 2rem;
@@ -50,7 +50,7 @@
 
 .table_desc {
     font-size: 1.8rem;
-    width: 800px;
+    width: 690px;
     text-align: left;
     margin: auto;
     padding: 5px;
@@ -83,8 +83,9 @@
 
 //The table at the bottom of the page
 .table_frame{
-    width: 70%;
-    margin: auto;
+    //outline: 1px dotted #1C6EA4;
+    width: 100%;
+    //margin: auto;
     postion: relative;
 }
 
@@ -132,6 +133,7 @@
         display: inline-block;
         font-weight: bold;
         padding: 0 50px 0 0;
+        
     }
     .progress .amount{
         border-top: 1px solid #006600;
@@ -150,4 +152,21 @@
         right: 0;
         padding: 0px 0px 1px 0px;
     }
+}
+
+/* The tab view */
+
+#output_tabs{
+    border: none;
+    font-family: Calibri;
+
+    /* Tab buttons */
+    .ui-widget-header{
+        background: none;
+        border: none;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(221, 221, 221);
+        border-bottom_width: .5px;
+    }
+
 }

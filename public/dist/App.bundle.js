@@ -13294,7 +13294,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  //import { $$ } from './modules/bling';
 
 
- // import showSection from './modules/multiStepForm';
+
+$(document).ready(function () {
+  $('#output_tabs').tabs();
+}); // import showSection from './modules/multiStepForm';
 // import nextPrev from './modules/multiStepForm';
 // import curIndex from './modules/wizardForm';
 // navigateTo(0);
