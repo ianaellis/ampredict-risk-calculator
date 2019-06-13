@@ -852,11 +852,11 @@ button:hover {
   font-family: sans-serif;
   border-collapse: collapse;
   border: 2px solid #c8c8c8;
-  font-size: 1.59rem;
+  /*font-size: 1.59rem; */
   margin: auto; }
   .table td, .table th {
     border: 1px solid #bebebe;
-    padding: 10px 20px; }
+    padding: 2px; }
   .table th {
     background-color: #ebebeb; }
   .table td {
@@ -880,12 +880,18 @@ button:hover {
   border-collapse: collapse;
   border: 2px solid #c8c8c8;
   letter-spacing: 1px;
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+  -moz-column-width: 200px;
+       column-width: 200px; }
 
 .table_frame_s {
   text-align: center;
+  /*outline: 1px dotted #1C6EA4;*/
   background: white;
-  width: 500px;
+  /*width: 500px;*/
+  /*  margin: auto;
+  padding-right: 10px;
+  margin-top: 2rem;*/
   border-radius: 20px; }
 
 .stores {
@@ -1317,15 +1323,16 @@ pre.error {
   white-space: pre-line; }
 
 /* Remove up and down arrows from number boxes */
-/*
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; }
+
+input[type="number"] {
+  -moz-appearance: textfield; }
+
 .tooltip {
   color: #42a1f4;
   position: relative;

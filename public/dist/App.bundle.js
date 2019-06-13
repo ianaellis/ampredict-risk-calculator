@@ -13296,7 +13296,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 $(document).ready(function () {
-  $('#output_tabs').tabs();
+  $('#output_tabs').tabs({
+    active: 0
+  });
 }); // import showSection from './modules/multiStepForm';
 // import nextPrev from './modules/multiStepForm';
 // import curIndex from './modules/wizardForm';

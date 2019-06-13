@@ -24,7 +24,7 @@ block content
 				li
 					a(href='#output_tabs-3') Demographics
 				//- li
-				//- 	a(href='#output_tabs-all') All //https://stackoverflow.com/questions/6228278/jquery-ui-tabs-show-all-tab
+				//- 	a(href='#output_tabs-4') All
 			#output_tabs-1
 				.heading_frame
 					.output_title_center
@@ -37,7 +37,7 @@ block content
 					//- hr
 					.tooltip
 						heading_font Mortality
-						span.tooltiptext Risk of dying within the first year after amputation.
+						span.tooltiptext Risk of death within the first year after amputation.
 					#tt_mortality_frame
 						.risk_frame
 							.text-center.alert.alert-success
@@ -211,20 +211,20 @@ block content
 									td 
 										if(heart_failure_string != "")
 											| #{heart_failure_string}
+											br
 										if(dialysis_string != "")	
-											br
 											| #{dialysis_string}
+											br
 										if(diabetes_string != "")
-											br
 											| #{diabetes_string}
+											br
 										if(revascularization_string != "")
-											br
 											| #{revascularization_string}
+											br
 										if(copd_string != "")
-											br
 											| #{copd_string}
-										if(anxiety_string != "")
 											br
+										if(anxiety_string != "")
 											| #{anxiety_string}
 								else
 									td None
@@ -252,3 +252,4 @@ block content
 								td #{health_string}
 				br
 				br
+			//- #output_tabs-4

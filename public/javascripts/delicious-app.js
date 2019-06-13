@@ -7,7 +7,9 @@ import navigateTo from './modules/wizardForm';
 import thermometer from './modules/thermometer';
 
 $(document).ready(function () {
-    $('#output_tabs').tabs();
+    $('#output_tabs').tabs({
+    	active: 0
+    });
 });
 
 

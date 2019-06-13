@@ -11,7 +11,7 @@ mixin predictionModelForm(store = {})
 					strong Demographics
 				hr
 			label(for="age" id='age') Age:    
-				input(type='number', name='age', style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder="40-89", data-parsley-range='[40, 89]', required=true)
+				input(type='number', name='age', style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), data-parsley-range='[40, 110]', required=true)
 
 			label(for="Gender" id='Gender') Gender:
 				.radio_align
@@ -109,7 +109,7 @@ mixin predictionModelForm(store = {})
 				label(for="blood_nitrogen" id='blood_nitrogen') Most recent BUN (mg/dl): 
 					input(type='number', name='blood_nitrogen', style='width: 130px;', value=(predModel_TM ? predModel_TM.blood_nitrogen : ''), data-parsley-range='[1, 157]', required=true)
 				label(for="platelet_count" id='platelet_count') Most recent platelet count (per mL): 
-					input(type='number', name='platelet_count', style='width: 130px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), data-parsley-min='1', required=true)
+					input(type='number', name='platelet_count', style='width: 130px;', value=(predModel_TM ? predModel_TM.platelet_count : ''), data-parsley-min='10000', required=true)
 			label(for="WBC") White blood cell count >= 11,000:
 				.radio_align
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.wbc!='1' ? false:'selected'), name='WBC', required=true) 
@@ -151,7 +151,7 @@ mixin predictionModelForm(store = {})
 						br
 						input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.smoke!='0' ? false:'selected'), name='Smoke', required=true)
 						|  No
-			label(for="Alcohol") Self-rated alcohol use of >2 drinks/day in last 2 weeks?
+			label(for="Alcohol") Self-reported alcohol use of >2 drinks/day in last 2 weeks?
 				.radio_align
 						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.alcohol!='1' ? false:'selected'), name='Alcohol', required=true) 
 						|  Yes
@@ -174,9 +174,8 @@ mixin predictionModelForm(store = {})
 						|  Totally Dependent
 						span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
 
-			label(for="SelfRatedHealth") Patient reported self-rated health:
-				br
-				i In general, would you say your health is…?
+			label(for="SelfRatedHealth") Ask the patient the following self-rated health question: 
+				i "In general, would you say your health is…?"
 				.radio_align
 						input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.srh!='1' ? false:'selected'), name='SelfRatedHealth', required=true) 
 						|  Very Good

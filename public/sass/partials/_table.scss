@@ -2,12 +2,12 @@
   font-family: sans-serif;
   border-collapse: collapse;
   border: 2px solid rgb(200,200,200);
-  font-size: 1.59rem; 
+  /*font-size: 1.59rem; */
   margin: auto;
 
   td, th {
     border: 1px solid rgb(190,190,190);
-    padding: 10px 20px;
+    padding: 2px;
   }
   th {
     background-color: rgb(235,235,235);
@@ -42,17 +42,19 @@
   border-collapse: collapse;
   border: 2px solid rgb(200,200,200);
   letter-spacing: 1px;
-  font-size: 0.8rem; 
+  font-size: 0.8rem;
+  column-width: 200px;
 
 }
 
 .table_frame_s {
   text-align: center;
-  //outline: 1px dotted #1C6EA4;
+  /*outline: 1px dotted #1C6EA4;*/
   background: white;
-  width: 500px;
-  //margin: auto;
-  //padding-right: 10px;
-  //margin-top: 2rem;
+  /*width: 500px;*/
+/*  margin: auto;
+  padding-right: 10px;
+  margin-top: 2rem;*/
   border-radius: 20px;
+
 }

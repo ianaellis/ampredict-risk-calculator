@@ -30,7 +30,7 @@ exports.store_create_post = [
 	
 	//Validation 
 	body('age', 'Please enter a value for age').not().isEmpty(),
-	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 20, max: 100}),
+	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 40, max: 110}),
 	body('Gender', 'Please select an option for gender').not().isEmpty(),
 	body('race', 'Please select an option for race').not().isEmpty(),
 	body('MaritalStatus', 'Please select an option for marital status').not().isEmpty(),
@@ -111,6 +111,10 @@ exports.store_create_post = [
 			var weight = req.body.Weight;
 			var height = req.body.Height;
 			var bmi = (weight/height/height)*703;
+			var age = req.body.age;
+			if(age > 90){
+				age = 90;
+			}
 		// Variable strings
 			var amp_lvl_string = "";
 			var age_string = req.body.age;
@@ -141,7 +145,7 @@ exports.store_create_post = [
 
 			var amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_amp_lvl_calc = .295483; 					//Question 1 -- TT
-			var age_calc = (req.body.age - 65)*0.04708; 	//Question 2
+			var age_calc = (age - 65)*0.04708; 	//Question 2
 			var bmi_calc = (bmi - 25)*-0.05016; 	//Question 3
 			var race_calc = 0; 								//Question 4
 			var func_status_calc = 0; 						//Question 5
@@ -156,7 +160,7 @@ exports.store_create_post = [
 
 			var lower_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_lower_amp_lvl_calc = .12677; 					//Question 1 -- TT 
-			var lower_age_calc = (req.body.age - 65)*0.04114; 		//Question 2
+			var lower_age_calc = (age - 65)*0.04114; 		//Question 2
 			var lower_bmi_calc = (bmi - 25)*-0.06102; 		//Question 3
 			var lower_race_calc = 0; 								//Question 4
 			var lower_func_status_calc = 0; 						//Question 5
@@ -171,7 +175,7 @@ exports.store_create_post = [
 
 			var upper_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_upper_amp_lvl_calc = .46419; 					//Question 1 -- TT
-			var upper_age_calc = (req.body.age - 65)*0.05302; 		//Question 2
+			var upper_age_calc = (age - 65)*0.05302; 		//Question 2
 			var upper_bmi_calc = (bmi - 25)*-0.0393; 		//Question 3
 			var upper_race_calc = 0; 								//Question 4
 			var upper_func_status_calc = 0; 						//Question 5
@@ -491,7 +495,7 @@ exports.store_create_post = [
 			//Coeffs
 			var mob_coeff_amp_lvl_calc = 0;
 			var tt_mob_coeff_amp_lvl_calc = -1.12;
-			var mob_coeff_age = (req.body.age - 60)*(-0.125);
+			var mob_coeff_age = (age - 60)*(-0.125);
 			var mob_coeff_bmi = (bmi - 30)*(-0.008); 
 			var mob_coeff_race = 0;
 			var mob_coeff_marital = 0;
@@ -506,7 +510,7 @@ exports.store_create_post = [
 			//Lower
 			var mob_lower_amp_lvl_calc = 0;
 			var tt_mob_lower_amp_lvl_calc = -2.19;
-			var mob_lower_age = (req.body.age - 60)*(-.187);
+			var mob_lower_age = (age - 60)*(-.187);
 			var mob_lower_bmi = (bmi - 30)*(-0.1087); 
 			var mob_lower_race = 0;
 			var mob_lower_marital = 0;
@@ -521,7 +525,7 @@ exports.store_create_post = [
 			//upper
 			var mob_upper_amp_lvl_calc = 0;
 			var tt_mob_upper_amp_lvl_calc = -0.054;
-			var mob_upper_age = (req.body.age - 60)*(-0.063);
+			var mob_upper_age = (age - 60)*(-0.063);
 			var mob_upper_bmi = (bmi - 30)*(-0.0175); 
 			var mob_upper_race = 0;
 			var mob_upper_marital = 0;
@@ -694,7 +698,7 @@ exports.store_create_post = [
 
 			//Coeffs
 			var aMob_coeff_amp_lvl_calc = 0;
-			var aMob_coeff_age = (req.body.age - 60)*(-0.138);
+			var aMob_coeff_age = (age - 60)*(-0.138);
 			var aMob_coeff_bmi = (bmi - 30)*(-0.064); 
 			var aMob_coeff_race = 0;
 			var aMob_coeff_marital = 0;
@@ -705,7 +709,7 @@ exports.store_create_post = [
 
 			//Lower
 			var aMob_lower_amp_lvl_calc = 0;
-			var aMob_lower_age = (req.body.age - 60)*(-0.205);
+			var aMob_lower_age = (age - 60)*(-0.205);
 			var aMob_lower_bmi = (bmi - 30)*(-0.125); 
 			var aMob_lower_race = 0;
 			var aMob_lower_marital = 0;
@@ -716,7 +720,7 @@ exports.store_create_post = [
 
 			//upper
 			var aMob_upper_amp_lvl_calc = 0;
-			var aMob_upper_age = (req.body.age - 60)*(-0.071);
+			var aMob_upper_age = (age - 60)*(-0.071);
 			var aMob_upper_bmi = (bmi - 30)*(-0.003); 
 			var aMob_upper_race = 0;
 			var aMob_upper_marital = 0;
