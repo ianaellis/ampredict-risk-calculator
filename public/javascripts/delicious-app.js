@@ -14,18 +14,40 @@ $(document).ready(function () {
     $('#mortality_tabs').tabs({
         active: 0
     });
+    showAllTabs('all_output', '#output_tabs', $('#all_output'));
 
-    // // Button : Both
-    // $('#both_mortality').on('click', function() {
-    //     console.log("hi");
-    //     $('#mortality_tabs .ui-tabs-panel').show();
-    //     $('#mortality_tabs').removeClass('ui-tabs-active').removeClass('ui-state-active');
-    //     // $('#both').addClass('ui-tabs-active').addClass('ui-state-active');
-    // }).on('click', '#mortality_tabs .ui-tab', function() {
-    //     // $('#both').removeClass('ui-tabs-active').removeClass('ui-state-active');
-    //     $('#mortality_tab-1, #mortality_tab-2').hide();
+    // $(document).on('click', '#output_tabs .ui-tab', function() {
+    //     if($(this).attr('id') == 'all_output') {
+    //         $('#output_tabs .ui-tabs-panel').show();
+    //     } else {
+    //         $('#output_tabs .ui-tabs-panel[aria-hidden="true"]').hide();
+    //     }
+    // }).on('click', '#all_output', function() {
+    //     if($('#all_output').hasClass('ui-state-active')){
+    //         $('#output_tabs .ui-tabs-panel').show();
+    //     }
     // });
-    // $('#mortality_tab-1, #mortality_tab-2').show();
+
+    $(document).on('click', '#mortality_tabs .ui-tab', function() {
+        showAllTabs('both_mortality', '#mortality_tabs', $(this));
+    }).on('click', '#mortality', function() {
+        openAllTab('both_mortality', '#mortality_tabs');
+    });
+
+    // id 
+    function showAllTabs(id, wrapperID, $element) {
+        if($element.attr('id') == id) {
+            $(wrapperID + ' > .ui-tabs-panel').show();
+      } else {
+            $(wrapperID + ' > .ui-tabs-panel[aria-hidden="true"]').hide();
+      }
+    }
+
+    function openAllTab(id, wrapperID) {
+        if($('#' + id).hasClass('ui-state-active')){
+            $(wrapperID + ' > .ui-tabs-panel').show();
+      }
+    }
 });
 
 
