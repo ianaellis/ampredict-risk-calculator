@@ -21,9 +21,11 @@ $(document).ready(function () {
         $('#mortality_tabs .ui-tabs-panel').show();
         $('#mortality_tabs').removeClass('ui-tabs-active').removeClass('ui-state-active');
         $('#both').addClass('ui-tabs-active').addClass('ui-state-active');
-    }).on('click', '#mortality_tabs', function() {
+    }).on('click', '#mortality_tabs .ui-tab', function() {
         $('#both').removeClass('ui-tabs-active').removeClass('ui-state-active');
+        $('#mortality_tab-1, #mortality_tab-2').hide();
     });
+    $('#mortality_tab-1, #mortality_tab-2').show();
 });
 
 
