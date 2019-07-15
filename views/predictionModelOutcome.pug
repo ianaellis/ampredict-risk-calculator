@@ -18,13 +18,13 @@ block content
 		#output_tabs
 			ul
 				li
+					a(href='#all') All
+				li
 					a(href='#output_tabs-1') Mortality
 				li
 					a(href='#output_tabs-2') Reamputation vs Mobility
 				li
 					a(href='#output_tabs-3') Demographics
-				li
-					a(href='#') All
 				//- li
 				//- 	a(href='#output_tabs-4') All
 			#output_tabs-1
@@ -37,8 +37,8 @@ block content
 				//- 			strong Transmetatarsal
 				#mortality_tabs
 					ul
-						li
-							a(href='#both') Both
+						li#both_mortality
+							a(href='#all') Both
 						li
 							a(href='#mortality_tab-1') Mortality TT
 						li
