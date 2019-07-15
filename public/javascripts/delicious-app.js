@@ -30,7 +30,9 @@ $(document).ready(function () {
 
     $(document).on('click', '#mortality_tabs .ui-tab', function() {
         showAllTabs('both_mortality', '#mortality_tabs', $(this));
-    })
+    }).on('click', '#output_tabs.ui-tab', function() {
+        showAllTabs('all_output', '#output_tabs', $(this));
+    });
 
     function showAllTabs(id, wrapperID, $element) {
         if($element.attr('id') == id) {
