@@ -23,58 +23,76 @@ block content
 					a(href='#output_tabs-2') Reamputation vs Mobility
 				li
 					a(href='#output_tabs-3') Demographics
+				li
+					a(href='#') All
 				//- li
 				//- 	a(href='#output_tabs-4') All
 			#output_tabs-1
-				.heading_frame
-					.output_title_center
-						category_font
-							strong Transtibial
-					.output_title_right
-						category_font
-							strong Transmetatarsal
-				#mortality_frame
-					//- hr
-					.tooltip
-						heading_font Mortality
-						span.tooltiptext Risk of death within the first year after amputation.
-					#tt_mortality_frame
-						.risk_frame
-							.text-center.alert.alert-success
-								if(tt_highProb)
-									.tooltip
-										font(size='+4') #{(tt_prob*100).toFixed(0)}% 
-										span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
-								else
-									.tooltip
-										font(size='+4') #{(tt_prob*100).toFixed(0)}% 
-										span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
-						#tt_mortality
-							.track
-								.average(style='bottom: -6.7%;')
-									font(size='-1').amount 25% Average Risk
-								.goal
-								.progress
-									font(size='-1')#progessAmount.amount #{(tt_prob*100).toFixed(0)}% 
-					#tm_mortality_frame
-						.risk_frame
-							.text-center.alert.alert-success
-								if(highProb)
-									.tooltip
-										font(size='+4') #{(prob*100).toFixed(0)}% 
-										span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is above average (18%).
-								else
-									.tooltip
-										font(size='+4') #{(prob*100).toFixed(0)}% 
-										span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is below average (18%).
-						#tm_mortality
-							.track
-								.average(style='bottom: -14.4%;')
-									font(size='-1').amount 18% Average Risk
-								.goal
-								.progress
-									font(size='-1')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
-
+				//- .heading_frame
+				//- 	.output_title_center
+				//- 		category_font
+				//- 			strong Transtibial
+				//- 	.output_title_right
+				//- 		category_font
+				//- 			strong Transmetatarsal
+				#mortality_tabs
+					ul
+						li
+							a(href='#both') Both
+						li
+							a(href='#mortality_tab-1') Mortality TT
+						li
+							a(href='#mortality_tab-2') Mortality TM
+					#mortality_tab-1
+						#mortality_frame
+							//- .heading_frame
+							//- 	.output_title_center
+							//- 		category_font
+							//- 			strong Transtibial
+							.tooltip
+								heading_font Mortality
+								span.tooltiptext Risk of death within the first year after amputation.
+							#tt_mortality_frame
+								.risk_frame
+									.text-center.alert.alert-success
+										if(tt_highProb)
+											.tooltip
+												font(size='+4') #{(tt_prob*100).toFixed(0)}% 
+												span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
+										else
+											.tooltip
+												font(size='+4') #{(tt_prob*100).toFixed(0)}% 
+												span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
+								#tt_mortality
+									.track
+										.average(style='bottom: -6.7%;')
+											font(size='-1').amount 25% Average Risk
+										.goal
+										.progress
+											font(size='-1')#progessAmount.amount #{(tt_prob*100).toFixed(0)}% 
+					#mortality_tab-2
+						#mortality_frame
+							.tooltip
+								heading_font Mortality
+								span.tooltiptext Risk of death within the first year after amputation.
+							#tm_mortality_frame
+								.risk_frame
+									.text-center.alert.alert-success
+										if(highProb)
+											.tooltip
+												font(size='+4') #{(prob*100).toFixed(0)}% 
+												span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is above average (18%).
+										else
+											.tooltip
+												font(size='+4') #{(prob*100).toFixed(0)}% 
+												span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TM amputation, is below average (18%).
+								#tm_mortality
+									.track
+										.average(style='bottom: -14.4%;')
+											font(size='-1').amount 18% Average Risk
+										.goal
+										.progress
+											font(size='-1')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
 			#output_tabs-2
 				.heading_frame
 					.output_title_center

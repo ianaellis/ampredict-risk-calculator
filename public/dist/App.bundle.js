@@ -13299,7 +13299,31 @@ $(document).ready(function () {
   $('#output_tabs').tabs({
     active: 0
   });
-}); // import showSection from './modules/multiStepForm';
+  $('#mortality_tabs').tabs({
+    active: 0
+  }); // Button : Both
+
+  $('#ui-id-6').on('click', function () {
+    console.log("hi");
+    $('#mortality_tabs .ui-tabs-panel').show();
+    $('#mortality_tabs').removeClass('ui-tabs-active').removeClass('ui-state-active');
+    $('#both').addClass('ui-tabs-active').addClass('ui-state-active');
+  }).on('click', '#mortality_tabs', function () {
+    $('#both').removeClass('ui-tabs-active').removeClass('ui-state-active');
+  });
+}); // $(document).ready(function () {
+//     $('#output_tabs').tabs({
+//         // active: 0
+//     });
+//     $(document).on('click', '#all', function() {
+//         $('#output_tabs .ui-tabs-panel').show();
+//         $('#output_tabs li').removeClass('ui-tabs-active').removeClass('ui-state-active');
+//         $('#all').addClass('ui-tabs-active').addClass('ui-state-active');
+//     }).on('click', '#output_tabs li', function() {
+//         $('#all').removeClass('ui-tabs-active').removeClass('ui-state-active');
+//     });
+// });
+// import showSection from './modules/multiStepForm';
 // import nextPrev from './modules/multiStepForm';
 // import curIndex from './modules/wizardForm';
 // navigateTo(0);
