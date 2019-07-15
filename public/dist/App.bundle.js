@@ -13301,8 +13301,8 @@ $(document).ready(function () {
   });
   $('#mortality_tabs').tabs({
     active: 0
-  });
-  showAllTabs('all_output', '#output_tabs', $('#all_output')); // $(document).on('click', '#output_tabs .ui-tab', function() {
+  }); // showAllTabs('all_output', '#output_tabs', $('#all_output'));
+  // $(document).on('click', '#output_tabs .ui-tab', function() {
   //     if($(this).attr('id') == 'all_output') {
   //         $('#output_tabs .ui-tabs-panel').show();
   //     } else {
@@ -13316,6 +13316,8 @@ $(document).ready(function () {
 
   $(document).on('click', '#mortality_tabs .ui-tab', function () {
     showAllTabs('both_mortality', '#mortality_tabs', $(this));
+  }).on('click', '#output_tabs .ui-tab', function () {
+    showAllTabs('all_output', '#output_tabs', $(this));
   });
 
   function showAllTabs(id, wrapperID, $element) {
