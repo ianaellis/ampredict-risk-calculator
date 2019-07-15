@@ -313,7 +313,7 @@ exports.store_create_post = [
 		//Variables
 			//Coeffs
 			var reamp_coeff_amp_lvl_calc = 0;
-			var tt_reamp_coeff_amp_lvl_calc = -4.46;
+			var tt_reamp_coeff_amp_lvl_calc = -2.46;
 			var reamp_coeff_gender = 0;
 			var reamp_coeff_tm_with_diabetes = 0;
 			var reamp_coeff_smoke = 0;
