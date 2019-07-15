@@ -13316,9 +13316,7 @@ $(document).ready(function () {
 
   $(document).on('click', '#mortality_tabs .ui-tab', function () {
     showAllTabs('both_mortality', '#mortality_tabs', $(this));
-  }).on('click', '#mortality', function () {
-    openAllTab('both_mortality', '#mortality_tabs');
-  }); // id 
+  });
 
   function showAllTabs(id, wrapperID, $element) {
     if ($element.attr('id') == id) {
@@ -13328,11 +13326,8 @@ $(document).ready(function () {
     }
   }
 
-  function openAllTab(id, wrapperID) {
-    if ($('#' + id).hasClass('ui-state-active')) {
-      $(wrapperID + ' > .ui-tabs-panel').show();
-    }
-  }
+  showAllTabs('all_output', '#output_tabs', $('#all_output'));
+  showAllTabs('both_mortality', '#mortality_tabs', $('#both_mortality'));
 }); // $(document).ready(function () {
 //     $('#output_tabs').tabs({
 //         // active: 0
