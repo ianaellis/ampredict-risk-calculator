@@ -8,7 +8,7 @@ mixin predictionModelForm(store = {})
 		.form_section
 			font(size='+3')
 				center
-					strong Demographics
+					strong Patient Characteristics
 				hr
 			label(for="age" id='age') Age:    
 				input(type='number', name='age', style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), data-parsley-range='[40, 110]', required=true)
