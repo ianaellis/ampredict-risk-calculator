@@ -13301,17 +13301,17 @@ $(document).ready(function () {
   });
   $('#mortality_tabs').tabs({
     active: 0
-  }); // Button : Both
-
-  $('#ui-id-6').on('click', function () {
-    console.log("hi");
-    $('#mortality_tabs .ui-tabs-panel').show();
-    $('#mortality_tabs').removeClass('ui-tabs-active').removeClass('ui-state-active'); // $('#both').addClass('ui-tabs-active').addClass('ui-state-active');
-  }).on('click', '#mortality_tabs .ui-tab', function () {
-    // $('#both').removeClass('ui-tabs-active').removeClass('ui-state-active');
-    $('#mortality_tab-1, #mortality_tab-2').hide();
-  });
-  $('#mortality_tab-1, #mortality_tab-2').show();
+  }); // // Button : Both
+  // $('#both_mortality').on('click', function() {
+  //     console.log("hi");
+  //     $('#mortality_tabs .ui-tabs-panel').show();
+  //     $('#mortality_tabs').removeClass('ui-tabs-active').removeClass('ui-state-active');
+  //     // $('#both').addClass('ui-tabs-active').addClass('ui-state-active');
+  // }).on('click', '#mortality_tabs .ui-tab', function() {
+  //     // $('#both').removeClass('ui-tabs-active').removeClass('ui-state-active');
+  //     $('#mortality_tab-1, #mortality_tab-2').hide();
+  // });
+  // $('#mortality_tab-1, #mortality_tab-2').show();
 }); // $(document).ready(function () {
 //     $('#output_tabs').tabs({
 //         // active: 0
