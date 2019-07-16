@@ -9,7 +9,7 @@ input, textarea {
 }
 
 label {
-  padding: 10px 0;
+  /*padding: 10px 0;*/
   display: block;
 }
 
@@ -170,13 +170,14 @@ button:hover {
 
 
 .radio_align {
-  //outline: 1px dotted #1C6EA4;
+  /*outline: 1px dotted #1C6EA4;*/
   margin-left: 40px;
 }
 
 .radio_align_functional_status {
-  //outline: 1px dotted #1C6EA4;
+  /*outline: 1px dotted #1C6EA4;*/
   text-align: center;
+  height: 75px;
 }
 
 .lab_number_box_align {

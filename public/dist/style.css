@@ -542,7 +542,7 @@ input, textarea {
     border-color: red; }
 
 label {
-  padding: 10px 0;
+  /*padding: 10px 0;*/
   display: block; }
 
 #pred_model {
@@ -665,10 +665,13 @@ button:hover {
     color: white; }
 
 .radio_align {
+  /*outline: 1px dotted #1C6EA4;*/
   margin-left: 40px; }
 
 .radio_align_functional_status {
-  text-align: center; }
+  /*outline: 1px dotted #1C6EA4;*/
+  text-align: center;
+  height: 75px; }
 
 .search {
   position: relative;
