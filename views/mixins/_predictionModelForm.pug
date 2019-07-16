@@ -13,14 +13,14 @@ mixin predictionModelForm(store = {})
 			label(for="age" id='age') Age:    
 				input(type='number', name='age', style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), data-parsley-range='[40, 110]', required=true)
 
-			label(for="Gender" id='Gender') Gender:
+			label(for="Gender") Gender:
 				.radio_align
 					input(type='radio', value='0', selected=(undefined===predModel_TM || predModel_TM.gender!='0' ? false:'selected'), name='Gender', required=true)
 					|  Female
 					br
 					input(type='radio', value='1', selected=(undefined===predModel_TM || predModel_TM.gender!='1' ? false:'selected'), name='Gender', required=true)
 					|  Male
-			label(for="race" id='race') Race: 
+			label(for="race")#race Race: 
 				.radio_align
 					input(type='radio', value='2', selected=(undefined===predModel_TM || predModel_TM.race!='2' ? false:'selected'), name='race', required=true)
 					|  Black

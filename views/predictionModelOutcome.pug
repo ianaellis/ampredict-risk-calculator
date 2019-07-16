@@ -17,8 +17,8 @@ block content
 		br
 		#output_tabs
 			ul
-				li#all_output
-					a(href='#all') All
+				//- li#all_output
+				//- 	a(href='#all') All
 				li#mortality
 					a(href='#output_tabs-1') Mortality
 				li
@@ -124,13 +124,13 @@ block content
 								.goal
 								.progress
 									font(size='-1')#progessAmount.amount(style='display: block;') #{(reamp_prob*100).toFixed(0)}% 
-				.heading_frame
-					.output_title_center
-						category_font
-							strong Transtibial
-					.output_title_right
-						category_font
-							strong Transmetatarsal
+				//.heading_frame
+					//- .output_title_center
+					//- 	category_font
+					//- 		strong Transtibial
+					//- .output_title_right
+					//- 	category_font
+					//- 		strong Transmetatarsal
 				#mobility_frame
 					hr
 					.tooltip
