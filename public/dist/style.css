@@ -1334,7 +1334,8 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; }
 
 input[type="number"] {
-  -moz-appearance: textfield; }
+  -moz-appearance: textfield;
+  background-color: #e8fcff; }
 
 .tooltip {
   color: #42a1f4;
