@@ -153,7 +153,7 @@ exports.store_create_post = [
 			var dialysis_calc = 0;							//Question 7
 			var blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.0158; // Question 8
 			var wbc_calc = 0								//Question 9
-			var platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.7239; //Question 10
+			var platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*1.7239; //Question 10
 			const constant_var = -2.1923 					//Constant formula variable
 			
 			// Variables Lower
@@ -168,7 +168,7 @@ exports.store_create_post = [
 			var lower_dialysis_calc = 0;							//Question 7
 			var lower_blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.0123; // Question 8
 			var lower_wbc_calc = 0									//Question 9
-			var lower_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*1.291; //Question 10
+			var lower_platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*1.291; //Question 10
 			const lower_constant_var = -2.37						//Constant formula variable
 
 			//Variables Upper
@@ -183,7 +183,7 @@ exports.store_create_post = [
 			var upper_dialysis_calc = 0;							//Question 7
 			var upper_blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.01929; // Question 8
 			var upper_wbc_calc = 0									//Question 9
-			var upper_platelet_calc = (Math.pow((req.body.platelet_count/100), (-.5)) - .577)*2.157; //Question 10
+			var upper_platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*2.157; //Question 10
 			const upper_constant_var = -2.014
 
 			// Question Logic
