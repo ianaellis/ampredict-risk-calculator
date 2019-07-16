@@ -144,14 +144,14 @@ exports.store_create_post = [
 		// Variables Coeffs
 
 			var amp_lvl_calc = 0; 							//Question 1 -- TM
-			var tt_amp_lvl_calc = .295483; 					//Question 1 -- TT
-			var age_calc = (age - 60)*0.04708; 	//Question 2
-			var bmi_calc = (bmi - 25)*-0.05016; 	//Question 3
+			var tt_amp_lvl_calc = -1.897; 					//Question 1 -- TT
+			var age_calc = (age - 60)*0.04708; 				//Question 2
+			var bmi_calc = (bmi - 25)*-0.05016; 			//Question 3
 			var race_calc = 0; 								//Question 4
 			var func_status_calc = 0; 						//Question 5
 			var heart_failure_calc = 0; 					//Question 6
 			var dialysis_calc = 0;							//Question 7
-			var blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.0158; // Question 8
+			var blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0158; // Question 8
 			var wbc_calc = 0								//Question 9
 			var platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*1.7239; //Question 10
 			const constant_var = -2.1923 					//Constant formula variable
@@ -160,13 +160,13 @@ exports.store_create_post = [
 
 			var lower_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_lower_amp_lvl_calc = .12677; 					//Question 1 -- TT 
-			var lower_age_calc = (age - 60)*0.04114; 		//Question 2
-			var lower_bmi_calc = (bmi - 25)*-0.06102; 		//Question 3
+			var lower_age_calc = (age - 60)*0.04114; 				//Question 2
+			var lower_bmi_calc = (bmi - 25)*-0.06102; 				//Question 3
 			var lower_race_calc = 0; 								//Question 4
 			var lower_func_status_calc = 0; 						//Question 5
 			var lower_heart_failure_calc = 0; 						//Question 6
 			var lower_dialysis_calc = 0;							//Question 7
-			var lower_blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.0123; // Question 8
+			var lower_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0123; // Question 8
 			var lower_wbc_calc = 0									//Question 9
 			var lower_platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*1.291; //Question 10
 			const lower_constant_var = -2.37						//Constant formula variable
@@ -175,52 +175,32 @@ exports.store_create_post = [
 
 			var upper_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_upper_amp_lvl_calc = .46419; 					//Question 1 -- TT
-			var upper_age_calc = (age - 60)*0.05302; 		//Question 2
-			var upper_bmi_calc = (bmi - 25)*-0.0393; 		//Question 3
+			var upper_age_calc = (age - 60)*0.05302; 				//Question 2
+			var upper_bmi_calc = (bmi - 25)*-0.0393; 				//Question 3
 			var upper_race_calc = 0; 								//Question 4
 			var upper_func_status_calc = 0; 						//Question 5
 			var upper_heart_failure_calc = 0; 						//Question 6
 			var upper_dialysis_calc = 0;							//Question 7
-			var upper_blood_nitrogen_calc = (req.body.blood_nitrogen-25)*0.01929; // Question 8
+			var upper_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.01929; // Question 8
 			var upper_wbc_calc = 0									//Question 9
 			var upper_platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*2.157; //Question 10
 			const upper_constant_var = -2.014
 
-			// Question Logic
-
-			//Question 1
-			// if (req.body.amputation_level == 1){ //TM
-			// 	//Do Nothing, value remains 0
-			// 	amp_lvl_string = "Transmetatarsal";
-			// } else if (req.body.amputation_level == 2){ //TT
-			// 	amp_lvl_calc = .295483;
-			// 	lower_amp_lvl_calc = .12677;
-			// 	upper_amp_lvl_calc = .46419;
-			// 	amp_lvl_string = "TT";
-			// } else if (req.body.amputation_level == 3){ //TF
-			// 	amp_lvl_calc = .474842;
-			// 	lower_amp_lvl_calc = .29713;
-			// 	upper_amp_lvl_calc = .65256;
-			// 	amp_lvl_string = "TF";
-			// }
-
-			//Question 2 - No question logic
-			//      If age unentered, -60 is still applied.
-
-			//Question 3 - No question logic
-			//      If bmi unentered, -25 is still applied.
-
 			//Question 4
-			if (req.body.race == 1){ //White
+			if (req.body.race == 1){
+				//White
 				race_string = "White";
-			} else if (req.body.race == 2){ //Black
+			} else if (req.body.race == 2){
+				//Black
 				race_calc = -.25735;
 				lower_race_calc = -.38737;
 				upper_race_calc = -.12734;
 				race_string = "Black";
-			} else if (req.body.race == 3){ //Hispanic
+			} else if (req.body.race == 3){
+				//Hispanic
 				race_string = "Hispanic";
-			} else if (req.body.race == 4){ //Other
+			} else if (req.body.race == 4){
+				//Other
 				race_calc = -.98503;
 				lower_race_calc = -1.823;
 				upper_race_calc = -0.1472;
@@ -264,9 +244,6 @@ exports.store_create_post = [
 				
 			}
 
-			//Question 8
-			//     If blood nitrogen unentered, -25 is still applied.
-
 			//Question 9
 			if(req.body.WBC == 1){
 				wbc_calc = .3423;
@@ -291,9 +268,9 @@ exports.store_create_post = [
 		    }
 
 		    //Final Calculations for TT
-			var tt_logit_prob = (tt_amp_lvl_calc + age_calc + bmi_calc + race_calc + func_status_calc + heart_failure_calc + dialysis_calc + blood_nitrogen_calc + wbc_calc + platelet_calc + constant_var).toFixed(4);
-		    var tt_lower_logit_prob = (tt_lower_amp_lvl_calc + lower_age_calc + lower_bmi_calc + lower_race_calc + lower_func_status_calc + lower_heart_failure_calc + lower_dialysis_calc + lower_blood_nitrogen_calc + lower_wbc_calc + lower_platelet_calc + lower_constant_var).toFixed(4);
-		    var tt_upper_logit_prob = (tt_upper_amp_lvl_calc + upper_age_calc + upper_bmi_calc + upper_race_calc + upper_func_status_calc + upper_heart_failure_calc + upper_dialysis_calc + upper_blood_nitrogen_calc + upper_wbc_calc + upper_platelet_calc + upper_constant_var).toFixed(4);
+			var tt_logit_prob = (tt_amp_lvl_calc + age_calc + bmi_calc + race_calc + func_status_calc + heart_failure_calc + dialysis_calc + blood_nitrogen_calc + wbc_calc + platelet_calc).toFixed(4);
+		    var tt_lower_logit_prob = (tt_lower_amp_lvl_calc + lower_age_calc + lower_bmi_calc + lower_race_calc + lower_func_status_calc + lower_heart_failure_calc + lower_dialysis_calc + lower_blood_nitrogen_calc + lower_wbc_calc + lower_platelet_calc).toFixed(4);
+		    var tt_upper_logit_prob = (tt_upper_amp_lvl_calc + upper_age_calc + upper_bmi_calc + upper_race_calc + upper_func_status_calc + upper_heart_failure_calc + upper_dialysis_calc + upper_blood_nitrogen_calc + upper_wbc_calc + upper_platelet_calc).toFixed(4);
 		    var tt_prob = (Math.pow(2.71828, tt_logit_prob))/(1+(Math.pow(2.71828, tt_logit_prob)));
 		    var tt_lower_ci = (Math.pow(2.71828, tt_lower_logit_prob))/(1+(Math.pow(2.71828, tt_lower_logit_prob)));
 		    var tt_upper_ci = (Math.pow(2.71828, tt_upper_logit_prob))/(1+(Math.pow(2.71828, tt_upper_logit_prob)));
@@ -473,9 +450,9 @@ exports.store_create_post = [
 		    }
 
 		//Final Calculations -- TT
-			var tt_reamp_logit_prob = (tt_reamp_coeff_amp_lvl_calc + reamp_coeff_gender  + reamp_coeff_smoke + reamp_coeff_alcohol + reamp_coeff_copd + reamp_coeff_wbc + reamp_coeff_diabetes + reamp_coeff_diabetes_revascular + reamp_coeff_output_anticoag + reamp_coeff_rest_gangrene + reamp_coeff_CONSTANT).toFixed(4);
-		    var tt_reamp_lower_logit_prob = (tt_reamp_lower_amp_lvl_calc + reamp_lower_gender + reamp_lower_smoke + reamp_lower_alcohol + reamp_lower_copd + reamp_lower_wbc + reamp_lower_diabetes + reamp_lower_diabetes_revascular + reamp_lower_output_anticoag + reamp_lower_rest_gangrene + reamp_lower_CONSTANT).toFixed(4);
-		    var tt_reamp_upper_logit_prob = (tt_reamp_upper_amp_lvl_calc + reamp_upper_gender + reamp_upper_smoke + reamp_upper_alcohol + reamp_upper_copd + reamp_upper_wbc + reamp_upper_diabetes + reamp_upper_diabetes_revascular + reamp_upper_output_anticoag + reamp_upper_rest_gangrene + reamp_upper_CONSTANT).toFixed(4);
+			var tt_reamp_logit_prob = (tt_reamp_coeff_amp_lvl_calc + reamp_coeff_gender  + reamp_coeff_smoke + reamp_coeff_alcohol + reamp_coeff_copd + reamp_coeff_wbc + reamp_coeff_diabetes + reamp_coeff_diabetes_revascular + reamp_coeff_output_anticoag + reamp_coeff_rest_gangrene).toFixed(4);
+		    var tt_reamp_lower_logit_prob = (tt_reamp_lower_amp_lvl_calc + reamp_lower_gender + reamp_lower_smoke + reamp_lower_alcohol + reamp_lower_copd + reamp_lower_wbc + reamp_lower_diabetes + reamp_lower_diabetes_revascular + reamp_lower_output_anticoag + reamp_lower_rest_gangrene).toFixed(4);
+		    var tt_reamp_upper_logit_prob = (tt_reamp_upper_amp_lvl_calc + reamp_upper_gender + reamp_upper_smoke + reamp_upper_alcohol + reamp_upper_copd + reamp_upper_wbc + reamp_upper_diabetes + reamp_upper_diabetes_revascular + reamp_upper_output_anticoag + reamp_upper_rest_gangrene ).toFixed(4);
 		    var tt_reamp_prob = (Math.pow(2.71828, tt_reamp_logit_prob))/(1+(Math.pow(2.71828, tt_reamp_logit_prob))).toFixed(4);
 		    var tt_reamp_lower_ci = (Math.pow(2.71828, tt_reamp_lower_logit_prob))/(1+(Math.pow(2.71828, tt_reamp_lower_logit_prob))).toFixed(4);
 		    var tt_reamp_upper_ci = (Math.pow(2.71828, tt_reamp_upper_logit_prob))/(1+(Math.pow(2.71828, tt_reamp_upper_logit_prob))).toFixed(4);
@@ -494,7 +471,7 @@ exports.store_create_post = [
 
 			//Coeffs
 			var mob_coeff_amp_lvl_calc = 0;
-			var tt_mob_coeff_amp_lvl_calc = -1.12;
+			var tt_mob_coeff_amp_lvl_calc = 1.45;
 			var mob_coeff_age = (age - 60)*(-0.125);
 			var mob_coeff_bmi = ((bmi - 30)*(bmi - 30))*(-0.008); 
 			var mob_coeff_race = 0;
@@ -618,16 +595,6 @@ exports.store_create_post = [
 			}
 
 			//Question 11 - Self Rated Health
-			// if (req.body.SelfRatedHealth == (3 | 4 | 5){
-			// 	mob_coeff_selfHealth = -0.713;
-			// 	mob_lower_selfHealth = -1.61;
-			// 	mob_upper_selfHealth = 0.719;
-			// 	health_string = "Fair/Poor/Very Poor";
-			// }else if (req.body.SelfRatedHealth == (1 | 2)){
-			// 	health_string == "Good/Very Good";
-			// }
-
-			//Question 11 - Self Rated Health
 			switch(req.body.SelfRatedHealth)
 			{
 				case "1":
@@ -679,9 +646,9 @@ exports.store_create_post = [
 		    }
 
 			//Moblity Final Calculations -- TT
-			var tt_mob_logit_prob = (tt_mob_coeff_amp_lvl_calc + mob_coeff_age + mob_coeff_bmi + mob_coeff_race + mob_coeff_marital + mob_coeff_education + mob_coeff_diabetes + mob_coeff_dialysis + mob_coeff_copd + mob_coeff_anxietyDepression + mob_coeff_selfHealth + mob_coeff_CONSTANT).toFixed(4);
-		    var tt_mob_lower_logit_prob = (tt_mob_lower_amp_lvl_calc + mob_lower_age + mob_lower_bmi + mob_lower_race + mob_lower_marital + mob_lower_education + mob_lower_diabetes + mob_lower_dialysis + mob_lower_copd + mob_lower_anxietyDepression + mob_lower_selfHealth + mob_lower_CONSTANT).toFixed(4);
-		    var tt_mob_upper_logit_prob = (tt_mob_upper_amp_lvl_calc + mob_upper_age + mob_upper_bmi + mob_upper_race + mob_upper_marital + mob_upper_education + mob_upper_diabetes + mob_upper_dialysis + mob_upper_copd + mob_upper_anxietyDepression + mob_upper_selfHealth + mob_upper_CONSTANT).toFixed(4);
+			var tt_mob_logit_prob = (tt_mob_coeff_amp_lvl_calc + mob_coeff_age + mob_coeff_bmi + mob_coeff_race + mob_coeff_marital + mob_coeff_education + mob_coeff_diabetes + mob_coeff_dialysis + mob_coeff_copd + mob_coeff_anxietyDepression + mob_coeff_selfHealth).toFixed(4);
+		    var tt_mob_lower_logit_prob = (tt_mob_lower_amp_lvl_calc + mob_lower_age + mob_lower_bmi + mob_lower_race + mob_lower_marital + mob_lower_education + mob_lower_diabetes + mob_lower_dialysis + mob_lower_copd + mob_lower_anxietyDepression + mob_lower_selfHealth).toFixed(4);
+		    var tt_mob_upper_logit_prob = (tt_mob_upper_amp_lvl_calc + mob_upper_age + mob_upper_bmi + mob_upper_race + mob_upper_marital + mob_upper_education + mob_upper_diabetes + mob_upper_dialysis + mob_upper_copd + mob_upper_anxietyDepression + mob_upper_selfHealth).toFixed(4);
 		    var tt_mob_prob = (Math.pow(2.71828, tt_mob_logit_prob))/(1+(Math.pow(2.71828, tt_mob_logit_prob))).toFixed(4);
 		    var tt_mob_lower_ci = (Math.pow(2.71828, tt_mob_lower_logit_prob))/(1+(Math.pow(2.71828, tt_mob_lower_logit_prob))).toFixed(4);
 		    var tt_mob_upper_ci = (Math.pow(2.71828, tt_mob_upper_logit_prob))/(1+(Math.pow(2.71828, tt_mob_upper_logit_prob))).toFixed(4);
