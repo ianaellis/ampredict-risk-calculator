@@ -147,7 +147,7 @@ exports.store_create_post = [
 
 			var amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_amp_lvl_calc = -1.897; 					//Question 1 -- TT
-			var age_calc = (age - 60)*0.04708; 				//Question 2
+			var age_calc = (age - 65)*0.04708; 				//Question 2
 			var bmi_calc = (bmi - 25)*-0.05016; 			//Question 3
 			var race_calc = 0; 								//Question 4
 			var func_status_calc = 0; 						//Question 5
@@ -155,14 +155,14 @@ exports.store_create_post = [
 			var dialysis_calc = 0;							//Question 7
 			var blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0158; // Question 8
 			var wbc_calc = 0								//Question 9
-			var platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*1.7239; //Question 10
+			var platelet_calc = (Math.pow((req.body.platelet_count/100000), (-.5)) - .577)*1.7239; //Question 10
 			const constant_var = -2.1923 					//Constant formula variable
 			
 			// Variables Lower
 
 			var lower_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_lower_amp_lvl_calc = .12677; 					//Question 1 -- TT 
-			var lower_age_calc = (age - 60)*0.04114; 				//Question 2
+			var lower_age_calc = (age - 65)*0.04114; 				//Question 2
 			var lower_bmi_calc = (bmi - 25)*-0.06102; 				//Question 3
 			var lower_race_calc = 0; 								//Question 4
 			var lower_func_status_calc = 0; 						//Question 5
@@ -170,14 +170,14 @@ exports.store_create_post = [
 			var lower_dialysis_calc = 0;							//Question 7
 			var lower_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.0123; // Question 8
 			var lower_wbc_calc = 0									//Question 9
-			var lower_platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*1.291; //Question 10
+			var lower_platelet_calc = (Math.pow((req.body.platelet_count/100000), (-.5)) - .577)*1.291; //Question 10
 			const lower_constant_var = -2.37						//Constant formula variable
 
 			//Variables Upper
 
 			var upper_amp_lvl_calc = 0; 							//Question 1 -- TM
 			var tt_upper_amp_lvl_calc = .46419; 					//Question 1 -- TT
-			var upper_age_calc = (age - 60)*0.05302; 				//Question 2
+			var upper_age_calc = (age - 65)*0.05302; 				//Question 2
 			var upper_bmi_calc = (bmi - 25)*-0.0393; 				//Question 3
 			var upper_race_calc = 0; 								//Question 4
 			var upper_func_status_calc = 0; 						//Question 5
@@ -185,7 +185,7 @@ exports.store_create_post = [
 			var upper_dialysis_calc = 0;							//Question 7
 			var upper_blood_nitrogen_calc = (req.body.blood_nitrogen - 25)*0.01929; // Question 8
 			var upper_wbc_calc = 0									//Question 9
-			var upper_platelet_calc = (Math.pow((req.body.platelet_count/1000), (-.5)) - .577)*2.157; //Question 10
+			var upper_platelet_calc = (Math.pow((req.body.platelet_count/100000), (-.5)) - .577)*2.157; //Question 10
 			const upper_constant_var = -2.014
 
 			//Question 4
