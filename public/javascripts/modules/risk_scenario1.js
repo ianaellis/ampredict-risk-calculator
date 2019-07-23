@@ -4,7 +4,7 @@ function autoFill_scenario1(){
     document.getElementById("age").value = 75;
     //BMI of 20.1
     document.getElementById("Height").value = 69;
-    document.getElementById("Weight").value = 136;
+    document.getElementById("Weight").value = 135;
 
     //Sex = Male
     var genderRadio = document.getElementsByName("Gender");
@@ -105,7 +105,7 @@ function autoFill_scenario1(){
     //Alcohol = No (0)
     var alcoholRadio  = document.getElementsByName("Alcohol");
     for (var i = 0; i < alcoholRadio.length; i++){
-        if(alcoholRadio[i].getAttribute('value') == '1'){
+        if(alcoholRadio[i].getAttribute('value') == '0'){
             alcoholRadio[i].checked = true;
         }
     }
