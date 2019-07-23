@@ -1,6 +1,7 @@
 input, textarea {
   padding:10px;
   border: 1px solid $grey;
+  /*background: #efefef;*/
   &.input {
     &--error {
       border-color: red;
@@ -25,7 +26,7 @@ label {
 }
 
 #risk_calc{
-  //outline: 1px dotted #1C6EA4;
+  /*outline: 1px dotted #1C6EA4;*/
   width: 650px;
   margin: auto;
   padding: 20px;

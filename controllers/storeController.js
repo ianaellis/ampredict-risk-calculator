@@ -20,17 +20,19 @@ exports.outcome = (req, res) => {
 	res.render('outcome');
 };
 
+exports.scenario_one = function (req, res, next) {
+	res.render('example', {title: 'AMPREDICT Mortality Risk Calculator'});
+};
 
 exports.store_create_get = function (req, res, next) {
 	res.render('predictionModel', {title: 'AMPREDICT Mortality Risk Calculator'});
-
 };
 
 exports.store_create_post = [
 	
 	//Validation 
-	body('age', 'Please enter a value for age').not().isEmpty(),
-	body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 40, max: 110}),
+	// body('age', 'Please enter a value for age').not().isEmpty(),
+	// body('age', 'Please provide a value for age that is between 10 and 100').isInt({min: 40, max: 110}),
 	body('Gender', 'Please select an option for gender').not().isEmpty(),
 	body('race', 'Please select an option for race').not().isEmpty(),
 	body('MaritalStatus', 'Please select an option for marital status').not().isEmpty(),
@@ -103,7 +105,7 @@ exports.store_create_post = [
 
 		}
 		else {
-
+		//No Errrors; begin calculations
 	//
 	//MORTALITY CALCULATOR
 	//

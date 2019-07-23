@@ -5,6 +5,11 @@ import parsley from 'parsleyjs';
 //import { $$ } from './modules/bling';
 import navigateTo from './modules/wizardForm';
 import thermometer from './modules/thermometer';
+import autoFill_scenario1 from './modules/risk_scenario1';
+import autoFill_scenario2 from './modules/risk_scenario2';
+import autoFill_scenario3 from './modules/risk_scenario3';
+import autoFill_scenario4 from './modules/risk_scenario4';
+
 
 $(document).ready(function () {
     $('#output_tabs').tabs({
@@ -44,7 +49,13 @@ $(document).ready(function () {
 
     showAllTabs('all_output', '#output_tabs', $('#all_output'));
     showAllTabs('both_mortality', '#mortality_tabs', $('#both_mortality'));
+
+   $(document).on('click', '#scenario1', autoFill_scenario1);
+   $(document).on('click', '#scenario2', autoFill_scenario2);
+   $(document).on('click', '#scenario3', autoFill_scenario3);
+   $(document).on('click', '#scenario4', autoFill_scenario4);
 });
+
 
 
 // $(document).ready(function () {

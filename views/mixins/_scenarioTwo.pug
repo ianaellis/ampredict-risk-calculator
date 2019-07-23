@@ -1,0 +1,242 @@
+mixin scenarioOne(store = {})
+	.calc_title_div
+		center
+			risk_title AMPREDICT
+			br
+			sub_title Risk Calculatorsas
+	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
+		.form_section
+			font(size='+3')
+				center
+					strong Patient Characteristics
+				hr
+			label(for="age" id='age') Age:    
+				input(type='number', name='age', style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), data-parsley-range='[40, 110]', required=true)
+
+			label(for="Gender") Gender:
+				.radio_align
+					label
+						input(type='radio', value='0', name='Gender', required data-parsley-errors-container="#gender-errors")
+						|  Female
+					label
+						input(type='radio', value='1', name='Gender')
+						|  Male
+					#checkbox-errors
+			label(for="race") Race: 
+				.radio_align
+					label
+						input(for="black" type='radio', value='2', name='race', required data-parsley-errors-container="#race-errors")
+						|  Black
+					label
+						input(type='radio', value='3', name='race')
+						|  Hispanic
+					label
+						input(type='radio', value='1', name='race')
+						|  White
+					label
+						input(type='radio', value='4', name='race')
+						|  Other
+					#race-errors
+			label(for="MaritalStatus") Married:
+				.radio_align
+					label
+						input(type='radio', value='1', name='MaritalStatus', required data-parsley-errors-container="#marital-errors")
+						|  Yes
+					label 
+						input(type='radio', value='0', name='MaritalStatus')
+						|  No
+					#marital-errors
+			label(for="EducationStatus") Education Level:
+				.radio_align
+					label
+						input(type='radio', value='1', name='EducationStatus', required data-parsley-errors-container="#education-errors")
+						|  At least high school
+					label
+						input(type='radio', value='0', name='EducationStatus')
+						|  Less than high school
+					#education-errors
+		.form_section
+			font(size='+3') 
+				center 
+					strong Comorbidities
+				hr
+
+			label(for="heart_failure" id='heart_failure') Diagnosis of congestive heart failure: 
+				.radio_align
+					label
+						input(type='radio', value='1', name='heart_failure', required data-parsley-errors-container="#heart-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='heart_failure')
+						|  No
+					#heart-errors
+			label(for="dialysis" id='dialysis') Currently on dialysis:
+				.radio_align
+					label
+						input(type='radio', value='1', name='dialysis', required data-parsley-errors-container="#dialysis-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='dialysis')
+						|  No
+					#dialysis-errors
+			label(for="Diabetes" id='Diabetes') Diagnosis of diabetes:
+				.radio_align
+					label
+						input(type='radio', value='1', name='Diabetes', required data-parsley-errors-container="#diabetes-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='Diabetes')
+						|  No
+					#diabetes-errors
+			label(for="Revascularization" id='Revascularization') History of a 
+				.tooltip 
+					| revascularization 
+					span.tooltiptext This may include on open procedure, and endovascular procedure, or both.
+				|  on side of amputation.
+				.radio_align
+					label
+						input(type='radio', value='1', name='Revascularization', required data-parsley-errors-container="#revasc-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='Revascularization')
+						|  No
+					#revasc-errors
+			label(for="COPD" id='COPD') Diagnosis of COPD:
+				.radio_align
+					label
+						input(type='radio', value='1', name='COPD', required data-parsley-errors-container="#copd-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='COPD')
+						|  No
+					#copd-errors
+			label(for="AnxietyDepression" id='AnxietyDepression') History of treatment for anxiety or depression:
+				.radio_align
+					label
+						input(type='radio', value='1', name='AnxietyDepression', required data-parsley-errors-container="#anxiety-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='AnxietyDepression')
+						|  No
+					#anxiety-errors
+		.form_section
+			font(size='+3') 
+				center 
+					strong Laboratory Values and Medications
+				hr
+
+			.lab_number_box_align
+				label(for="blood_nitrogen" id='blood_nitrogen') Most recent BUN (mg/dl): 
+					input(type='number', name='blood_nitrogen', style='width: 130px;', data-parsley-range='[1, 157]', required)
+				br
+				label(for="platelet_count" id='platelet_count') Most recent platelet count (per mL): 
+					input(type='number', name='platelet_count', style='width: 130px;', data-parsley-min='10000', required)
+				br
+			label(for="WBC") White blood cell count >= 11,000:
+				.radio_align
+					label
+						input(type='radio', value='1', name='WBC', required data-parsley-errors-container="#wbc-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='WBC')
+						|  No
+					#wbc-errors
+			label(for="KidneyFailure") eGFR <15 in the last 3 months:
+				.radio_align
+					label
+						input(type='radio', value='1', name='KidneyFailure', required data-parsley-errors-container="#kidney-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='KidneyFailure')
+						|  No
+					#kidney-errors
+				.tooltip
+					label(for="OutputAnticoagulants") Outpatient Anticoagulants in the past 3 months:
+					span.tooltiptext This may include Coumadin or newer drugs such as Factor X inhibitors and anisindione and dibigitran.
+				.radio_align
+					label
+						input(type='radio', value='1', name='OutputAnticoagulants', required data-parsley-errors-container="#coag-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='OutputAnticoagulants')
+						|  No
+					#coag-errors
+		.form_section
+			font(size='+3') 
+				center 
+					strong Health Factors
+				hr
+			.bmi_align
+				label(for="Height") Height (inches): 
+					input(type='number', name='Height', style='width: 130px;', data-parsley-range='[48, 84]', required)
+				br
+				label(for="Weight") Weight (lbs): 
+					input(type='number', name='Weight', style='width: 130px;', data-parsley-range='[80, 500]', required)
+				br
+
+			label(for="Smoke") Currently a smoker?
+				.radio_align
+					label
+						input(type='radio', value='1', name='Smoke', required data-parsley-errors-container="#smoke-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='Smoke')
+						|  No
+					#smoke-errors
+			label(for="Alcohol") Self-reported alcohol use of >2 drinks/day in last 2 weeks?
+				.radio_align
+					label
+						input(type='radio', value='1', name='Alcohol', required data-parsley-errors-container="#alcohol-errors")
+						|  Yes
+					label
+						input(type='radio', value='0', name='Alcohol')
+						|  No
+					#alcohol-errors
+			label(for="functional_status", required=true) Functional status in the past 30 days prior to surgery?   
+				.radio_align_functional_status
+					br
+					.tooltip
+						input(type='radio', value='1', name='functional_status', required data-parsley-errors-container="#func-errors")
+						|  Independent
+						span.tooltiptext The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
+					.tooltip(style="padding-left:2em;")
+						input(type='radio', value='2', name='functional_status')
+						|  Partially Dependent
+						span.tooltiptext The patient requires the use of equipment or devices coupled with assistance from another person for some activities of daily living. Any patient coming from a nursing home setting who is not totally dependent would fall into this category, as would any patient who requires kidney dialysis or home ventilator support that requires chronic oxygen therapy yet maintains some independent functions.
+					.tooltip(style="padding-left:2em;")
+						input(type='radio', value='3', name='functional_status')
+						|  Totally Dependent
+						span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
+					#func-errors
+
+			label(for="SelfRatedHealth") Ask the patient the following self-rated health question: 
+				i "In general, would you say your health is…?"
+				.radio_align
+					label
+						input(type='radio', value='1', name='SelfRatedHealth', required data-parsley-errors-container="#selfRated-errors")
+						|  Very Good
+					label
+						input(type='radio', value='2', name='SelfRatedHealth')
+						|  Good
+					label
+						input(type='radio', value='3', name='SelfRatedHealth')
+						|  Fair
+					label
+						input(type='radio', value='4', name='SelfRatedHealth')
+						|  Poor
+					label
+						input(type='radio', value='5', name='SelfRatedHealth')
+						|  Very Poor
+					#selfRated-errors
+		.form-navigation
+			.buttons
+				center
+					button.previous.btn.btn-info.pull-left(type='button') &larr; Previous
+					button.next.btn.btn-info.pull-right(type='button') Next &rarr;
+					button.btn.btn-default.pull-right(type='submit') Submit
+					span.clearfix
+			div(style='text-align:center;margin-top:10px;')
+				span.stepX
+				span.stepX
+				span.stepX
+				span.stepX

@@ -9,17 +9,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 input[type="number"]{ 
     -moz-appearance:textfield; 
-    background-color: #e8fcff;
+    background-color: #efefef;
+    border-radius: 12px;
 }
 
 
 
 .tooltip {
-    //font-family: 'Calibri';
+    /*font-family: 'Calibri';*/
     color: #42a1f4;
     position: relative;
     display: inline-block;
-    //border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    /*border-bottom: 1px dotted black;  If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
@@ -63,8 +64,8 @@ input[type="number"]{
 }
 
 #calc_pic_box {
-    //background-color: Grey;
-    //background-image: url(`./public/images/icons/calculator.svg`) no-repeat left top;
+    /*background-color: Grey;*/
+    /*background-image: url(`./public/images/icons/calculator.svg`) no-repeat left top;*/
     height: auto;
     width: 100px;
     border-radius: 20px;
@@ -95,4 +96,27 @@ input[type="number"]{
 
 .stepX.finish {
   background-color: #265728;
+}
+
+/*Scenario buttons on Calculator input*/
+
+.scenario_buttons {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+}
+
+.one {
+    flex: 1 1 auto;
+    border: 1px solid black;
+    /*outline: 1px solid red;*/
+    text-align: center;
+    border-radius: 6px;
+    padding: 1px;
+    margin: 4px;
+}
+
+.one:hover {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+    background-color: #265728;
 }

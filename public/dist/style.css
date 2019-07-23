@@ -537,7 +537,8 @@ category_font {
 
 input, textarea {
   padding: 10px;
-  border: 1px solid #e6e6e6; }
+  border: 1px solid #e6e6e6;
+  /*background: #efefef;*/ }
   input.input--error, textarea.input--error {
     border-color: red; }
 
@@ -555,6 +556,7 @@ label {
   padding-bottom: 10px; }
 
 #risk_calc {
+  /*outline: 1px dotted #1C6EA4;*/
   width: 650px;
   margin: auto;
   padding: 20px;
@@ -1335,12 +1337,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
-  background-color: #e8fcff; }
+  background-color: #efefef;
+  border-radius: 12px; }
 
 .tooltip {
+  /*font-family: 'Calibri';*/
   color: #42a1f4;
   position: relative;
-  display: inline-block; }
+  display: inline-block;
+  /*border-bottom: 1px dotted black;  If you want dots under the hoverable text */ }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
@@ -1378,6 +1383,8 @@ input[type="number"] {
   opacity: 1; }
 
 #calc_pic_box {
+  /*background-color: Grey;*/
+  /*background-image: url(`./public/images/icons/calculator.svg`) no-repeat left top;*/
   height: auto;
   width: 100px;
   border-radius: 20px;
@@ -1401,6 +1408,28 @@ input[type="number"] {
   opacity: 1; }
 
 .stepX.finish {
+  background-color: #265728; }
+
+/*Scenario buttons on Calculator input*/
+.scenario_buttons {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  width: 300px; }
+
+.one {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  border: 1px solid black;
+  /*outline: 1px solid red;*/
+  text-align: center;
+  border-radius: 6px;
+  padding: 1px;
+  margin: 4px; }
+
+.one:hover {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
   background-color: #265728; }
 
 .alert-success {
