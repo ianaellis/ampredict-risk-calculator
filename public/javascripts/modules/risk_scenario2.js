@@ -9,7 +9,7 @@ function autoFill_scenario2(){
     //Sex = Male
     var genderRadio = document.getElementsByName("Gender");
     for (var i = 0; i < genderRadio.length; i++){
-        if(genderRadio[i].getAttribute('value') == '1'){
+        if(genderRadio[i].getAttribute('value') == '0'){
             genderRadio[i].checked = true;
         }
     }

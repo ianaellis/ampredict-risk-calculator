@@ -1,39 +1,39 @@
 // Scenarios for demo purposes
 
-function autoFill_scenario4(){
-    document.getElementById("age").value = 59;
-    //BMI of 40.9
+function autoFill_scenario2(){
+    document.getElementById("age").value = 62;
+    //BMI of 20.1
     document.getElementById("Height").value = 69;
-    document.getElementById("Weight").value = 277;
+    document.getElementById("Weight").value = 203;
 
     //Sex = Male
     var genderRadio = document.getElementsByName("Gender");
     for (var i = 0; i < genderRadio.length; i++){
-        if(genderRadio[i].getAttribute('value') == '1'){
+        if(genderRadio[i].getAttribute('value') == '0'){
             genderRadio[i].checked = true;
         }
     }
 
-    //Married = Yes
+    //Married = No
     var marriedRadio = document.getElementsByName("MaritalStatus");
     for (var i = 0; i < marriedRadio.length; i++){
-        if(marriedRadio[i].getAttribute('value') == '1'){
+        if(marriedRadio[i].getAttribute('value') == '0'){
             marriedRadio[i].checked = true;
         }
     }
 
-    //Race = Hispanic
+    //Race = White (1)
     var raceRadio = document.getElementsByName("race");
     for (var i = 0; i < raceRadio.length; i++){
-        if(raceRadio[i].getAttribute('value') == '3'){
+        if(raceRadio[i].getAttribute('value') == '1'){
             raceRadio[i].checked = true;
         }
     }
 
-    //Education = No
+    //Education = High school grad (1)
     var educationRadio = document.getElementsByName("EducationStatus");
     for (var i = 0; i < educationRadio.length; i++){
-        if(educationRadio[i].getAttribute('value') == '0'){
+        if(educationRadio[i].getAttribute('value') == '1'){
             educationRadio[i].checked = true;
         }
     }
@@ -46,18 +46,18 @@ function autoFill_scenario4(){
         }
     }
 
-    //Diabetes = Yes
+    //Diabetes = No (0)
     var diabetesRadio = document.getElementsByName("Diabetes");
     for (var i = 0; i < diabetesRadio.length; i++){
-        if(diabetesRadio[i].getAttribute('value') == '1'){
+        if(diabetesRadio[i].getAttribute('value') == '0'){
             diabetesRadio[i].checked = true;
         }
     }
 
-    //COPD = No
+    //COPD = Yes (0)
     var copdRadio = document.getElementsByName("COPD");
     for (var i = 0; i < copdRadio.length; i++){
-        if(copdRadio[i].getAttribute('value') == '0'){
+        if(copdRadio[i].getAttribute('value') == '1'){
             copdRadio[i].checked = true;
         }
     }
@@ -86,10 +86,10 @@ function autoFill_scenario4(){
         }
     }
 
-    //Anxiety/Depression = Yes
+    //Anxiety/Depression = No (0)
     var anxietyRadio  = document.getElementsByName("AnxietyDepression");
     for (var i = 0; i < anxietyRadio.length; i++){
-        if(anxietyRadio[i].getAttribute('value') == '1'){
+        if(anxietyRadio[i].getAttribute('value') == '0'){
             anxietyRadio[i].checked = true;
         }
     }
@@ -102,10 +102,10 @@ function autoFill_scenario4(){
         }
     }
 
-    //Alcohol = Yes
+    //Alcohol = No (0)
     var alcoholRadio  = document.getElementsByName("Alcohol");
     for (var i = 0; i < alcoholRadio.length; i++){
-        if(alcoholRadio[i].getAttribute('value') == '1'){
+        if(alcoholRadio[i].getAttribute('value') == '0'){
             alcoholRadio[i].checked = true;
         }
     }
@@ -126,28 +126,28 @@ function autoFill_scenario4(){
         }
     }
 
-    //BUN = 40
-    document.getElementById("blood_nitrogen").value = 40;
+    //BUN = 70
+    document.getElementById("blood_nitrogen").value = 15;
 
-    //WBC greater than = Yes
+    //WBC greater than = No
     var wbcRadio  = document.getElementsByName("WBC");
     for (var i = 0; i < wbcRadio.length; i++){
-        if(wbcRadio[i].getAttribute('value') == '1'){
+        if(wbcRadio[i].getAttribute('value') == '0'){
             wbcRadio[i].checked = true;
         }
     }
 
     // Platelets = 150 (so 150,000)
-    document.getElementById("platelet_count").value = 495000;
+    document.getElementById("platelet_count").value = 250000;
 
-    //Self Reported = Fair
+    //Self Reported = Poor (4)
     var selfReportedRadio  = document.getElementsByName("SelfRatedHealth");
     for (var i = 0; i < selfReportedRadio.length; i++){
-        if(selfReportedRadio[i].getAttribute('value') == '3'){
+        if(selfReportedRadio[i].getAttribute('value') == '2'){
             selfReportedRadio[i].checked = true;
         }
     }
     // return true;
 }
 
-export default autoFill_scenario4
+export default autoFill_scenario2
