@@ -142,7 +142,7 @@ mixin predictionModelForm(store = {})
 				label(for="platelet_count") Most recent platelet count (per mL): 
 					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', data-parsley-min='10000', required)
 				br
-			label(for="WBC") White blood cell count >= 11,000:
+			label(for="WBC") White blood cell count ≥ 11,000:
 				.radio_align
 					label
 						input(type='radio', value='1', name='WBC', required data-parsley-errors-container="#wbc-errors")
