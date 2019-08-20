@@ -535,6 +535,10 @@ category_font {
 .calibri {
   font-family: Calibri; }
 
+.about_intro {
+  width: 700px;
+  text-align: left; }
+
 input, textarea {
   padding: 10px;
   border: 1px solid #e6e6e6;
@@ -1545,7 +1549,7 @@ input[type="number"] {
   #tm_mobility .progress,
   #tt_mobility .progress,
   #advancedMobility .progress {
-    background: #FC3A50 none repeat scroll 0 0;
+    background: #410133 none repeat scroll 0 0;
     border-radius: 23px 23px 0 0;
     bottom: 0;
     height: 0;
@@ -1610,6 +1614,11 @@ input[type="number"] {
     border-bottom-style: solid;
     border-bottom-color: #dddddd;
     border-bottom_width: .5px; }
+
+/* Text stuff on output page */
+.predictor_text {
+  width: 220px;
+  float: left; }
 
 input.parsley-success,
 select.parsley-success,
