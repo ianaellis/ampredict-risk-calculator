@@ -5,24 +5,31 @@ mixin predictionModelForm(store = {})
 			br
 			sub_title Risk Calculator 
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
-		//- center
-		//- 	div(class='scenario_buttons')
-		//- 		div(class='one')
-		//- 			a(href='#', id="scenario1") 1
-		//- 		div(class='one')
-		//- 			a(href='#', id="scenario2") 2
-		//- 		div(class='one')
-		//- 			a(href='#', id="scenario3") 3
-		//- 		div(class='one')
-		//- 			a(href='#', id="scenario4") 4
+		center
+			div(class='scenario_buttons')
+				div(class='one')
+					a(href='#', id="scenario1") Mr. Smith
+					br
+					a(href='#', id="scenario3") 
+						font(size="-1") 
+							i With COPD
+				div(class='one')
+					a(href='#', id="scenario2") Mrs. Smith
+					br
+					a(href='#', id="scenario4") 
+						font(size="-1") 
+							i 10 years older
+				//- div(class='one')
+				//- 	a(href='#', id="scenario3") 3
+				//- div(class='one')
+				//- 	a(href='#', id="scenario4") 4
 		.form_section
 			font(size='+3')
 				center
 					strong Demographics
 				hr
 			label(for="age") Age:    
-				input(type='number', name='age', id="age", style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), data-parsley-range='[40, 110]', required)
-
+				input(type='number', name='age', id="age", style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder='40-110', data-parsley-range='[40, 110]', required)
 			label(for="Gender") Gender:
 				.radio_align
 					label
@@ -137,10 +144,10 @@ mixin predictionModelForm(store = {})
 
 			.lab_number_box_align
 				label(for="blood_nitrogen") Most recent BUN (mg/dl): 
-					input(type='number', id='blood_nitrogen', name='blood_nitrogen', style='width: 130px;', data-parsley-range='[1, 157]', required)
+					input(type='number', id='blood_nitrogen', name='blood_nitrogen', style='width: 130px;', placeholder='1-157', data-parsley-range='[1, 157]', required)
 				br
 				label(for="platelet_count") Most recent platelet count (per mL): 
-					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', data-parsley-min='10000', required)
+					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', placeholder='≥10000' data-parsley-min='10000', required)
 				br
 			label(for="WBC") White blood cell count ≥ 11,000:
 				.radio_align
@@ -178,10 +185,10 @@ mixin predictionModelForm(store = {})
 				hr
 			.bmi_align
 				label(for="Height") Height (inches): 
-					input(type='number', id="Height", name='Height', style='width: 130px;', data-parsley-range='[48, 84]', required)
+					input(type='number', id="Height", name='Height', style='width: 130px;', placeholder='48-84', data-parsley-range='[48, 84]', required)
 				br
 				label(for="Weight") Weight (lbs): 
-					input(type='number', id="Weight", name='Weight', style='width: 130px;', data-parsley-range='[80, 500]', required)
+					input(type='number', id="Weight", name='Weight', style='width: 130px;', placeholder='80-500', data-parsley-range='[80, 500]', required)
 				br
 
 			label(for="Smoke") Currently a smoker?

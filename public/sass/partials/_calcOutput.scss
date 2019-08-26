@@ -20,14 +20,14 @@
     text-align: center;
 }
 .output_title_center {
-	width:33%;
-	float: right;
-	text-align: center;
+    width:33%;
+    float: right;
+    text-align: center;
 }
 .output_title_right {
-	width:33%;
-	float: right;
-	text-align: center;
+    width:33%;
+    float: right;
+    text-align: center;
 }
 //The box that holds all results
 .results_all {
@@ -59,24 +59,24 @@
 #mortality_frame,
 #reamputation_frame,
 #mobility_frame{
-	/*outline: 1px dotted #1C6EA4;*/
-	width: 660px;
-	height: 280px;
+    /*outline: 1px dotted #1C6EA4;*/
+    width: 660px;
+    height: 280px;
 }
 
 #tt_mortality_frame,
 #tt_reamputation_frame,
 #tt_mobility_frame {
-	/*outline: 1px dotted #1C6EA4;*/
-	width: 33%;
-	float: right;
+    /*outline: 1px dotted #1C6EA4;*/
+    width: 33%;
+    float: right;
 }
 #tm_mortality_frame,
 #tm_reamputation_frame,
 #tm_mobility_frame{
-	/*outline: 1px dotted #1C6EA4;*/
-	width: 33%;
-	float:right;
+    /*outline: 1px dotted #1C6EA4;*/
+    width: 33%;
+    float:right;
 }
 
 
@@ -117,7 +117,7 @@
         width: 30px;
     }
     .progress{
-        background: #FC3A50 none repeat scroll 0 0;
+        background: #410133 none repeat scroll 0 0;
         border-radius: 23px 23px 0 0;
         bottom: 0;
         height: 0;
@@ -169,4 +169,11 @@
         border-bottom_width: .5px;
     }
 
+}
+
+/* Text stuff on output page */
+
+.predictor_text {
+    width: 220px;
+    float:left;
 }
