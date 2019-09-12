@@ -535,10 +535,6 @@ category_font {
 .calibri {
   font-family: Calibri; }
 
-.about_intro {
-  width: 700px;
-  text-align: left; }
-
 input, textarea {
   padding: 10px;
   border: 1px solid #e6e6e6;
