@@ -9,7 +9,7 @@ function autoFill_scenario2(){
     //Sex = Male
     var genderRadio = document.getElementsByName("Gender");
     for (var i = 0; i < genderRadio.length; i++){
-        if(genderRadio[i].getAttribute('value') == '0'){
+        if(genderRadio[i].getAttribute('value') == '1'){
             genderRadio[i].checked = true;
         }
     }
@@ -113,7 +113,7 @@ function autoFill_scenario2(){
     //Revasc = No
     var revascRadio  = document.getElementsByName("Revascularization");
     for (var i = 0; i < revascRadio.length; i++){
-        if(revascRadio[i].getAttribute('value') == '0'){
+        if(revascRadio[i].getAttribute('value') == '1'){
             revascRadio[i].checked = true;
         }
     }

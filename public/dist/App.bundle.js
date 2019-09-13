@@ -597,7 +597,7 @@ function autoFill_scenario2() {
   var genderRadio = document.getElementsByName("Gender");
 
   for (var i = 0; i < genderRadio.length; i++) {
-    if (genderRadio[i].getAttribute('value') == '0') {
+    if (genderRadio[i].getAttribute('value') == '1') {
       genderRadio[i].checked = true;
     }
   } //Married = Yes
@@ -714,7 +714,7 @@ function autoFill_scenario2() {
   var revascRadio = document.getElementsByName("Revascularization");
 
   for (var i = 0; i < revascRadio.length; i++) {
-    if (revascRadio[i].getAttribute('value') == '0') {
+    if (revascRadio[i].getAttribute('value') == '1') {
       revascRadio[i].checked = true;
     }
   } //Anticoag = No
