@@ -1,0 +1,132 @@
+extends layout
+
+block content
+	.text_pages
+		center
+			h1 AMPREDICT
+
+		p
+			font(size='4.5rem') Ms. Smith is a 52-year-old White female. She is currently unmarried and has graduated high school. She has been previously diagnosed with COPD. She does not require assistance of nursing care, equipment or devices. Ms. Smith does not smoke or misuse alcohol, and currently rates her health as “good.” Other pertinent medical information can be found in the medical record below. 
+		center
+			p
+				strong
+					font(size='4.5rem') Ms. Smith Medical Record Information
+			table#temp_table
+				tr
+					td
+						strong Age
+					td 52
+				tr
+					td
+						strong Gender
+					td Female
+				tr
+					td
+						strong Race
+					td White
+				tr
+					td
+						strong Married
+					td No
+				tr
+					td
+						strong Education
+					td High school or more
+				tr
+					td
+						strong Height
+					td 69
+				tr
+					td
+						strong Weight
+					td 203
+				tr
+					td
+						strong Smoker
+					td No
+				tr
+					td
+						strong Alcohol misuse
+					td No
+				tr
+					td
+						strong Functional status
+					td Independent
+				tr
+					td
+						strong Self-rated Health
+					td Good
+				tr
+					td
+						strong Tx for anxiety/depression
+					td No
+				tr
+					td
+						strong CHF
+					td No
+				tr
+					td
+						strong Dialysis
+					td No
+				tr
+					td
+						strong Diabetes
+					td No
+				tr
+					td
+						strong Revascularization
+					td No
+				tr
+					td
+						strong COPD
+					td Yes
+				tr
+					td
+						strong BUN
+					td 15
+				tr
+					td
+						strong Platelets
+					td 250000
+				tr
+					td
+						strong WBC >11,000
+					td 52
+				tr
+					td
+						strong eGFR<15
+					td No
+				tr
+					td
+						strong Outpatient Anticoagulants
+					td No
+				tr
+
+		br
+		center
+			#calc_pic_box2
+				.tooltip
+					span.tooltiptext In the risk calculator, you can also click other tabs to see how Ms. Smith’s predicted risks change with varied health factors.
+					a(href='/predictionModel')
+						!= h.icon('calculator')
+						strong
+							center 
+								p Click the risk calculator above to see Ms. Smith's one-year predicted outcomes
+
+		p
+			strong
+				font(size="6rem") What amputation level would you choose if you were Ms Smith's surgeon?
+		//- p
+		//- 	strong
+		//- 		font(size='+2') Risk Calculator Parameters
+		//- 	p
+		//- 		font(size='4.5rem') The calculator is only applicable to Veteran amputees who:
+		//- 	ul
+		//- 		font(size='4.5rem')
+		//- 			li Are 40 years old or older
+		//- 			li Have not had a previous amputation at or above the transmetatarsal amputation level
+		//- 			li Require their amputation because of diabetes and/or peripheral arterial disease
+		//- p
+		//- 	i
+		//- 		strong
+		//- 			font(size='-1') This decision support tool is intended for PROVIDER use only. The risk percentages provided to you by the AMPREDICT Risk Calculator are estimates. Additional clinical information may modify the actual risks of each outcome.

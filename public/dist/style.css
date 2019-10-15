@@ -1414,9 +1414,10 @@ input[type="number"] {
 .scenario_buttons {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  width: 300px; }
+  /*flex-direction: row;*/
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly;
+  /*width: 300px;*/ }
 
 .one {
   -ms-flex: 1 1 auto;
@@ -1431,6 +1432,55 @@ input[type="number"] {
 .one:hover {
   box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
   background-color: #265728; }
+
+/* Pictures on the temp home page */
+/* for demo purposes - temp */
+.alison_demo {
+  width: 800px; }
+
+.pic_side_by_side {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.left_side_pic {
+  width: 350px;
+  text-align: center; }
+
+.right_side_pic {
+  width: 350px;
+  text-align: center; }
+
+img.rounded-edges {
+  border-radius: 30px; }
+
+#temp_table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 400px; }
+
+#temp_table td {
+  border: 1px solid #ddd;
+  padding: 8px; }
+
+#temp_table tr:nth-child(even) {
+  background-color: #f2f2f2; }
+
+#temp_table tr:hover {
+  background-color: #ddd; }
+
+#calc_pic_box2 {
+  /*background-color: Grey;*/
+  /*background-image: url(`./public/images/icons/calculator.svg`) no-repeat left top;*/
+  height: auto;
+  width: 150px;
+  border-radius: 20px;
+  padding: 10px; }
 
 .alert-success {
   color: black;

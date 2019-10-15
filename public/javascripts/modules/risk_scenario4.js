@@ -1,23 +1,23 @@
 // Scenarios for demo purposes
 
 function autoFill_scenario2(){
-    document.getElementById("age").value = 59;
+    document.getElementById("age").value = 52;
     //BMI of 20.1
-    document.getElementById("Height").value = 70;
-    document.getElementById("Weight").value = 200;
+    document.getElementById("Height").value = 69;
+    document.getElementById("Weight").value = 203;
 
     //Sex = Male
     var genderRadio = document.getElementsByName("Gender");
     for (var i = 0; i < genderRadio.length; i++){
-        if(genderRadio[i].getAttribute('value') == '1'){
+        if(genderRadio[i].getAttribute('value') == '0'){
             genderRadio[i].checked = true;
         }
     }
 
-    //Married = Yes
+    //Married = No
     var marriedRadio = document.getElementsByName("MaritalStatus");
     for (var i = 0; i < marriedRadio.length; i++){
-        if(marriedRadio[i].getAttribute('value') == '1'){
+        if(marriedRadio[i].getAttribute('value') == '0'){
             marriedRadio[i].checked = true;
         }
     }
@@ -38,15 +38,15 @@ function autoFill_scenario2(){
         }
     }
 
-    //Functional Status = Part 2
+    //Functional Status = Ind
     var funcStatusRadio = document.getElementsByName("functional_status");
     for (var i = 0; i < funcStatusRadio.length; i++){
-        if(funcStatusRadio[i].getAttribute('value') == '2'){
+        if(funcStatusRadio[i].getAttribute('value') == '1'){
             funcStatusRadio[i].checked = true;
         }
     }
 
-    //Diabetes = Yes 1
+    //Diabetes = No (0)
     var diabetesRadio = document.getElementsByName("Diabetes");
     for (var i = 0; i < diabetesRadio.length; i++){
         if(diabetesRadio[i].getAttribute('value') == '1'){
@@ -70,18 +70,18 @@ function autoFill_scenario2(){
         }
     }
 
-    //Dialysis = Yes 1
+    //Dialysis = No
     var dialysisRadio  = document.getElementsByName("dialysis");
     for (var i = 0; i < dialysisRadio.length; i++){
-        if(dialysisRadio[i].getAttribute('value') == '1'){
+        if(dialysisRadio[i].getAttribute('value') == '0'){
             dialysisRadio[i].checked = true;
         }
     }
 
-    //Kidney Failure = Yes 1
+    //Kidney Failure = No
     var kidneyRadio  = document.getElementsByName("KidneyFailure");
     for (var i = 0; i < kidneyRadio.length; i++){
-        if(kidneyRadio[i].getAttribute('value') == '1'){
+        if(kidneyRadio[i].getAttribute('value') == '0'){
             kidneyRadio[i].checked = true;
         }
     }
@@ -113,7 +113,7 @@ function autoFill_scenario2(){
     //Revasc = No
     var revascRadio  = document.getElementsByName("Revascularization");
     for (var i = 0; i < revascRadio.length; i++){
-        if(revascRadio[i].getAttribute('value') == '1'){
+        if(revascRadio[i].getAttribute('value') == '0'){
             revascRadio[i].checked = true;
         }
     }
@@ -126,24 +126,24 @@ function autoFill_scenario2(){
         }
     }
 
-    //BUN = 40
-    document.getElementById("blood_nitrogen").value = 40;
+    //BUN = 70
+    document.getElementById("blood_nitrogen").value = 15;
 
-    //WBC greater than = Yes 1
+    //WBC greater than = No
     var wbcRadio  = document.getElementsByName("WBC");
     for (var i = 0; i < wbcRadio.length; i++){
-        if(wbcRadio[i].getAttribute('value') == '1'){
+        if(wbcRadio[i].getAttribute('value') == '0'){
             wbcRadio[i].checked = true;
         }
     }
 
     // Platelets = 150 (so 150,000)
-    document.getElementById("platelet_count").value = 495000;
+    document.getElementById("platelet_count").value = 250000;
 
-    //Self Reported = Fiar 3
+    //Self Reported = Poor (4)
     var selfReportedRadio  = document.getElementsByName("SelfRatedHealth");
     for (var i = 0; i < selfReportedRadio.length; i++){
-        if(selfReportedRadio[i].getAttribute('value') == '3'){
+        if(selfReportedRadio[i].getAttribute('value') == '2'){
             selfReportedRadio[i].checked = true;
         }
     }

@@ -16,6 +16,10 @@ exports.about = (req, res) => {
 	res.render('about');
 };
 
+exports.example = (req, res) => {
+	res.render('index2_temp');
+};
+
 exports.outcome = (req, res) => {
 	res.render('outcome');
 };

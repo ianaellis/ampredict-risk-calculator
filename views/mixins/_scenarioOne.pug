@@ -3,17 +3,33 @@ mixin scenarioOne(store = {})
 		center
 			risk_title AMPREDICT
 			br
-			sub_title Risk Calculatorsas
+			sub_title Risk Calculator 
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
-		.form_section
+		center
+			div(class='scenario_buttons')
+				div(class='one')
+					a(href='#', id="scenario2") Case 1
+					//- br
+					//- a(href='#', id="scenario3") 
+					//- 	font(size="-1") 
+					//- 		i With COPD
+				div(class='one')
+					a(href='#', id="scenario4") Case 2
+					//- br
+					//- a(href='#', id="scenario4") 
+					//- 	font(size="-1") 
+					//- 		i 10 years older
+				div(class='one')
+					a(href='#', id="scenario1") Case 3
+				//- div(class='one')
+				//- 	a(href='#', id="scenario4") 4
+		.form_section.hide
 			font(size='+3')
 				center
-					strong Patient Characteristics
+					strong Demographics
 				hr
-			div(name='age' value=75)
-			//- label(for="age" id='age') Age:    
-			//- 	input(type='number', name='age', style='width: 130px;', value=75, data-parsley-range='[40, 110]', required=true)
-
+			label(for="age") Age:    
+				input(type='number', name='age', id="age", style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder='40-110', data-parsley-range='[40, 110]', required)
 			label(for="Gender") Gender:
 				.radio_align
 					label
@@ -41,7 +57,7 @@ mixin scenarioOne(store = {})
 			label(for="MaritalStatus") Married:
 				.radio_align
 					label
-						input(type='radio', value='1', name='MaritalStatus', required data-parsley-errors-container="#marital-errors")
+						input(type='radio', value='1', id='MaritalStatus', name='MaritalStatus', required data-parsley-errors-container="#marital-errors")
 						|  Yes
 					label 
 						input(type='radio', value='0', name='MaritalStatus')
@@ -56,13 +72,13 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='EducationStatus')
 						|  Less than high school
 					#education-errors
-		.form_section
+		.form_section.hide
 			font(size='+3') 
 				center 
 					strong Comorbidities
 				hr
 
-			label(for="heart_failure" id='heart_failure') Diagnosis of congestive heart failure: 
+			label(for="heart_failure") Diagnosis of congestive heart failure: 
 				.radio_align
 					label
 						input(type='radio', value='1', name='heart_failure', required data-parsley-errors-container="#heart-errors")
@@ -71,7 +87,7 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='heart_failure')
 						|  No
 					#heart-errors
-			label(for="dialysis" id='dialysis') Currently on dialysis:
+			label(for="dialysis") Currently on dialysis:
 				.radio_align
 					label
 						input(type='radio', value='1', name='dialysis', required data-parsley-errors-container="#dialysis-errors")
@@ -80,7 +96,7 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='dialysis')
 						|  No
 					#dialysis-errors
-			label(for="Diabetes" id='Diabetes') Diagnosis of diabetes:
+			label(for="Diabetes") Diagnosis of diabetes:
 				.radio_align
 					label
 						input(type='radio', value='1', name='Diabetes', required data-parsley-errors-container="#diabetes-errors")
@@ -89,7 +105,7 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='Diabetes')
 						|  No
 					#diabetes-errors
-			label(for="Revascularization" id='Revascularization') History of a 
+			label(for="Revascularization") History of a 
 				.tooltip 
 					| revascularization 
 					span.tooltiptext This may include on open procedure, and endovascular procedure, or both.
@@ -102,7 +118,7 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='Revascularization')
 						|  No
 					#revasc-errors
-			label(for="COPD" id='COPD') Diagnosis of COPD:
+			label(for="COPD") Diagnosis of COPD:
 				.radio_align
 					label
 						input(type='radio', value='1', name='COPD', required data-parsley-errors-container="#copd-errors")
@@ -111,7 +127,7 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='COPD')
 						|  No
 					#copd-errors
-			label(for="AnxietyDepression" id='AnxietyDepression') History of treatment for anxiety or depression:
+			label(for="AnxietyDepression") History of treatment for anxiety or depression:
 				.radio_align
 					label
 						input(type='radio', value='1', name='AnxietyDepression', required data-parsley-errors-container="#anxiety-errors")
@@ -120,20 +136,20 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='AnxietyDepression')
 						|  No
 					#anxiety-errors
-		.form_section
+		.form_section.hide
 			font(size='+3') 
 				center 
 					strong Laboratory Values and Medications
 				hr
 
 			.lab_number_box_align
-				label(for="blood_nitrogen" id='blood_nitrogen') Most recent BUN (mg/dl): 
-					input(type='number', name='blood_nitrogen', style='width: 130px;', data-parsley-range='[1, 157]', required)
+				label(for="blood_nitrogen") Most recent BUN (mg/dl): 
+					input(type='number', id='blood_nitrogen', name='blood_nitrogen', style='width: 130px;', placeholder='1-157', data-parsley-range='[1, 157]', required)
 				br
-				label(for="platelet_count" id='platelet_count') Most recent platelet count (per mL): 
-					input(type='number', name='platelet_count', style='width: 130px;', data-parsley-min='10000', required)
+				label(for="platelet_count") Most recent platelet count (per mL): 
+					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', placeholder='≥10000' data-parsley-min='10000', required)
 				br
-			label(for="WBC") White blood cell count >= 11,000:
+			label(for="WBC") White blood cell count ≥ 11,000:
 				.radio_align
 					label
 						input(type='radio', value='1', name='WBC', required data-parsley-errors-container="#wbc-errors")
@@ -162,17 +178,17 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='0', name='OutputAnticoagulants')
 						|  No
 					#coag-errors
-		.form_section
+		.form_section.hide
 			font(size='+3') 
 				center 
 					strong Health Factors
 				hr
 			.bmi_align
 				label(for="Height") Height (inches): 
-					input(type='number', name='Height', style='width: 130px;', data-parsley-range='[48, 84]', required)
+					input(type='number', id="Height", name='Height', style='width: 130px;', placeholder='48-84', data-parsley-range='[48, 84]', required)
 				br
 				label(for="Weight") Weight (lbs): 
-					input(type='number', name='Weight', style='width: 130px;', data-parsley-range='[80, 500]', required)
+					input(type='number', id="Weight", name='Weight', style='width: 130px;', placeholder='80-500', data-parsley-range='[80, 500]', required)
 				br
 
 			label(for="Smoke") Currently a smoker?
@@ -229,12 +245,12 @@ mixin scenarioOne(store = {})
 						input(type='radio', value='5', name='SelfRatedHealth')
 						|  Very Poor
 					#selfRated-errors
-		.form-navigation
+		button.btn.btn-default.pull-right(type='submit') Submit
+		//- .form-navigation
 			.buttons
 				center
 					button.previous.btn.btn-info.pull-left(type='button') &larr; Previous
 					button.next.btn.btn-info.pull-right(type='button') Next &rarr;
-					button.btn.btn-default.pull-right(type='submit') Submit
 					span.clearfix
 			div(style='text-align:center;margin-top:10px;')
 				span.stepX

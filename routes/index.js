@@ -10,6 +10,8 @@ router.get('/', storeController.homePage);
 router.get('/predictionModelOutcome', storeController.outcome);
 //About Page
 router.get('/about', storeController.about);
+//temp index
+router.get('/index2_temp', storeController.example);
 
 //Get request for PredctionModel Form
 router.get('/predictionModel', storeController.store_create_get);
