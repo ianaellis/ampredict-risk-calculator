@@ -104,18 +104,18 @@ block content
 
 		br
 		center
-			#calc_pic_box2
 				.tooltip
 					span.tooltiptext In the risk calculator, you can also click other tabs to see how Ms. Smith’s predicted risks change with varied health factors.
 					a(href='/predictionModel')
-						!= h.icon('calculator')
-						strong
-							center 
-								p Click the risk calculator above to see Ms. Smith's one-year predicted outcomes
+						#calc_pic_box2
+							#inside_the_pic_box
+								!= h.icon('calculator')
+							p Click the risk calculator above to see Ms. Smith's one-year predicted outcomes
 
 		p
 			strong
-				font(size="6rem") What amputation level would you choose if you were Ms Smith's surgeon?
+				center
+					font(size='5rem') What amputation level would you choose if you were Ms. Smith's surgeon?
 		//- p
 		//- 	strong
 		//- 		font(size='+2') Risk Calculator Parameters

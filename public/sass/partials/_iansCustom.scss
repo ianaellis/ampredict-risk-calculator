@@ -36,13 +36,14 @@ input[type="number"]{
     /* Position the tooltip text */
     position: absolute;
     z-index: 1500;
-    bottom: 125%;
+    bottom: 100%;
     left: 50%;
     margin-left: -250px;
 
     /* Fade in tooltip */
     opacity: 0;
     transition: opacity 0.3s;
+    font-size: 2rem;
 }
 
 /* Tooltip arrow */
@@ -102,7 +103,7 @@ input[type="number"]{
 
 .scenario_buttons {
     display: flex;
-    /*flex-direction: row;*/
+    flex-direction: row;
     justify-content: space-evenly;
     /*width: 300px;*/
 }
@@ -176,7 +177,12 @@ img.rounded-edges{
     /*background-color: Grey;*/
     /*background-image: url(`./public/images/icons/calculator.svg`) no-repeat left top;*/
     height: auto;
-    width: 150px;
+    width: 320px;
     border-radius: 20px;
     padding: 10px;
+}
+
+#inside_the_pic_box{
+    width: 100px;
+    /*border-radius: 20px;*/
 }

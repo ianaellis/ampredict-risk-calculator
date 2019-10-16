@@ -39,9 +39,9 @@ $(document).ready(function () {
         showAllTabs('all_output', '#output_tabs', $(this));
     });
 
-    function goBack(){
-        window.history.back();
-    }
+    // function goBack(){
+    //     window.history.back();
+    // }
     function showAllTabs(id, wrapperID, $element) {
         if($element.attr('id') == id) {
             $(wrapperID + ' > .ui-tabs-panel').show();
