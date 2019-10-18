@@ -1,7 +1,7 @@
 // Scenarios for demo purposes
 
 function autoFill_scenario2(){
-    document.getElementById("age").value = 52;
+    document.getElementById("age").value = 72;
     //BMI of 20.1
     document.getElementById("Height").value = 69;
     document.getElementById("Weight").value = 203;
@@ -9,7 +9,7 @@ function autoFill_scenario2(){
     //Sex = Male
     var genderRadio = document.getElementsByName("Gender");
     for (var i = 0; i < genderRadio.length; i++){
-        if(genderRadio[i].getAttribute('value') == '0'){
+        if(genderRadio[i].getAttribute('value') == '1'){
             genderRadio[i].checked = true;
         }
     }

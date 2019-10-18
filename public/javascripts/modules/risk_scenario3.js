@@ -1,7 +1,7 @@
 // Scenarios for demo purposes
 
 function autoFill_scenario1(){
-    document.getElementById("age").value = 75;
+    document.getElementById("age").value = 72;
     //BMI of 20.1
     document.getElementById("Height").value = 69;
     document.getElementById("Weight").value = 135;
