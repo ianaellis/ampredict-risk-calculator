@@ -117,7 +117,7 @@ function autoFill_scenario2() {
   var funcStatusRadio = document.getElementsByName("functional_status");
 
   for (var i = 0; i < funcStatusRadio.length; i++) {
-    if (funcStatusRadio[i].getAttribute('value') == '2') {
+    if (funcStatusRadio[i].getAttribute('value') == '3') {
       funcStatusRadio[i].checked = true;
     }
   } //Diabetes = No (0)
@@ -229,7 +229,7 @@ function autoFill_scenario2() {
   var selfReportedRadio = document.getElementsByName("SelfRatedHealth");
 
   for (var i = 0; i < selfReportedRadio.length; i++) {
-    if (selfReportedRadio[i].getAttribute('value') == '2') {
+    if (selfReportedRadio[i].getAttribute('value') == '4') {
       selfReportedRadio[i].checked = true;
     }
   } // return true;
@@ -745,7 +745,7 @@ function autoFill_scenario2() {
   var selfReportedRadio = document.getElementsByName("SelfRatedHealth");
 
   for (var i = 0; i < selfReportedRadio.length; i++) {
-    if (selfReportedRadio[i].getAttribute('value') == '2') {
+    if (selfReportedRadio[i].getAttribute('value') == '3') {
       selfReportedRadio[i].checked = true;
     }
   } // return true;

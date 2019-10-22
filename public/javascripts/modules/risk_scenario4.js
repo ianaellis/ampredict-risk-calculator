@@ -143,7 +143,7 @@ function autoFill_scenario2(){
     //Self Reported = Poor (4)
     var selfReportedRadio  = document.getElementsByName("SelfRatedHealth");
     for (var i = 0; i < selfReportedRadio.length; i++){
-        if(selfReportedRadio[i].getAttribute('value') == '2'){
+        if(selfReportedRadio[i].getAttribute('value') == '3'){
             selfReportedRadio[i].checked = true;
         }
     }

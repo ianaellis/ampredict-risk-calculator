@@ -41,7 +41,7 @@ function autoFill_scenario2(){
     //Functional Status = Ind
     var funcStatusRadio = document.getElementsByName("functional_status");
     for (var i = 0; i < funcStatusRadio.length; i++){
-        if(funcStatusRadio[i].getAttribute('value') == '2'){
+        if(funcStatusRadio[i].getAttribute('value') == '3'){
             funcStatusRadio[i].checked = true;
         }
     }
@@ -143,7 +143,7 @@ function autoFill_scenario2(){
     //Self Reported = Poor (4)
     var selfReportedRadio  = document.getElementsByName("SelfRatedHealth");
     for (var i = 0; i < selfReportedRadio.length; i++){
-        if(selfReportedRadio[i].getAttribute('value') == '2'){
+        if(selfReportedRadio[i].getAttribute('value') == '4'){
             selfReportedRadio[i].checked = true;
         }
     }
