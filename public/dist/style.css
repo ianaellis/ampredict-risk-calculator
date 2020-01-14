@@ -886,8 +886,7 @@ button:hover {
   border: 2px solid #c8c8c8;
   letter-spacing: 1px;
   font-size: 0.8rem;
-  -moz-column-width: 200px;
-       column-width: 200px; }
+  column-width: 200px; }
 
 .table_frame_s {
   text-align: center;
