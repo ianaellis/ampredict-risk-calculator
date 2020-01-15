@@ -38,6 +38,8 @@ exports.createStore = async (req, res) => {
 	// res.json(new_age_2);
 	// const age1 = predModel.age;
 	// console.log(predModel);
+
+	//State save so that we can click the back button
 	var predModel_TM = new Store(
 			{ amputation_level: 1, age: req.body.age, bmi: req.body.bmi, race: req.body.race, functional_status: req.body.functional_status, heart_failure: req.body.heart_failure, dialysis: req.body.dialysis, blood_nitrogen: req.body.blood_nitrogen, wbc: req.body.WBC, platelet_count: req.body.platelet_count}
 	);
@@ -108,7 +110,9 @@ exports.createStore = async (req, res) => {
 		// Variables Coeffs
 
 		var amp_lvl_calc = 0; 							//Question 1 -- TM
-		var tt_amp_lvl_calc = .295483; 					//Question 1 -- TT
+		var tt_amp_lvl_calc = .295483; 					//Question 1 -- TT 1.14.20 Update - this is a difference of TT value + TM value
+		//Added for TF 1.14.20
+		var tf_amp_lvl_calc = .4753;					//Question 1 -- TF
 		var age_calc = (req.body.age - 65)*0.04708; 	//Question 2
 		var bmi_calc = (req.body.bmi - 25)*-0.05016; 	//Question 3
 		var race_calc = 0; 								//Question 4
@@ -123,7 +127,9 @@ exports.createStore = async (req, res) => {
 		// Variables Lower
 
 		var lower_amp_lvl_calc = 0; 							//Question 1 -- TM
-		var tt_lower_amp_lvl_calc = .12677; 					//Question 1 -- TT 
+		var tt_lower_amp_lvl_calc = .12677; 					//Question 1 -- TT
+		//Added for TF 1.14.20
+		var tf_lower_amp_lvl_calc = .29713;						//Question 1 -- TF
 		var lower_age_calc = (req.body.age - 65)*0.04114; 		//Question 2
 		var lower_bmi_calc = (req.body.bmi - 25)*-0.06102; 		//Question 3
 		var lower_race_calc = 0; 								//Question 4
@@ -139,6 +145,8 @@ exports.createStore = async (req, res) => {
 
 		var upper_amp_lvl_calc = 0; 							//Question 1 -- TM
 		var tt_upper_amp_lvl_calc = .46419; 					//Question 1 -- TT
+		//Added for TF 1.14.20
+		var tf_upper_amp_lvl_calc = .65256; 					//Question 1 -- TF
 		var upper_age_calc = (req.body.age - 65)*0.05302; 		//Question 2
 		var upper_bmi_calc = (req.body.bmi - 25)*-0.0393; 		//Question 3
 		var upper_race_calc = 0; 								//Question 4
@@ -267,6 +275,19 @@ exports.createStore = async (req, res) => {
 	    	tt_highProb = true;
 	    }
 
+	    //Final Calculations for TF
+		var tf_logit_prob = (tf_amp_lvl_calc + age_calc + bmi_calc + race_calc + func_status_calc + heart_failure_calc + dialysis_calc + blood_nitrogen_calc + wbc_calc + platelet_calc + constant_var).toFixed(4);
+	    var tf_lower_logit_prob = (tf_lower_amp_lvl_calc + lower_age_calc + lower_bmi_calc + lower_race_calc + lower_func_status_calc + lower_heart_failure_calc + lower_dialysis_calc + lower_blood_nitrogen_calc + lower_wbc_calc + lower_platelet_calc + lower_constant_var).toFixed(4);
+	    var tf_upper_logit_prob = (tf_upper_amp_lvl_calc + upper_age_calc + upper_bmi_calc + upper_race_calc + upper_func_status_calc + upper_heart_failure_calc + upper_dialysis_calc + upper_blood_nitrogen_calc + upper_wbc_calc + upper_platelet_calc + upper_constant_var).toFixed(4);
+	    var tf_prob = (Math.pow(2.71828, tf_logit_prob))/(1+(Math.pow(2.71828, tf_logit_prob)));
+	    var tf_lower_ci = (Math.pow(2.71828, tf_lower_logit_prob))/(1+(Math.pow(2.71828, tf_lower_logit_prob)));
+	    var tf_upper_ci = (Math.pow(2.71828, tf_upper_logit_prob))/(1+(Math.pow(2.71828, tf_upper_logit_prob)));
+
+		var tf_highProb = false;
+	    if(tf_prob > .25){
+	    	tf_highProb = true;
+	    }
+
 	    var comorbid = true;
 	    // if(heart_failure_string == "" & dialysis_string == ""){
 	    // 	comorbid = false;
@@ -278,6 +299,7 @@ exports.createStore = async (req, res) => {
 			//Coeffs
 			var reamp_coeff_amp_lvl_calc = 0;
 			var tt_reamp_coeff_amp_lvl_calc = -.167;
+			var tf_reamp_coeff_amp_lvl_calc = -1.513; //Added 1.14.20
 			var reamp_coeff_gender = 0;
 			var reamp_coeff_tm_with_diabetes = 0;
 			var reamp_coeff_smoke = 0;
@@ -295,6 +317,7 @@ exports.createStore = async (req, res) => {
 			//Lower
 			var reamp_lower_amp_lvl_calc = 0;
 			var tt_reamp_lower_amp_lvl_calc = -.572;
+			var tf_reamp_lower_amp_lvl_calc = -1.93; //Added 1.14.20
 			var reamp_lower_gender = 0;
 			var reamp_lower_tm_with_diabetes = 0;
 			var reamp_lower_smoke = 0;
@@ -312,6 +335,7 @@ exports.createStore = async (req, res) => {
 			//upper
 			var reamp_upper_amp_lvl_calc = 0;
 			var tt_reamp_upper_amp_lvl_calc = .237;
+			var tf_reamp_upper_amp_lvl_calc = .-1.09;
 			var reamp_upper_gender = 0;
 			var reamp_upper_tm_with_diabetes = 0;
 			var reamp_upper_smoke = 0;
@@ -449,6 +473,19 @@ exports.createStore = async (req, res) => {
 	    	tt_reamp_highProb = true;
 	    }
 
+    //Final Calculations -- TT
+		var tf_reamp_logit_prob = (tf_reamp_coeff_amp_lvl_calc + reamp_coeff_gender  + reamp_coeff_smoke + reamp_coeff_alcohol + reamp_coeff_copd + reamp_coeff_wbc + reamp_coeff_diabetes + reamp_coeff_diabetes_revascular + reamp_coeff_output_anticoag + reamp_coeff_rest_gangrene + reamp_coeff_CONSTANT).toFixed(4);
+	    var tf_reamp_lower_logit_prob = (tf_reamp_lower_amp_lvl_calc + reamp_lower_gender + reamp_lower_smoke + reamp_lower_alcohol + reamp_lower_copd + reamp_lower_wbc + reamp_lower_diabetes + reamp_lower_diabetes_revascular + reamp_lower_output_anticoag + reamp_lower_rest_gangrene + reamp_lower_CONSTANT).toFixed(4);
+	    var tf_reamp_upper_logit_prob = (tf_reamp_upper_amp_lvl_calc + reamp_upper_gender + reamp_upper_smoke + reamp_upper_alcohol + reamp_upper_copd + reamp_upper_wbc + reamp_upper_diabetes + reamp_upper_diabetes_revascular + reamp_upper_output_anticoag + reamp_upper_rest_gangrene + reamp_upper_CONSTANT).toFixed(4);
+	    var tf_reamp_prob = (Math.pow(2.71828, tf_reamp_logit_prob))/(1+(Math.pow(2.71828, tf_reamp_logit_prob))).toFixed(4);
+	    var tf_reamp_lower_ci = (Math.pow(2.71828, tf_reamp_lower_logit_prob))/(1+(Math.pow(2.71828, tf_reamp_lower_logit_prob))).toFixed(4);
+	    var tf_reamp_upper_ci = (Math.pow(2.71828, tf_reamp_upper_logit_prob))/(1+(Math.pow(2.71828, tf_reamp_upper_logit_prob))).toFixed(4);
+
+	    var tf_reamp_highProb = false;
+	    if(tf_reamp_prob > .26){
+	    	tf_reamp_highProb = true;
+	    }
+
 	    // res.json(upper_ci);
 
 //
@@ -459,6 +496,7 @@ exports.createStore = async (req, res) => {
 			//Coeffs
 			var mob_coeff_amp_lvl_calc = 0;
 			var tt_mob_coeff_amp_lvl_calc = -1.12;
+			var tf_mob_coeff_amp_lvl_calc = -2.8; //Added 1.14.20
 			var mob_coeff_age = (req.body.age - 60)*(-0.125);
 			var mob_coeff_bmi = (req.body.bmi - 30)*(-0.008); 
 			var mob_coeff_race = 0;
@@ -474,6 +512,7 @@ exports.createStore = async (req, res) => {
 			//Lower
 			var mob_lower_amp_lvl_calc = 0;
 			var tt_mob_lower_amp_lvl_calc = -2.19;
+			var tf_mob_lower_amp_lvl_calc = -4.36; //Added 1.14.20
 			var mob_lower_age = (req.body.age - 60)*(-.187);
 			var mob_lower_bmi = (req.body.bmi - 30)*(-0.1087); 
 			var mob_lower_race = 0;
@@ -489,6 +528,7 @@ exports.createStore = async (req, res) => {
 			//upper
 			var mob_upper_amp_lvl_calc = 0;
 			var tt_mob_upper_amp_lvl_calc = -0.054;
+			var tf_mob_upper_amp_lvl_calc = -1.25; //Added 1.14.20
 			var mob_upper_age = (req.body.age - 60)*(-0.063);
 			var mob_upper_bmi = (req.body.bmi - 30)*(-0.0175); 
 			var mob_upper_race = 0;
@@ -655,6 +695,19 @@ exports.createStore = async (req, res) => {
 	    	tt_mob_highProb = true;
 	    }
 
+	    //Moblity Final Calculations -- TT
+		var tf_mob_logit_prob = (tf_mob_coeff_amp_lvl_calc + mob_coeff_age + mob_coeff_bmi + mob_coeff_race + mob_coeff_marital + mob_coeff_education + mob_coeff_diabetes + mob_coeff_dialysis + mob_coeff_copd + mob_coeff_anxietyDepression + mob_coeff_selfHealth + mob_coeff_CONSTANT).toFixed(4);
+	    var tf_mob_lower_logit_prob = (tf_mob_lower_amp_lvl_calc + mob_lower_age + mob_lower_bmi + mob_lower_race + mob_lower_marital + mob_lower_education + mob_lower_diabetes + mob_lower_dialysis + mob_lower_copd + mob_lower_anxietyDepression + mob_lower_selfHealth + mob_lower_CONSTANT).toFixed(4);
+	    var tf_mob_upper_logit_prob = (tf_mob_upper_amp_lvl_calc + mob_upper_age + mob_upper_bmi + mob_upper_race + mob_upper_marital + mob_upper_education + mob_upper_diabetes + mob_upper_dialysis + mob_upper_copd + mob_upper_anxietyDepression + mob_upper_selfHealth + mob_upper_CONSTANT).toFixed(4);
+	    var tf_mob_prob = (Math.pow(2.71828, tf_mob_logit_prob))/(1+(Math.pow(2.71828, tf_mob_logit_prob))).toFixed(4);
+	    var tf_mob_lower_ci = (Math.pow(2.71828, tf_mob_lower_logit_prob))/(1+(Math.pow(2.71828, tf_mob_lower_logit_prob))).toFixed(4);
+	    var tf_mob_upper_ci = (Math.pow(2.71828, tf_mob_upper_logit_prob))/(1+(Math.pow(2.71828, tf_mob_upper_logit_prob))).toFixed(4);
+
+	    var tf_mob_highProb = false;
+	    if(tf_mob_prob > .62){
+	    	tf_mob_highProb = true;
+	    }
+
 //
 //Advanced Mobility CALCULATOR
 //
@@ -767,7 +820,9 @@ exports.createStore = async (req, res) => {
 
 	    res.render('predictionModelOutcome', {
 	    	predModel_TM, comorbid,
-	    	highProb, prob, reamp_prob, tt_prob, tt_highProb, mob_prob, mob_highProb, tt_reamp_prob, tt_reamp_highProb, tt_mob_prob, tt_mob_highProb,
+	    	prob, highProb, reamp_prob, mob_prob, mob_highProb,
+	    	tt_prob, tt_highProb, tt_reamp_prob, tt_reamp_highProb, tt_mob_prob, tt_mob_highProb,
+	    	tf_prob, tf_highProb, tf_reamp_prob, tf_reamp_highProb, tf_mob_prob, tf_mob_highProb,
 	    	amp_lvl_string, age_string, bmi_string, race_string, function_string, heart_failure_string, dialysis_string, bun_string, blood_string, 
 	    	platelet_string,gender_string, marital_string, education_string, diabetes_string, revascularization_string, kidney_string, copd_string, 
 	    	anxiety_string, gangrene_string, smoke_string, alcohol_string, anticoagulants_string, health_string, platelet_calc});

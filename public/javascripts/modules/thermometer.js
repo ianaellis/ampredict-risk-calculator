@@ -34,6 +34,9 @@ $(document).ready(function () {
     thermometer("#tm_reamputation");
     thermometer("#tm_mortality");
     thermometer("#tm_mobility");
+    thermometer("#tf_reamputation");
+    thermometer("#tf_mortality");
+    thermometer("#tf_mobility");
 });
 
 export default thermometer

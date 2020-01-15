@@ -1502,7 +1502,7 @@ img.rounded-edges {
   text-align: center; }
 
 .output_title_left {
-  outline: 1px dotted #1C6EA4;
+  /*outline: 1px dotted #1C6EA4;*/
   width: 33%;
   float: left;
   text-align: center; }
@@ -1521,7 +1521,7 @@ img.rounded-edges {
   background: white;
   border-radius: 40px;
   /*outline: 1px dotted #1C6EA4;*/
-  width: 750px;
+  width: 900px;
   margin: auto;
   padding: 20px;
   margin-top: 2rem;
@@ -1531,6 +1531,7 @@ img.rounded-edges {
   /*outline: 1px dotted #1C6EA4;*/
   width: 660px;
   height: 30px;
+  margin-left: 215px;
   /*margin-bottom: 20px;*/ }
 
 .table_desc {
@@ -1544,21 +1545,28 @@ img.rounded-edges {
 #reamputation_frame,
 #mobility_frame {
   /*outline: 1px dotted #1C6EA4;*/
-  width: 660px;
+  width: 880px;
   height: 280px; }
 
 #tt_mortality_frame,
 #tt_reamputation_frame,
 #tt_mobility_frame {
   /*outline: 1px dotted #1C6EA4;*/
-  width: 33%;
+  width: 25%;
   float: right; }
 
 #tm_mortality_frame,
 #tm_reamputation_frame,
 #tm_mobility_frame {
   /*outline: 1px dotted #1C6EA4;*/
-  width: 33%;
+  width: 25%;
+  float: right; }
+
+#tf_mortality_frame,
+#tf_reamputation_frame,
+#tf_mobility_frame {
+  /*outline: 1px dotted #1C6EA4;*/
+  width: 25%;
   float: right; }
 
 .table_frame {
@@ -1570,10 +1578,13 @@ img.rounded-edges {
 
 #tm_mortality,
 #tt_mortality,
+#tf_mortality,
 #tm_reamputation,
 #tt_reamputation,
+#tf_reamputation,
 #tm_mobility,
 #tt_mobility,
+#tf_mobility,
 #advancedMobility {
   /*outline: 1px dotted #1C6EA4;*/
   border-radius: 12px;
@@ -1581,10 +1592,13 @@ img.rounded-edges {
   position: relative; }
   #tm_mortality .track,
   #tt_mortality .track,
+  #tf_mortality .track,
   #tm_reamputation .track,
   #tt_reamputation .track,
+  #tf_reamputation .track,
   #tm_mobility .track,
   #tt_mobility .track,
+  #tf_mobility .track,
   #advancedMobility .track {
     background: #e5e5e5 none repeat scroll 0 0;
     border-radius: 8px;
@@ -1595,10 +1609,13 @@ img.rounded-edges {
     width: 30px; }
   #tm_mortality .progress,
   #tt_mortality .progress,
+  #tf_mortality .progress,
   #tm_reamputation .progress,
   #tt_reamputation .progress,
+  #tf_reamputation .progress,
   #tm_mobility .progress,
   #tt_mobility .progress,
+  #tf_mobility .progress,
   #advancedMobility .progress {
     background: #410133 none repeat scroll 0 0;
     border-radius: 23px 23px 0 0;
@@ -1611,10 +1628,13 @@ img.rounded-edges {
     z-index: 100; }
   #tm_mortality .amount,
   #tt_mortality .amount,
+  #tf_mortality .amount,
   #tm_reamputation .amount,
   #tt_reamputation .amount,
+  #tf_reamputation .amount,
   #tm_mobility .amount,
   #tt_mobility .amount,
+  #tf_mobility .amount,
   #advancedMobility .amount {
     border-top: 1px solid #006600;
     color: black;
@@ -1623,10 +1643,13 @@ img.rounded-edges {
     padding: 0 50px 0 0; }
   #tm_mortality .progress .amount,
   #tt_mortality .progress .amount,
+  #tf_mortality .progress .amount,
   #tm_reamputation .progress .amount,
   #tt_reamputation .progress .amount,
+  #tf_reamputation .progress .amount,
   #tm_mobility .progress .amount,
   #tt_mobility .progress .amount,
+  #tf_mobility .progress .amount,
   #advancedMobility .progress .amount {
     border-top: 1px solid #006600;
     left: 0;
@@ -1635,20 +1658,26 @@ img.rounded-edges {
     display: block; }
   #tm_mortality .goal,
   #tt_mortality .goal,
+  #tf_mortality .goal,
   #tm_reamputation .goal,
   #tt_reamputation .goal,
+  #tf_reamputation .goal,
   #tm_mobility .goal,
   #tt_mobility .goal,
+  #tf_mobility .goal,
   #advancedMobility .goal {
     position: absolute;
     right: 0;
     top: 0; }
   #tm_mortality .average,
   #tt_mortality .average,
+  #tf_mortality .average,
   #tm_reamputation .average,
   #tt_reamputation .average,
+  #tf_reamputation .average,
   #tm_mobility .average,
   #tt_mobility .average,
+  #tf_mobility .average,
   #advancedMobility .average {
     position: absolute;
     right: 0;
@@ -1668,6 +1697,7 @@ img.rounded-edges {
 
 /* Text stuff on output page */
 .predictor_text {
+  /*outline: 1px dotted #1C6EA4;*/
   width: 220px;
   float: left; }
 

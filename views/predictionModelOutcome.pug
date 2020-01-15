@@ -29,6 +29,9 @@ block content
 					a(href='#output_tabs-3') Patient Characteristics
 			#output_tabs-1
 				.heading_frame
+					.output_title_right
+						category_font
+							strong Transfemeral
 					.output_title_center
 						category_font
 							strong Transtibial
@@ -44,16 +47,36 @@ block content
 							i Risk of death within the first year after amputation.
 					//- .tooltip
 					//- 	span.tooltiptext Risk of death within the first year after amputation.
+					#tf_mortality_frame
+						.risk_frame
+							.text-center.alert.alert-success
+								if(tf_highProb)
+									.tooltip
+										font(size='+4') #{(tf_prob*100).toFixed(0)}%
+										//- span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
+								else
+									.tooltip
+										font(size='+4') #{(tf_prob*100).toFixed(0)}%
+										//- span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
+						#tf_mortality
+							.track
+								.average(style='bottom: -6.7%;')
+									font(size='-1').amount 25% Average Risk
+								.goal
+								.progress
+									//- #progessAmount.amount #{(tt_prob*100).toFixed(0)}% 
+									font(size='-1')#progessAmount.amount #{(tf_prob*100).toFixed(0)}% 
+
 					#tt_mortality_frame
 						.risk_frame
 							.text-center.alert.alert-success
 								if(tt_highProb)
 									.tooltip
-										font(size='+4') #{(tt_prob*100).toFixed(0)}% 
+										font(size='+4') #{(tt_prob*100).toFixed(0)}%
 										//- span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
 								else
 									.tooltip
-										font(size='+4') #{(tt_prob*100).toFixed(0)}% 
+										font(size='+4') #{(tt_prob*100).toFixed(0)}%
 										//- span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
 						#tt_mortality
 							.track
@@ -82,8 +105,12 @@ block content
 								.goal
 								.progress
 									font(size='-1')#progessAmount.amount(style='display: block;') #{(prob*100).toFixed(0)}%
+					
 			#output_tabs-2
 				.heading_frame
+					.output_title_right
+						category_font
+							strong Transfemeral
 					.output_title_center
 						category_font
 							strong Transtibial
@@ -99,6 +126,24 @@ block content
 							i Any additional surgery on the amputated limb within the first year after amputation, including soft tissue revision, bony revision at the same level, or conversion to a higher level.
 					//- .tooltip
 					//- 	span.tooltiptext Any additional surgery on the amputated limb including soft tissue revision, bony revision at the same level, or conversion to a higher level.
+					#tf_reamputation_frame
+						.risk_frame
+							.text-center.alert.alert-success 
+								if(!tf_reamp_highProb)
+									.tooltip
+										font(size='+4') #{(tf_reamp_prob*100).toFixed(0)}% 
+										//- span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is below average. (26%).
+								else
+									.tooltip
+										font(size='+4') #{(tf_reamp_prob*100).toFixed(0)}% 
+										//- span.tooltiptext 1-year risk of reamputation after this amputation. Based on this prediciton model, this patient's risk of reamputation, if they undergo a TT amputation, is above average. (26%).	
+						#tf_reamputation
+							.track
+								.average(style='bottom: -6.4%;') 
+									font(size='-1').amount 26% Average Risk
+								.goal
+								.progress
+									font(size='-1')#progessAmount.amount #{(tf_reamp_prob*100).toFixed(0)}%
 					#tt_reamputation_frame
 						.risk_frame
 							.text-center.alert.alert-success 
@@ -162,6 +207,26 @@ block content
 										li Step down a sidewalk curb
 							|  within the first year after amputation, with or without a mobility aid (e.g., a cane, crutch or walker), with no need for physical assistance from another person.
 
+					#tf_mobility_frame
+						.risk_frame
+							if(tf_mob_highProb)
+								.text-center.alert.alert-success
+									.tooltip
+										font(size='+4') #{(tf_mob_prob*100).toFixed(0)}% 
+										//- span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TT amputation, is above average (62%).
+							else
+								.text-center.alert.alert-success
+									.tooltip
+										font(size='+4') #{(tf_mob_prob*100).toFixed(0)}% 
+										//- span.tooltiptext The 1-year probability of achieving at least a functional level of independent mobility after this amputation. Based on this prediction model, this patients probable mobility, if they undergo a TT amputation, is below average (62%).
+
+						#tf_mobility
+							.track
+								.average(style='bottom: 29.6%;')
+									font(size='-1.5').amount 62% Average Probability
+								.goal
+								.progress
+									font(size='-1.5')#progessAmount.amount #{(tf_mob_prob*100).toFixed(0)}%
 					#tt_mobility_frame
 						.risk_frame
 							if(tt_mob_highProb)

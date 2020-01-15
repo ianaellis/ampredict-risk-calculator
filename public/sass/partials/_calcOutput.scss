@@ -14,7 +14,7 @@
     text-align: center;
 }
 .output_title_left {
-    outline: 1px dotted #1C6EA4;
+    /*outline: 1px dotted #1C6EA4;*/
     width:33%;
     float: left;
     text-align: center;
@@ -25,7 +25,7 @@
 	text-align: center;
 }
 .output_title_right {
-	width:33%;
+	width: 33%;
 	float: right;
 	text-align: center;
 }
@@ -34,7 +34,7 @@
     background: white;
     border-radius: 40px;
     /*outline: 1px dotted #1C6EA4;*/
-    width: 750px;
+    width: 900px;
     margin: auto;
     padding: 20px;
     margin-top: 2rem;
@@ -44,6 +44,7 @@
     /*outline: 1px dotted #1C6EA4;*/
     width:660px;
     height: 30px;
+    margin-left: 215px;
     /*margin-bottom: 20px;*/
 
 }
@@ -60,7 +61,7 @@
 #reamputation_frame,
 #mobility_frame{
 	/*outline: 1px dotted #1C6EA4;*/
-	width: 660px;
+	width: 880px;
 	height: 280px;
 }
 
@@ -68,15 +69,23 @@
 #tt_reamputation_frame,
 #tt_mobility_frame {
 	/*outline: 1px dotted #1C6EA4;*/
-	width: 33%;
+	width: 25%;
 	float: right;
 }
 #tm_mortality_frame,
 #tm_reamputation_frame,
 #tm_mobility_frame{
 	/*outline: 1px dotted #1C6EA4;*/
-	width: 33%;
+	width: 25%;
 	float:right;
+}
+
+#tf_mortality_frame,
+#tf_reamputation_frame,
+#tf_mobility_frame{
+    /*outline: 1px dotted #1C6EA4;*/
+    width: 25%;
+    float:right;
 }
 
 
@@ -98,10 +107,13 @@
 //The logic behind making the thermometer work
 #tm_mortality,
 #tt_mortality,
+#tf_mortality,
 #tm_reamputation,
 #tt_reamputation,
+#tf_reamputation,
 #tm_mobility,
 #tt_mobility,
+#tf_mobility,
 #advancedMobility {
     /*outline: 1px dotted #1C6EA4;*/
     border-radius: 12px;
@@ -174,6 +186,7 @@
 /* Text stuff on output page */
 
 .predictor_text {
+    /*outline: 1px dotted #1C6EA4;*/
     width: 220px;
     float:left;
 }
