@@ -12,6 +12,7 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+require('./handlers/passport');
 // const jquery = require('jquery');
 // const parsley = require('parsleyjs');
 
