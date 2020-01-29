@@ -32,7 +32,7 @@ mixin predictionModelForm(store = {})
 					strong Demographics
 				hr
 			label(for="age") Age:    
-				input(type='number', name='age', id="age", style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder='40-110', data-parsley-range='[40, 110]', required)
+				input(type='number', name='age', id="age", style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), data-parsley-range='[40, 110]', required)
 			label(for="Gender") Gender:
 				.radio_align
 					label
@@ -142,7 +142,9 @@ mixin predictionModelForm(store = {})
 		.form_section
 			font(size='+3') 
 				center 
-					strong Laboratory Values and Medications
+					strong Laboratory Values* and Medications
+			font(size='-1')
+				i *Most recent values
 				hr
 
 			.lab_number_box_align
@@ -150,7 +152,7 @@ mixin predictionModelForm(store = {})
 					input(type='number', id='blood_nitrogen', name='blood_nitrogen', style='width: 130px;', placeholder='1-157', data-parsley-range='[1, 157]', required)
 				br
 				label(for="platelet_count") Most recent platelet count (per mL): 
-					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', placeholder='≥10000' data-parsley-min='10000', required)
+					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', placeholder='≥10,000' data-parsley-min='10000', required)
 				br
 			label(for="WBC") White blood cell count ≥ 11,000:
 				.radio_align
@@ -218,7 +220,7 @@ mixin predictionModelForm(store = {})
 					.tooltip
 						input(type='radio', value='1', name='functional_status', required data-parsley-errors-container="#func-errors")
 						|  Independent
-						span.tooltiptext The patient does not require assistance of nursing care, equipment or devices. This would include a person who is able to function independently with prosthesis, equipment, or devices.
+						span.tooltiptext The patient does not require assistance from another person. This would include a person who is able to function independently with prosthesis, equipment, or devices (e.g., walker, cane, etc).
 					.tooltip(style="padding-left:2em;")
 						input(type='radio', value='2', name='functional_status')
 						|  Partially Dependent
@@ -226,7 +228,7 @@ mixin predictionModelForm(store = {})
 					.tooltip(style="padding-left:2em;")
 						input(type='radio', value='3', name='functional_status')
 						|  Totally Dependent
-						span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. All patients with psychiatric illnesses should be evaluated for their ability to function with or without assistance with ADLs just as the non-psychiatric patient.
+						span.tooltiptext The patient cannot perform any activities of daily living for himself/herself. This would include a patient on an ICU/floor who is totally dependent upon nursing care, or a dependent nursing home patient. 
 					#func-errors
 
 			label(for="SelfRatedHealth") Ask the patient the following self-rated health question: 

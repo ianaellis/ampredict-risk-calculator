@@ -1446,16 +1446,15 @@ input[type="number"] {
       flex-direction: row;
   -ms-flex-pack: space-evenly;
       justify-content: space-evenly;
-  -ms-flex-align: center;
-      align-items: center; }
+  /*align-items: center;*/ }
 
 .left_side_pic {
   width: 350px;
-  text-align: center; }
+  /*text-align: center;*/ }
 
 .right_side_pic {
   width: 350px;
-  text-align: center; }
+  /*text-align: center;*/ }
 
 img.rounded-edges {
   border-radius: 30px; }
