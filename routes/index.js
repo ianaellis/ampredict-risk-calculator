@@ -10,7 +10,7 @@ const { catchErrors } = require('../handlers/errorHandlers');
 // Homepage Route
 router.get('/', storeController.homePage);
 //Results Page
-router.get('/predictionModelOutcome', storeController.outcome);
+router.get('/predictionModelOutcome', catchErrors(storeController.outcome));
 //About Page
 router.get('/about', storeController.about);
 //temp index
@@ -40,5 +40,10 @@ router.get('/account', authController.isLoggedIn, userController.account);
 router.post('/account', catchErrors(userController.updateAccount));
 
 router.post('/account/forgot', catchErrors(authController.forgot));
+router.get('/account/reset/:token', catchErrors(authController.reset));
+router.post('/account/reset/:token', 
+	authController.confirmedPasswords, 
+	catchErrors(authController.update)
+);
 
 module.exports = router;
