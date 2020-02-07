@@ -5,26 +5,30 @@ mixin predictionModelForm(store = {})
 			br
 			sub_title Risk Calculator 
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
-		center
-			p
-				i Please click one of the three scenarios below.
-			div(class='scenario_buttons')
-				div(class='one')
+
+
+		i If you would like to view demo scenarios, click one of the links below to pre-populate the risk calc form:
+			ul.risk_calc_healper_heading
+				li
 					a(href='#', id="scenario2") Mr. Smith without diabetes
-					//- br
-					//- a(href='#', id="scenario3") 
-					//- 	font(size="-1") 
-					//- 		i With COPD
-				div(class='one')
+				li
 					a(href='#', id="scenario4") Mr. Smith with diabetes and partially dependent
-					//- br
-					//- a(href='#', id="scenario4") 
-					//- 	font(size="-1") 
-					//- 		i 10 years older
-				div(class='one')
+				li
 					a(href='#', id="scenario1") Mr. Smith with diabetes, renal failure and totally dependent 
-				//- div(class='one')
-				//- 	a(href='#', id="scenario4") 4
+			//- div(class='scenario_buttons')
+			//- 	div(class='one')
+			//- 		//- br
+			//- 		//- a(href='#', id="scenario3") 
+			//- 		//- 	font(size="-1") 
+			//- 		//- 		i With COPD
+			//- 	div(class='one')
+			//- 		//- br
+			//- 		//- a(href='#', id="scenario4") 
+			//- 		//- 	font(size="-1") 
+			//- 		//- 		i 10 years older
+			//- 	div(class='one')
+			//- 	//- div(class='one')
+			//- 	//- 	a(href='#', id="scenario4") 4
 			br
 		.form_section
 			font(size='+3')
