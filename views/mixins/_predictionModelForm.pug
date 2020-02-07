@@ -5,7 +5,6 @@ mixin predictionModelForm(store = {})
 			br
 			sub_title Risk Calculator 
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
-<<<<<<< HEAD
 		center
 			p
 				i Please click one of the three scenarios below.
@@ -27,37 +26,13 @@ mixin predictionModelForm(store = {})
 				//- div(class='one')
 				//- 	a(href='#', id="scenario4") 4
 			br
-=======
-		//- center
-		//- 	div(class='scenario_buttons')
-		//- 		div(class='one')
-		//- 			a(href='#', id="scenario1") Mr. Smith
-		//- 			br
-		//- 			a(href='#', id="scenario3") 
-		//- 				font(size="-1") 
-		//- 					i With COPD
-		//- 		div(class='one')
-		//- 			a(href='#', id="scenario2") Mrs. Smith
-		//- 			br
-		//- 			a(href='#', id="scenario4") 
-		//- 				font(size="-1") 
-		//- 					i 10 years older
-				//- div(class='one')
-				//- 	a(href='#', id="scenario3") 3
-				//- div(class='one')
-				//- 	a(href='#', id="scenario4") 4
->>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 		.form_section
 			font(size='+3')
 				center
 					strong Demographics
 				hr
 			label(for="age") Age:    
-<<<<<<< HEAD
 				input(type='number', name='age', id="age", style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), data-parsley-range='[40, 110]', required)
-=======
-				input(type='number', name='age', id="age", style='width: 130px;', value=(predModel_TM ? predModel_TM.age : ''), placeholder='40-110', data-parsley-range='[40, 110]', required)
->>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 			label(for="Gender") Gender:
 				.radio_align
 					label
@@ -177,11 +152,7 @@ mixin predictionModelForm(store = {})
 					input(type='number', id='blood_nitrogen', name='blood_nitrogen', style='width: 130px;', placeholder='1-157', data-parsley-range='[1, 157]', required)
 				br
 				label(for="platelet_count") Most recent platelet count (per mL): 
-<<<<<<< HEAD
 					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', placeholder='≥10,000' data-parsley-min='10000', required)
-=======
-					input(type='number', id='platelet_count', name='platelet_count', style='width: 130px;', placeholder='≥10000' data-parsley-min='10000', required)
->>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 				br
 			label(for="WBC") White blood cell count ≥ 11,000:
 				.radio_align

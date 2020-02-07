@@ -535,10 +535,6 @@ category_font {
 .calibri {
   font-family: Calibri; }
 
-.about_intro {
-  width: 700px;
-  text-align: left; }
-
 input, textarea {
   padding: 10px;
   border: 1px solid #e6e6e6;
@@ -1700,10 +1696,7 @@ img.rounded-edges {
 
 /* Text stuff on output page */
 .predictor_text {
-<<<<<<< HEAD
   /*outline: 1px dotted #1C6EA4;*/
-=======
->>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
   width: 220px;
   float: left; }
 
