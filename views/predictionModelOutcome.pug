@@ -47,6 +47,7 @@ block content
 							i Risk of death within the first year after amputation.
 					//- .tooltip
 					//- 	span.tooltiptext Risk of death within the first year after amputation.
+<<<<<<< HEAD
 					#tf_mortality_frame
 						.risk_frame
 							.text-center.alert.alert-success
@@ -67,16 +68,26 @@ block content
 									//- #progessAmount.amount #{(tt_prob*100).toFixed(0)}% 
 									font(size='-1')#progessAmount.amount #{(tf_prob*100).toFixed(0)}% 
 
+=======
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 					#tt_mortality_frame
 						.risk_frame
 							.text-center.alert.alert-success
 								if(tt_highProb)
 									.tooltip
+<<<<<<< HEAD
 										font(size='+4') #{(tt_prob*100).toFixed(0)}%
 										//- span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
 								else
 									.tooltip
 										font(size='+4') #{(tt_prob*100).toFixed(0)}%
+=======
+										font(size='+4') #{(tt_prob*100).toFixed(0)}% 
+										//- span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is above average (25%).
+								else
+									.tooltip
+										font(size='+4') #{(tt_prob*100).toFixed(0)}% 
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 										//- span.tooltiptext 1-year risk of death after this amputation. Based on this prediction model, this patient's risk of death, if they undergo a TT amputation, is below average (25%).
 						#tt_mortality
 							.track
@@ -126,6 +137,7 @@ block content
 							i Any additional surgery on the amputated limb within the first year after amputation, including soft tissue revision, bony revision at the same level, or conversion to a higher level.
 					//- .tooltip
 					//- 	span.tooltiptext Any additional surgery on the amputated limb including soft tissue revision, bony revision at the same level, or conversion to a higher level.
+<<<<<<< HEAD
 					#tf_reamputation_frame
 						.risk_frame
 							.text-center.alert.alert-success 
@@ -144,6 +156,8 @@ block content
 								.goal
 								.progress
 									font(size='-1')#progessAmount.amount #{(tf_reamp_prob*100).toFixed(0)}%
+=======
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 					#tt_reamputation_frame
 						.risk_frame
 							.text-center.alert.alert-success 
@@ -190,7 +204,11 @@ block content
 				#mobility_frame
 					hr
 					.predictor_text
+<<<<<<< HEAD
 						heading_font Ambulatory Mobility
+=======
+						heading_font Functional Mobility
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 						br
 						br
 						i The probability of achieving 
@@ -207,6 +225,7 @@ block content
 										li Step down a sidewalk curb
 							|  within the first year after amputation, with or without a mobility aid (e.g., a cane, crutch or walker), with no need for physical assistance from another person.
 
+<<<<<<< HEAD
 					#tf_mobility_frame
 						.risk_frame
 							if(tf_mob_highProb)
@@ -227,6 +246,8 @@ block content
 								.goal
 								.progress
 									font(size='-1.5')#progessAmount.amount #{(tf_mob_prob*100).toFixed(0)}%
+=======
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 					#tt_mobility_frame
 						.risk_frame
 							if(tt_mob_highProb)

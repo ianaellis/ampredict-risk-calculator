@@ -20,14 +20,20 @@
     text-align: center;
 }
 .output_title_center {
-	width:33%;
-	float: right;
-	text-align: center;
+    width:33%;
+    float: right;
+    text-align: center;
 }
 .output_title_right {
+<<<<<<< HEAD
 	width: 33%;
 	float: right;
 	text-align: center;
+=======
+    width:33%;
+    float: right;
+    text-align: center;
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 }
 //The box that holds all results
 .results_all {
@@ -60,24 +66,42 @@
 #mortality_frame,
 #reamputation_frame,
 #mobility_frame{
+<<<<<<< HEAD
 	/*outline: 1px dotted #1C6EA4;*/
 	width: 880px;
 	height: 280px;
+=======
+    /*outline: 1px dotted #1C6EA4;*/
+    width: 660px;
+    height: 280px;
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 }
 
 #tt_mortality_frame,
 #tt_reamputation_frame,
 #tt_mobility_frame {
+<<<<<<< HEAD
 	/*outline: 1px dotted #1C6EA4;*/
 	width: 25%;
 	float: right;
+=======
+    /*outline: 1px dotted #1C6EA4;*/
+    width: 33%;
+    float: right;
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 }
 #tm_mortality_frame,
 #tm_reamputation_frame,
 #tm_mobility_frame{
+<<<<<<< HEAD
 	/*outline: 1px dotted #1C6EA4;*/
 	width: 25%;
 	float:right;
+=======
+    /*outline: 1px dotted #1C6EA4;*/
+    width: 33%;
+    float:right;
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 }
 
 #tf_mortality_frame,
@@ -186,7 +210,10 @@
 /* Text stuff on output page */
 
 .predictor_text {
+<<<<<<< HEAD
     /*outline: 1px dotted #1C6EA4;*/
+=======
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
     width: 220px;
     float:left;
 }

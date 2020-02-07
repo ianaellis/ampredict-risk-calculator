@@ -6,6 +6,7 @@ block content
 			h1 AMPREDICT
 			font(size='4 rem') 
 				i VA Amputation Level Decision Support Tool
+<<<<<<< HEAD
 		br
 		.pic_side_by_side
 			.left_side_pic
@@ -55,6 +56,39 @@ block content
 						li Enhances patient/surgeon shared decision-making around amputation level selection
 						li Improves patient knowledge and expectations
 						li Facilitates communication among providers
+=======
+		p
+			font(size='4.5rem') The AMPREDICT Decision Support Tool is a risk calculator designed to enhance patient care by informing patient specific 1-year risks of mortality, reamputation, and mobility by amputation level, in patients undergoing their <strong>first</strong> lower extremity amputation resulting from complications of peripheral artery disease and/or diabetes.
+		p
+			strong 
+				font(size='+2') Patient Provider Benefits
+			ul
+				font(size='4.5rem')
+					li Enhance patient/surgeon shared decision making around amputation level selection
+					li Improve patient knowledge and expectations
+					li Improve communication among providers 
+
+		center
+			#calc_pic_box
+				.tooltip
+					span.tooltiptext This decision support tool is intended for PROVIDER use only. The risk percentages provided to you by the AMPREDICT Risk Calculator are estimates. Additional clinical information may modify the actual risks of each outcome.
+					a(href='/predictionModel')
+						!= h.icon('calculator')
+						strong
+							center 
+								font(size='+1') Risk Calculator
+
+		p
+			strong
+				font(size='+2') Risk Calculator Parameters
+			p
+				font(size='4.5rem') The calculator is only applicable to Veteran amputees who:
+			ul
+				font(size='4.5rem')
+					li Are 40 years old or older
+					li Have not had a previous amputation at or above the transmetatarsal amputation level
+					li Require their amputation because of diabetes and/or peripheral arterial disease
+>>>>>>> b893af0073cf284ac3ef24dbd5df7fe46e4aee23
 		p
 			i
 				strong This decision support tool is intended for PROVIDER use only. The risk percentages provided to you by the AMPREDICT Risk Calculator are estimates. Additional clinical information may modify the actual risks of each outcome.
