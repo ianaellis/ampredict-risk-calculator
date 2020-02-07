@@ -863,7 +863,7 @@ navigateTo(0); // Start at the beginning
 /* 6 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n.output_title_right {\r\n                    ^\r\n      Invalid CSS after \"...t_title_right {\": expected \"}\", was \"<<<<<<< HEAD\"\r\n      in D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\public\\sass\\partials\\_calcOutput.scss (line 27, column 22)\n    at D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\webpack\\lib\\NormalModule.js:141:35\n    at D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\sass-loader\\lib\\loader.js:57:13)\n    at Object.<anonymous> (D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\sass-loader\\node_modules\\async\\dist\\async.js:2271:31)\n    at Object.callback (D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\sass-loader\\node_modules\\async\\dist\\async.js:969:16)\n    at options.error (D:\\Work\\Websites\\GitHub\\ampredict-risk-calculator\\node_modules\\node-sass\\lib\\index.js:294:32)");
 
 /***/ }),
 /* 7 */
