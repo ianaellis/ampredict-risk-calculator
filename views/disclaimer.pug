@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	p
+	form(action="/disclaimer" method="POST" class="card", style="border-radius: 40px; width: 800px;")
+		h1 Disclaimer
+		p The AMPREDICT Decision Support Tool estimates the chance of mortality, need for reamputation, at least achieving basic ambulation after lower limb amputation at each major amputation level. The risk is estimated based upon information from patient medical records and patient report. The estimates are calculated using data from a large number of patients who have had a lower limb amputation procedure similar to the one your patient may have. 
+		p Please note that the risk percentages provided to you by the AMPREDICT Decision Support Tool are only estimates. The risk estimate only takes certain information into account. There may be other factors that are not included in the estimate that may increase or decrease the risk of outcomes. These estimates are not a guarantee of results. The outcomes described above may occur even if the risk is low. This information is not intended to replace the advice of a doctor or healthcare provider about the diagnosis, treatment or potential outcomes. Veterans Health Administration (VHA) and its investigators are not responsible for medical decisions that may be made based on the decision support tool estimates, since these estimates are provided for informational purposes. Patients should always consult with their doctor or other health care provider before deciding on a treatment plan. 
+		p AMPREDICT Decision Support Tool Permitted Use: An external platform (e.g., electronic health record) may open the web address of the AMPREDICT Decision Support Tool in a new browser window. However, we do not permit the tool to appear as an integrated feature of any external platform, nor do we permit the functionality of the tool to be automated in any way. The tool must be presented in its original, unaltered form, maintaining all VHA branding and copyright information. 
+		label(for="disclaimer_button") Please check the following box if you have read and understand this disclaimer:   
+			input(type='checkbox' required)
+		br
+		input.button(type="submit" value="Continue to Risk Calculator")

@@ -32,6 +32,14 @@ exports.store_create_get = function (req, res, next) {
 	res.render('predictionModel', {title: 'AMPREDICT Mortality Risk Calculator'});
 };
 
+exports.disclaimer = (req, res) => {
+	res.render('disclaimer');
+};
+
+exports.disclaimer_post = (req, res) => {
+	res.render('predictionModel');
+};
+
 exports.store_create_post = [
 	
 	//Validation 

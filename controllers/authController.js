@@ -5,6 +5,10 @@ const User = mongoose.model('User');
 const promisify = require('es6-promisify');
 const mail = require('../handlers/mail');
 
+//Sending email
+const postmark = require('postmark');
+const client = new postmark.ServerClient("e64bad85-384d-4c23-9f54-e04afd3e2ad6");
+
 exports.login = passport.authenticate('local', {
 	failureRedirect: '/login',
 	failureFlash: "Failed Login!",
@@ -14,6 +18,7 @@ exports.login = passport.authenticate('local', {
 
 exports.logout = (req, res) => {
 	req.logout();
+
 	req.flash('success', 'Successfully logged out')
 	res.redirect('/');
 };
@@ -27,6 +32,10 @@ exports.isLoggedIn = (req, res, next) => {
 	req.flash('error', 'You must be logged in to view this page.');
 	res.redirect('/login');
 };
+
+// exports.forgot= (req, res) =>{
+
+// };
 
 exports.forgot = async (req, res) => {
 	// See if user exists
@@ -47,6 +56,12 @@ exports.forgot = async (req, res) => {
 		resetURL,
 		filename: 'password-reset'
 	});
+	// await mail.send({
+	//   from: 'ian@specri.com',
+	//   to: user,
+	//   subject: 'Reset Password Request',
+	//   text: 'Click here to reset your password: '
+	// });
 	req.flash('success', 'Email reset sent. Please check your email for the reset code.');
 	// Redirect to login page
 	res.redirect('/login');

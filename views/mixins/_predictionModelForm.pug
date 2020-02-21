@@ -7,14 +7,14 @@ mixin predictionModelForm(store = {})
 	form#risk_calc(action="/predictionModel" method="POST" class="card", style="border-radius: 40px;")
 
 
-		i If you would like to view demo scenarios, click one of the links below to pre-populate the risk calc form:
-			ul.risk_calc_healper_heading
-				li
-					a(href='#', id="scenario2") Mr. Smith without diabetes
-				li
-					a(href='#', id="scenario4") Mr. Smith with diabetes and partially dependent
-				li
-					a(href='#', id="scenario1") Mr. Smith with diabetes, renal failure and totally dependent 
+		//- i If you would like to view demo scenarios, click one of the links below to pre-populate the risk calc form:
+		//- 	ul.risk_calc_healper_heading
+		//- 		li
+		//- 			a(href='#', id="scenario2") Mr. Smith without diabetes
+		//- 		li
+		//- 			a(href='#', id="scenario4") Mr. Smith with diabetes and partially dependent
+		//- 		li
+		//- 			a(href='#', id="scenario1") Mr. Smith with diabetes, renal failure and totally dependent 
 			//- div(class='scenario_buttons')
 			//- 	div(class='one')
 			//- 		//- br
@@ -115,7 +115,7 @@ mixin predictionModelForm(store = {})
 			label(for="Revascularization") History of a 
 				.tooltip 
 					| revascularization 
-					span.tooltiptext This may include on open procedure, and endovascular procedure, or both.
+					span.tooltiptext This may include on open procedure, an endovascular procedure or both.
 				|  on side of amputation.
 				.radio_align
 					label
@@ -178,7 +178,7 @@ mixin predictionModelForm(store = {})
 					#kidney-errors
 				.tooltip
 					label(for="OutputAnticoagulants") Outpatient Anticoagulants in the past 3 months:
-					span.tooltiptext This may include Coumadin or newer drugs such as Factor X inhibitors and anisindione and dibigitran.
+					span.tooltiptext Includes Coumadin, Factor X inhibitors, anisindione and dibigitran.
 				.radio_align
 					label
 						input(type='radio', value='1', name='OutputAnticoagulants', required data-parsley-errors-container="#coag-errors")
@@ -223,7 +223,7 @@ mixin predictionModelForm(store = {})
 					br
 					.tooltip
 						input(type='radio', value='1', name='functional_status', required data-parsley-errors-container="#func-errors")
-						|  Independent
+						|  Independent ↔
 						span.tooltiptext The patient does not require assistance from another person. This would include a person who is able to function independently with prosthesis, equipment, or devices (e.g., walker, cane, etc).
 					.tooltip(style="padding-left:2em;")
 						input(type='radio', value='2', name='functional_status')
