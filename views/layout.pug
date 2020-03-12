@@ -12,8 +12,16 @@ html
     script(src='https://parsleyjs.org/dist/parsley.js')
     // script(src='/node_modules/parsleyjs/src/parsley.js')
     // Z:\Programming\Projects\risk-calc-dev\node_modules\parsleyjs\src
-    script(src='google-analytics.js')
-    
+    // script(src='google-analytics.js')
+    // Global site tag (gtag.js) - Google Analytics
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-160265751-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-160265751-1');
+
+
   body
     block header
       header.top
