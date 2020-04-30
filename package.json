@@ -62,7 +62,7 @@
     "css-loader": "0.27.3",
     "curl": "^0.1.4",
     "extract-text-webpack-plugin": "2.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsdom": "^15.1.0",
     "node-sass": "4.5.0",
     "nodemon": "1.11.0",
