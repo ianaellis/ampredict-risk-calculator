@@ -16,7 +16,7 @@
   },
   "browserslist": "last 2 versions",
   "dependencies": {
-    "axios": "0.15.3",
+    "axios": "0.21.1",
     "body-parser": "1.17.1",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",
