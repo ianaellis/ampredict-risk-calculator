@@ -63,7 +63,7 @@
     "curl": "^0.1.4",
     "extract-text-webpack-plugin": "2.1.0",
     "jquery": "^3.4.1",
-    "jsdom": "^15.1.0",
+    "jsdom": "^16.5.0",
     "node-sass": "4.5.0",
     "nodemon": "1.11.0",
     "parsleyjs": "^2.9.1",
